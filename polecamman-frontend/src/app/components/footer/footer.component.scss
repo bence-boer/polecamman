@@ -1,0 +1,22 @@
+@use "../../../colors";
+@use "../../../sizes";
+
+footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  height: sizes.$navbar-height*0.8;
+  overflow: clip;
+
+  background-color: colors.$base-light;
+}
+
+img{
+  color: colors.$accent;
+  height: 32px;
+  width: 32px;
+}

@@ -1,0 +1,26 @@
+@use "../../../../colors";
+@use "../../../../sizes";
+
+:host{
+  display: flex;
+  flex-direction: column;
+
+  background-color: colors.$base;
+  width: 100%;
+  padding: sizes.$navbar-height sizes.$page-padding 50px;
+
+  @media only screen and (max-width: sizes.$phone-view-breakpoint) {
+    padding: sizes.$navbar-height 0 50px;
+  }
+}
+
+#blog-posts{
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.segment-title{
+  margin-bottom: 60px;
+  border-bottom: solid colors.$base-light 1px;
+}

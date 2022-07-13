@@ -1,0 +1,165 @@
+@use "../../../../colors";
+@use "../../../../sizes";
+
+:host{
+  position: relative;
+}
+
+#background-image{
+  background-image: url("../../../../assets/landing-background.png");
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 75%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#background-image-container{
+  height: 75%;
+  position: relative;
+
+  user-select: text;
+}
+
+#title{
+  position: absolute;
+  bottom: sizes.$navbar-height;
+  right: sizes.$navbar-height;
+
+  font-size: 42pt;
+  font-weight: 800;
+  text-align: right;
+  text-transform: uppercase;
+
+  border-right: 2px solid colors.$base-light;
+  color: colors.$base-light;
+  padding-right: 20px;
+  padding-left: sizes.$navbar-height;
+  overflow-x: hidden;
+
+  &::selection {
+    color: colors.$accent;
+  }
+}
+
+#profile{
+  background-image: url("../../../../assets/profile.png");
+  background-position: bottom;
+  background-size: cover;
+
+  height: 80%;
+  aspect-ratio: 3 / 4;
+
+  position: absolute;
+  left: sizes.$page-padding;
+  bottom: 0;
+}
+
+.font-semi-bold{
+  font-weight: 600;
+}
+
+p{
+  height: 100%;
+}
+
+#introduction {
+  display: flex;
+  align-items: flex-start;
+  height: 25%;
+  padding: 50px sizes.$page-padding 0;
+  overflow: clip;
+  position: relative;
+
+  background-color: colors.$base-light;
+  font-size: 14pt;
+  font-weight: 400;
+  color: colors.$base-dark;
+
+  ::selection {
+    color: colors.$accent;
+  }
+
+  /*&::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: linear-gradient(to top, colors.$base-light, rgba(0,0,0,0) 50%);
+  }*/
+}
+
+#read-more{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, colors.$base-light, rgba(0,0,0,0) 50%);
+
+  &::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 10px;
+    content: "";
+
+    width: 100%;
+    height: 36px;
+
+    background-image: url("../../../../assets/down-arrow-icon.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+polecamman-blog{
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+  padding-top: 0;
+}
+
+@media only screen and (max-width: 1500px) {
+  #profile{
+    display: none;
+  }
+
+  #title{
+    bottom: sizes.$navbar-height;
+    left: sizes.$navbar-height;
+
+    text-align: left;
+
+    border-right: none;
+    border-left: 2px solid colors.$base-light;
+    padding-right: sizes.$navbar-height;
+    padding-left: 20px;
+
+    &::selection {
+      color: colors.$accent;
+    }
+  }
+}
+
+@media only screen and (max-width: sizes.$phone-view-breakpoint) {
+  #introduction{
+    padding-top: min(50px, #{sizes.$page-padding});
+  }
+  #title{
+    font-size: 30pt;
+
+    width: 100%;
+    left: 0;
+    bottom: 5%;
+    padding: sizes.$page-padding;
+    border: none;
+  }
+}

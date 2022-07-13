@@ -1,18 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarItemComponent } from './components/navbar/navbar-item/navbar-item.component';
+import { BlogPostPreviewComponent } from './components/blog-post-preview/blog-post-preview.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { GalleryComponent } from './components/pages/gallery/gallery.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LandingComponent } from './components/pages/landing/landing.component';
+import { GearComponent } from './components/pages/gear/gear.component';
+import { BlogComponent } from './components/pages/blog/blog.component';
+import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
+import { AlbumPreviewComponent } from './components/album-preview/album-preview.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    NavbarItemComponent,
+    BlogPostPreviewComponent,
+    FooterComponent,
+    GalleryComponent,
+    LandingComponent,
+    GearComponent,
+    BlogComponent,
+    HamburgerMenuComponent,
+    AlbumPreviewComponent,
+    ContactsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

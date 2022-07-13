@@ -1,0 +1,57 @@
+@use "../../../colors";
+@use "../../../sizes";
+
+:host{
+  height: 140%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 calc(#{sizes.$navbar-height}/3);
+  background-color: colors.$accent;
+  border-radius: 0 0 10px 10px;
+
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.contacts-open{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  @media only screen and (max-width: 1100px) {
+    display: none;
+  }
+}
+
+.contacts-closed{
+  text-transform: uppercase;
+  font-weight: 600;
+  color: colors.$base-dark;
+
+  @media only screen and (min-width: 1100px) {
+    display: none;
+  }
+}
+
+img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: colors.$accent;
+
+  //border: solid colors.$base-light 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 25px;
+  user-select: none;
+
+  &:hover{
+    cursor: pointer;
+  }
+}

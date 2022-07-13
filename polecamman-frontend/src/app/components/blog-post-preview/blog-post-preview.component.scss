@@ -1,0 +1,75 @@
+@use "../../../colors";
+@use "../../../sizes";
+
+#blogpost-preview{
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+
+  height: 60%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.image-container{
+  background-position: center;
+  background-size: 100%;
+  filter: brightness(60%);
+  aspect-ratio: 16 / 9;
+  background-repeat: no-repeat;
+  transition: .35s ease-in-out;
+  width: 600px;
+
+  &:hover{
+    transition: .35s ease-in-out;
+    filter: brightness(100%);
+    background-size: 105%;
+  }
+}
+
+#article-text{
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+
+  width: 600px;
+}
+
+.article-title{
+  font-size: 20pt;
+  font-weight: 600;
+}
+
+.article-content{
+  font-size: 14pt;
+  font-weight: 200;
+  text-align: justify;
+  text-overflow: fade;
+}
+
+@media only screen and (max-width: sizes.$phone-view-breakpoint) {
+  #blogpost-preview{
+    flex-direction: column !important;
+    padding: 0 !important;
+    gap: 20px;
+  }
+
+  .image-container{
+    width: 100%;
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  #article-text{
+    width: 100%;
+    padding: 0 sizes.$page-padding;
+  }
+
+  .article-title{
+    font-size: 18pt;
+    margin-bottom: 10px;
+  }
+
+  .article-content{
+    font-size: 12pt;
+  }
+}

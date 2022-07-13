@@ -1,0 +1,59 @@
+@use "../../../colors";
+@use "../../../sizes";
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: sizes.$navbar-height;
+  padding: 0 sizes.$navbar-height;
+  overflow: visible;
+
+  position: fixed;
+  top: 0;
+  z-index: 10;
+
+  color: colors.$accent;
+  transition: 0.35s ease-in-out;
+
+  @media only screen and (max-width: sizes.$phone-view-breakpoint) {
+    padding: 0 calc(#{sizes.$navbar-height}/2);
+  }
+}
+
+.scrolled{
+  background-color: colors.$base;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+#nav-horizontal{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (max-width: sizes.$phone-view-breakpoint) {
+    display: none;
+  }
+}
+
+polecamman-hamburger-menu{
+  @media only screen and (min-width: sizes.$phone-view-breakpoint) {
+    display: none;
+  }
+}
+
+/*polecamman-contacts{
+  padding-left: 50px;
+  border-left: solid colors.$base-light 1px;
+}*/
+
+.navbar-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

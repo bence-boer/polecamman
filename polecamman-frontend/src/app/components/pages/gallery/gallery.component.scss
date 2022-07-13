@@ -1,0 +1,24 @@
+@use "../../../../colors";
+@use "../../../../sizes";
+
+:host{
+  display: flex;
+  flex-direction: column;
+
+  background-color: colors.$base;
+  width: 100%;
+  min-height: 100%;
+  padding: sizes.$navbar-height sizes.$page-padding 50px;
+}
+
+#albums{
+  width: 100%;
+  height: auto;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) ) ;
+  justify-items: flex-start;
+  align-content: flex-start;
+  gap: 50px;
+}

@@ -1,0 +1,6 @@
+@use "../../../../colors";
+@use "../../../../sizes";
+
+:host{
+  height: calc(100% - #{sizes.$navbar-height});
+}
