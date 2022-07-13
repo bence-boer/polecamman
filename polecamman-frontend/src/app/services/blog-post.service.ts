@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable, of} from "rxjs";
-import {BlogPost} from "../BlogPost";
-import {ARTICLES} from "../../test-blog-articles";
+import {map, Observable, of} from "rxjs";
+import {ApiResponse, BlogPost} from "../BlogPost";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class BlogPostService {
   constructor(private httpClient:HttpClient) { }
 
   getPosts(){
-    return this.httpClient.get('http://localhost:3333/api/posts/get-all') as Observable<BlogPost[]>;
+    return (this.httpClient.get('http://localhost:1337/api/blog-posts?populate=media') as Observable<ApiResponse<BlogPost[]>>).pipe(map(v=>v.data!));
   }
 }
 

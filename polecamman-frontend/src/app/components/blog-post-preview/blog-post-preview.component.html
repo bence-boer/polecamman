@@ -1,7 +1,7 @@
 <div id="blogpost-preview" [ngStyle]="even ? {'flex-direction': 'row-reverse', 'padding-left':'10%'} : {'padding-right':'10%'}">
-  <div class="image-container" [ngStyle]="{backgroundImage: 'url('+article.imgURL+')'}"></div>
+  <div class="image-container" [ngStyle]="{backgroundImage: 'url(http://localhost:1337'+article.attributes.media.data[0].attributes.url+')'}"></div>
   <div id="article-text">
-    <div class="article-title">{{article.title}}</div>
-    <div class="article-content">{{article.text}}</div>
+    <div class="article-title">{{article.attributes.title}}</div>
+    <div class="article-content">{{article.attributes.content}}</div>
   </div>
 </div>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavbarItemComponent } from './components/navbar/navbar-item/navbar-item.component';
 import { BlogPostPreviewComponent } from './components/blog-post-preview/blog-post-preview.component';
@@ -15,6 +15,7 @@ import { BlogComponent } from './components/pages/blog/blog.component';
 import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
 import { AlbumPreviewComponent } from './components/album-preview/album-preview.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import {TokenInterceptor} from "./services/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,13 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     ContactsComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

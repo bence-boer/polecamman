@@ -12,6 +12,6 @@ export class AlbumService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(){
-    return this.httpClient.get('http://localhost:3333/api/albums/get-all') as Observable<Album[]>;
+    return this.httpClient.get('http://localhost:1337/api/albums/get-all') as Observable<Album[]>;
   }
 }
