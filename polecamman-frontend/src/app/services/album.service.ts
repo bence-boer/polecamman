@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {BlogPost} from "../BlogPost";
+import {map, Observable} from "rxjs";
+import {ApiResponse} from "../BlogPost";
 import {Album} from "../Album";
 
 @Injectable({
@@ -12,6 +12,6 @@ export class AlbumService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(){
-    return this.httpClient.get('http://localhost:1337/api/albums/get-all') as Observable<Album[]>;
+    return (this.httpClient.get('http://localhost:1337/api/albums?populate=media') as Observable<ApiResponse<Album[]>>).pipe(map(v=>v.data!));
   }
 }

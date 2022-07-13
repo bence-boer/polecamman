@@ -16,6 +16,7 @@ import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-me
 import { AlbumPreviewComponent } from './components/album-preview/album-preview.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import {TokenInterceptor} from "./services/token.interceptor";
+import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {TokenInterceptor} from "./services/token.interceptor";
     HamburgerMenuComponent,
     AlbumPreviewComponent,
     ContactsComponent,
+    ComingSoonComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [

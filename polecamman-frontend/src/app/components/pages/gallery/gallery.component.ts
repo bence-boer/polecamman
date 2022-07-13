@@ -12,7 +12,9 @@ export class GalleryComponent implements OnInit {
   constructor(private albumService: AlbumService) {}
 
   ngOnInit(): void {
-    this.albumService.getAll().subscribe((albums) => this.albums = albums);
-
+    this.albumService.getAll().subscribe((albums) => {
+      console.log(albums);
+      this.albums = albums;
+    });
   }
 }
