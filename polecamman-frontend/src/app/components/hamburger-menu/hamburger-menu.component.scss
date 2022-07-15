@@ -120,6 +120,8 @@ $icon-weight: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .menu-wrap .menu > div {
@@ -155,4 +157,34 @@ $icon-weight: 4px;
   max-height: 100vh;
   opacity: 0;
   transition: opacity 0.35s ease-in-out;
+}
+
+#contacts{
+  height: 10vh;
+  width: 100vw;
+
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  padding: 0 calc(#{sizes.$navbar-height}/3);
+  background-color: colors.$accent;
+  border-radius: 0 0 10px 10px;
+}
+
+img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: colors.$accent;
+
+  //border: solid colors.$base-light 2px;
+  width: 32px;
+  height: 32px;
+  border-radius: 25px;
+  user-select: none;
 }

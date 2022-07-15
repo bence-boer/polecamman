@@ -2,10 +2,12 @@
 @use "sizes";
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@200;300;400;600;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
 
 html, body{
   width: 100vw;
   height: 100vh;
+  //font-family: 'Karla', sans-serif;
   font-family: 'Montserrat', sans-serif;
   //font-family: 'Encode Sans', sans-serif;
   color: colors.$base-light;
@@ -17,6 +19,10 @@ html, body{
   padding: 0;
   overflow: auto;
   overflow: overlay;
+}
+
+h1, h2, h3{
+  font-family: 'Montserrat', sans-serif;
 }
 
 *{
@@ -31,10 +37,12 @@ html, body{
 }
 
 p{
-  font-size: 14pt;
+  font-family: 'Karla', sans-serif;
+  font-size: 16pt;
   font-weight: 400;
   text-align: justify;
   text-overflow: fade;
+  margin: 10px 0;
 }
 
 h1{
