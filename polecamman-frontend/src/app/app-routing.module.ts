@@ -8,6 +8,7 @@ import {GearComponent} from "./components/pages/gear/gear.component";
 import {BlogPostOpenComponent} from "./components/blog-post-open/blog-post-open.component";
 import {PageNotFoundComponent} from "./components/pages/page-not-found/page-not-found.component";
 import {AlbumOpenComponent} from "./components/album-open/album-open.component";
+import {AboutMeComponent} from "./components/pages/about-me/about-me.component";
 
 const routes: Routes = [
   {
@@ -45,6 +46,11 @@ const routes: Routes = [
     path: 'gear',
     title: 'Gear',
     component: GearComponent
+  },
+  {
+    path: 'about-me',
+    title: 'About me',
+    component: AboutMeComponent
   },
   {
     path: '**',

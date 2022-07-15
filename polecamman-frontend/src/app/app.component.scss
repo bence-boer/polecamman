@@ -1,8 +1,12 @@
 @use "../colors";
 @use "../sizes";
 
+:host{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .font-semi-bold{
   font-weight: 600;
 }
-
-

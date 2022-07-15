@@ -20,6 +20,7 @@ import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.
 import { AlbumOpenComponent } from './components/album-open/album-open.component';
 import { BlogPostOpenComponent } from './components/blog-post-open/blog-post-open.component';
 import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
+import { AboutMeComponent } from './components/pages/about-me/about-me.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PageNotFoundComponent } from './components/pages/page-not-found/page-no
     AlbumOpenComponent,
     BlogPostOpenComponent,
     PageNotFoundComponent,
+    AboutMeComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [

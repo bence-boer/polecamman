@@ -1,0 +1,33 @@
+@use "../../../../colors";
+
+:host{
+  background-color: colors.$base;
+  flex-grow: 1;
+
+  padding: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+h1{
+  font-size: 194pt;
+  animation: opacity 1s;
+  filter: drop-shadow(0 0 20px colors.$accent);
+}
+h2{
+  animation: opacity 1s;
+  filter: drop-shadow(0 0 20px colors.$accent);
+}
+
+@keyframes opacity {
+  0%, 100% {filter: opacity(100%); }
+  70% {filter: opacity(50%); }
+  75% {filter: opacity(30%); }
+  80% {filter: opacity(50%); }
+  85% {filter: opacity(30%); }
+  90% {filter: opacity(70%); }
+  95% {filter: opacity(40%); }
+  100%  {filter: opacity(100%) drop-shadow(0 0 40px colors.$accent); }
+}

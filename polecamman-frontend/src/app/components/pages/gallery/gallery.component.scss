@@ -7,7 +7,7 @@
 
   background-color: colors.$base;
   width: 100%;
-  min-height: 100%;
+  flex-grow: 1;
   padding: sizes.$navbar-height sizes.$page-padding 50px;
 }
 

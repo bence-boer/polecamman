@@ -2,5 +2,5 @@
 @use "../../../../sizes";
 
 :host{
-  height: calc(100% - #{sizes.$navbar-height});
+  flex-grow: 1;
 }
