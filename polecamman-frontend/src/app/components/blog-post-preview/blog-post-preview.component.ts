@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BlogPost} from "../../BlogPost";
+import {BlogPost} from "../../data-types/BlogPost";
 
 @Component({
   selector: 'polecamman-blog-article-preview',
@@ -7,7 +7,7 @@ import {BlogPost} from "../../BlogPost";
   styleUrls: ['./blog-post-preview.component.scss'],
 })
 export class BlogPostPreviewComponent implements OnInit {
-  @Input() article !: BlogPost;
+  @Input() blogPost !: BlogPost;
   @Input() thumbnail ?: boolean = false;
   even!: boolean;
 
@@ -15,6 +15,6 @@ export class BlogPostPreviewComponent implements OnInit {
 
   ngOnInit(): void {
     // @ts-ignore
-    this.even = this.article.id%2 == 0;
+    this.even = this.blogPost.id%2 == 0;
   }
 }

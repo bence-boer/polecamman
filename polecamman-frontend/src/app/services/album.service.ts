@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
-import {ApiResponse} from "../BlogPost";
-import {Album} from "../Album";
+import {ApiResponse} from "../data-types/ApiResponse";
+import {Album} from "../data-types/Album";
 
 @Injectable({
   providedIn: 'root'

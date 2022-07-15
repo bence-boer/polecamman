@@ -17,6 +17,9 @@ import { AlbumPreviewComponent } from './components/album-preview/album-preview.
 import { ContactsComponent } from './components/contacts/contacts.component';
 import {TokenInterceptor} from "./services/token.interceptor";
 import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.component';
+import { AlbumOpenComponent } from './components/album-open/album-open.component';
+import { BlogPostOpenComponent } from './components/blog-post-open/blog-post-open.component';
+import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.
     AlbumPreviewComponent,
     ContactsComponent,
     ComingSoonComponent,
+    AlbumOpenComponent,
+    BlogPostOpenComponent,
+    PageNotFoundComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [

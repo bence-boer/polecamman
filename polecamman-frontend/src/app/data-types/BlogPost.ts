@@ -2,6 +2,7 @@ export interface BlogPost {
   attributes: {
     content: string,
     title: string,
+    slug: string,
     media: any,
     createdAt: string,
     locale: string,
@@ -10,9 +11,4 @@ export interface BlogPost {
   },
   id: number,
   Prototype: Object
-}
-
-export interface ApiResponse<T> {
-  data?: T,
-  error?: any,
 }

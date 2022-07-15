@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AlbumService} from "../../../services/album.service";
-import {Album} from "../../../Album";
+import {Album} from "../../../data-types/Album";
 
 @Component({
   selector: 'polecamman-gallery',

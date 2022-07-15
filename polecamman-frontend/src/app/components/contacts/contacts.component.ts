@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Contacts} from "../../data-types/Contacts";
+import {ContactService} from "../../services/contact.service";
 
 @Component({
   selector: 'polecamman-contacts',
@@ -7,7 +9,13 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
   @Input() open = true;
-  constructor() {}
+  @Input() contacts!: Contacts;
+  constructor(private contactService: ContactService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.contactService.getContacts().subscribe((contacts) => {
+      this.contacts = contacts;
+      console.log(this.contacts);
+    });
+  }
 }

@@ -1,4 +1,4 @@
-import {BlogPost} from "./app/BlogPost";
+import {BlogPost} from "./app/data-types/BlogPost";
 
 export const ARTICLES: BlogPost[] = [
   {

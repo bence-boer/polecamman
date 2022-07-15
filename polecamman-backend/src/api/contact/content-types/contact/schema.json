@@ -12,15 +12,18 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Email": {
+    "email": {
       "type": "string",
       "required": true
     },
-    "Instagram": {
+    "instagram": {
       "type": "string",
       "required": false
     },
-    "Facebook": {
+    "facebook": {
+      "type": "string"
+    },
+    "messenger": {
       "type": "string"
     }
   }

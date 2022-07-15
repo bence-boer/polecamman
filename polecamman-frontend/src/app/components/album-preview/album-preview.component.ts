@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Album} from "../../Album";
+import {Album} from "../../data-types/Album";
 
 @Component({
   selector: 'polecamman-album-preview',

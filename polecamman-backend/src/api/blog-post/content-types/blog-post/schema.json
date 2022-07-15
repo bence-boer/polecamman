@@ -19,12 +19,11 @@
     "title": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "string",
-      "required": true,
-      "minLength": 1
+      "required": true
     },
     "content": {
       "pluginOptions": {
@@ -32,7 +31,8 @@
           "localized": true
         }
       },
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "media": {
       "type": "media",
@@ -51,10 +51,12 @@
     "slug": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

@@ -1,6 +1,7 @@
 export interface Album{
   attributes:{
     title: string,
+    slug: string,
     media: {
       data: {
         attributes:{
