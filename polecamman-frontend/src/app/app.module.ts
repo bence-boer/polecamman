@@ -21,6 +21,8 @@ import { AlbumOpenComponent } from './components/album-open/album-open.component
 import { BlogPostOpenComponent } from './components/blog-post-open/blog-post-open.component';
 import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
 import { AboutMeComponent } from './components/pages/about-me/about-me.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,12 @@ import { AboutMeComponent } from './components/pages/about-me/about-me.component
     PageNotFoundComponent,
     AboutMeComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', {
+  enabled: environment.production,
+  // Register the ServiceWorker as soon as the application is stable
+  // or after 30 seconds (whichever comes first).
+  registrationStrategy: 'registerWhenStable:30000'
+})],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

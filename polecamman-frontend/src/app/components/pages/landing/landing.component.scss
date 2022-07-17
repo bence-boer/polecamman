@@ -97,7 +97,7 @@ p{
   height: 100%;
   background: linear-gradient(to top, colors.$base-light, rgba(0,0,0,0) 50%);
 
-   #a{
+   &::after{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -175,7 +175,11 @@ polecamman-blog{
   height: fit-content;
   transition: 0.35s ease-in-out;
 }
-.toggler:checked + #introduction > #read-more{
+.text-open{
+  height: fit-content !important;
+  transition: 0.35s ease-in-out !important;
+}
+/*.toggler:checked + #introduction > #read-more{
   filter: opacity(0);
   transition: 0.35s ease-in-out;
 }
@@ -183,3 +187,4 @@ polecamman-blog{
   transform: rotateX(180deg);
   transition: 0.35s ease-in-out;
 }
+*/
