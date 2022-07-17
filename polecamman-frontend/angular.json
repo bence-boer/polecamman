@@ -24,17 +24,13 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon/favicon.ico",
-              "src/assets",
-              "src/favicon/site.webmanifest",
-              "src/favicon/site.webmanifest"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -97,9 +93,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/favicon/site.webmanifest",
-              "src/favicon/site.webmanifest"
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
