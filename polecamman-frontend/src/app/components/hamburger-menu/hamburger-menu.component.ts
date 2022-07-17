@@ -8,5 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class HamburgerMenuComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const toggler = document.getElementById("tggg") as HTMLInputElement | any;
+    let menuOpen = false;
+    const menu = document.body;
+    menu.addEventListener('click', () => {
+      if(menuOpen){
+        menuOpen = false;
+        toggler.checked = false;
+        return;
+      }
+      if(toggler.checked){
+        menuOpen = true;
+      }
+    });
+  }
 }

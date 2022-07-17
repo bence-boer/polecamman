@@ -10,12 +10,12 @@ export class LandingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const toggler = document.getElementById("read-more");
+    const toggler = document.getElementById("toggler");
     const textbox = document.getElementById("introduction");
 
-    console.log(textbox)
-    toggler?.addEventListener('click', e => {
+    toggler?.addEventListener('click', () => {
       textbox?.classList.toggle('text-open');
+      toggler?.classList.toggle('toggler-open');
     });
   }
 }

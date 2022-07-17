@@ -23,6 +23,11 @@ header{
   }
 }
 
+h2{
+  position: relative;
+  z-index: 10;
+}
+
 .scrolled{
   background-color: colors.$base;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
