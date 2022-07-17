@@ -1,9 +1,10 @@
 export interface Contacts{
   attributes:{
     email: string,
-    instagram: string,
-    facebook: string,
     messenger: string,
+    instagram: string,
+    phone: string,
+
 
     length: number,
     createdAt: string,

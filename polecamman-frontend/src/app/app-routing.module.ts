@@ -13,12 +13,12 @@ import {AboutMeComponent} from "./components/pages/about-me/about-me.component";
 const routes: Routes = [
   {
     path: '',
-    title: 'Welcome!',
+    title: 'Polecamman | Professional Polecam Videographer',
     component: LandingComponent
   },
   {
     path: 'blog',
-    title: 'Blog',
+    title: 'Blog | Polecamman',
     component: BlogComponent,
     /*children: [
       {
@@ -29,32 +29,32 @@ const routes: Routes = [
   },
   {
     path: 'blog/blog-post/:id',
-    title: 'Blog',
+    title: 'Blog | Polecamman',
     component: BlogPostOpenComponent,
   },
   {
     path: 'gallery',
-    title: 'Gallery',
+    title: 'Gallery | Polecamman',
     component: GalleryComponent
   },
   {
     path: 'gallery/album/:id',
-    title: 'Gallery',
+    title: 'Gallery | Polecamman',
     component: AlbumOpenComponent
   },
   {
     path: 'gear',
-    title: 'Gear',
+    title: 'Gear | Polecamman',
     component: GearComponent
   },
   {
     path: 'about-me',
-    title: 'About me',
+    title: 'About Me | Polecamman',
     component: AboutMeComponent
   },
   {
     path: '**',
-    title: 'Page not found',
+    title: '404 | Page Not Found',
     component: PageNotFoundComponent
   }
 ]
