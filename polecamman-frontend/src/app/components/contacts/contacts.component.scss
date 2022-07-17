@@ -43,6 +43,9 @@
 
     &:hover{
       height: 260%;
+      display: grid;
+      grid-template-rows: auto auto;
+      grid-template-columns: auto auto;
       &::after{
         color: colors.$accent;
       }
@@ -73,10 +76,10 @@ img{
   user-select: none;
 
   @media only screen and (max-width: sizes.$tablet-view-breakpoint) {
-    display: none;
+    visibility: hidden;
+  }
 
-    :host:hover{
-      display: flex !important;
-    }
+  :host:hover{
+    visibility: visible !important;
   }
 }
