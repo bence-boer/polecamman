@@ -10,11 +10,17 @@ export class LandingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const toggler = document.getElementById("toggler");
-    const textbox = document.getElementById("introduction");
+    const toggler = document.getElementById("toggler")!;
+    const textbox = document.getElementById("introduction")!;
 
-    toggler?.addEventListener('click', () => {
-      textbox?.classList.toggle('text-open');
+    toggler.addEventListener('click', () => {
+      if (textbox.style.maxHeight){
+        // @ts-ignore
+        textbox.style.maxHeight = null;
+      } else {
+        textbox.style.maxHeight = textbox.scrollHeight + "px";
+      }
+      textbox.classList.toggle('text-open');
       toggler?.classList.toggle('toggler-open');
     });
   }
