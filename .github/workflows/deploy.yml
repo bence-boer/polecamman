@@ -8,17 +8,17 @@ jobs:
   name: build and deploy
   steps:
     - name: Checkout
-    uses: actions/checkout@v2
+      uses: actions/checkout@v2
 
-      - name: Install Dependencies
-    run: npm i
+    - name: Install Dependencies
+      run: npm i
 
-      - name: Build
-    run: ng build
+    - name: Build
+      run: ng build
 
-      - name: Deploy file to server
-    uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-    with:
+    - name: Deploy file to server
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      with:
       username: ${{ secrets.username }}
       server: ${{ secrets.host }}
       port: ${{ secrets.port }}
