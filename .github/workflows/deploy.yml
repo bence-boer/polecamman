@@ -2,20 +2,27 @@ on:
   push:
     branches:
       - master
-name: deploy website on push
 jobs:
-  web-deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get latest code
-        uses: actions/checkout@v2
+  deploy_job:
+  runs-on: ubuntu-latest
+  name: build and deploy
+  steps:
+    - name: Checkout
+    uses: actions/checkout@v2
 
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: 82.180.155.68
-          username: ${{ secrets.username }}
-          password: ${{ secrets.sshkey }}
-          local-dir: polecamman-frontend/build/
-          server-dir: /home/polecamman/public_html/
+      - name: Install Dependencies
+    run: npm i
+
+      - name: Build
+    run: ng build
+
+      - name: Deploy file to server
+    uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+    with:
+      username: ${{ secrets.username }}
+      server: ${{ secrets.host }}
+      port: ${{ secrets.port }}
+      local_path: './polecamman-frontend/build/'
+      remote_path: '/home/polecamman/public_html/'
+      sftp_only: true
+      password: ${{ secrets.sshkey }}
