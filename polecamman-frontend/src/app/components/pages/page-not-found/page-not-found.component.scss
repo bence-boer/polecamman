@@ -1,10 +1,11 @@
 @use "../../../../colors";
+@use "../../../../sizes";
 
 :host{
   background-color: colors.$base;
   flex-grow: 1;
 
-  padding: 10vh;
+  padding-top: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,13 +13,17 @@
 }
 
 h1{
-  font-size: 194pt;
+  font-size: 25vw;
   animation: opacity 1s;
-  filter: drop-shadow(0 0 20px colors.$accent);
+  filter: drop-shadow(0 0 10px colors.$accent);
+
+  @media only screen and(max-width: sizes.$phone-view-breakpoint){
+    font-size: 30vw;
+  }
 }
 h2{
   animation: opacity 1s;
-  filter: drop-shadow(0 0 20px colors.$accent);
+  filter: drop-shadow(0 0 10px colors.$accent);
 }
 
 @keyframes opacity {
@@ -29,5 +34,5 @@ h2{
   85% {filter: opacity(30%); }
   90% {filter: opacity(70%); }
   95% {filter: opacity(40%); }
-  100%  {filter: opacity(100%) drop-shadow(0 0 40px colors.$accent); }
+  100%  {filter: opacity(100%) drop-shadow(0 0 20px colors.$accent); }
 }

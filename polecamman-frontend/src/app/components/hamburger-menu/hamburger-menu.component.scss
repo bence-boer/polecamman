@@ -4,7 +4,7 @@
 $icon-size: 36px;
 $icon-weight: 4px;
 
-:host{
+:host {
   position: relative;
   width: $icon-size;
   height: $icon-size;
@@ -49,7 +49,7 @@ $icon-weight: 4px;
   font-weight: 400;
 
   backdrop-filter: blur(4px) brightness(60%) opacity(0);
-  transition:  backdrop-filter 0.35s ease-in-out;
+  transition: backdrop-filter 0.35s ease-in-out;
 }
 
 .menu-wrap .menu > div {
@@ -85,7 +85,7 @@ $icon-weight: 4px;
   transition: opacity 0.35s ease-in-out;
 }
 
-#contacts{
+#contacts {
   height: fit-content;
   width: 100%;
   padding: 20px;
@@ -98,10 +98,10 @@ $icon-weight: 4px;
 
   background-color: colors.$accent;
   border-radius: 0 0 10px 10px;
-  box-shadow: inset 0 5px 5px rgba(0,0,0,0.2);
+  box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-img{
+img {
   display: flex;
   flex: none;
   justify-content: center;
@@ -182,7 +182,7 @@ img{
 .menu-wrap .toggler:checked ~ .menu {
   visibility: visible;
   backdrop-filter: blur(4px) brightness(60%) opacity(1);
-  transition:  backdrop-filter 0.35s ease-in-out;
+  transition: backdrop-filter 0.35s ease-in-out;
 }
 
 /**/
@@ -193,5 +193,15 @@ img{
 
 .menu-wrap .toggler:checked ~ .menu > div > div {
   opacity: 1;
-  transition:  opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
 }
+
+/*polecamman-navbar-item {
+  width: 100%;
+}
+
+polecamman-navbar-item > a.active {
+  height: 100% !important;
+  width: 100% !important;
+  border-radius: 0 !important;
+}*/
