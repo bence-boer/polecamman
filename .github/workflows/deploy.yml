@@ -17,6 +17,6 @@ jobs:
           server: 82.180.155.68
           username: ${{ secrets.username }}
           password: ${{ secrets.sshkey }}
-          local-dir: /build/
+          local-dir: polecamman-frontend/build/
           server-dir: /home/polecamman/public_html/
           protocol: ftps
