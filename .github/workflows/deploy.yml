@@ -10,6 +10,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Change dir
+      run: cd polecamman-frontend
+
     - name: Install Dependencies
       run: npm i
 
