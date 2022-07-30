@@ -21,11 +21,11 @@ jobs:
 
     - name: Deploy file to server
       uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-        username: ${{ secrets.username }}
-        server: ${{ secrets.host }}
-        port: ${{ secrets.port }}
-        local_path: './polecamman-frontend/build/'
-        remote_path: '/home/polecamman/public_html/'
-        sftp_only: true
-        password: ${{ secrets.sshkey }}
+      with:
+          username: ${{ secrets.username }}
+          server: ${{ secrets.host }}
+          port: ${{ secrets.port }}
+          local_path: './polecamman-frontend/build/'
+          remote_path: '/home/polecamman/public_html/'
+          sftp_only: true
+          password: ${{ secrets.sshkey }}
