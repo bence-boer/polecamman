@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Contacts} from "../../../data-types/Contacts";
+import {ContactService} from "../../../services/contact.service";
+import {IntroductionService} from "../../../services/introduction.service";
 
 @Component({
   selector: 'polecamman-landing',
@@ -6,10 +9,15 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
-  constructor() {
-  }
+  @Input() contacts!: Contacts;
+  @ViewChild('introduction', {static: true}) introduction !: ElementRef<HTMLElement>;
+  constructor(private introductionService: IntroductionService) {}
 
   ngOnInit(): void {
+    this.introductionService.getIntroduction().subscribe((introduction) => {
+      this.introduction.nativeElement.innerHTML = introduction.attributes.content;
+    });
+
     const toggler = document.getElementById("toggler")!;
     const textbox = document.getElementById("introduction")!;
 

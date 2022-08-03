@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Album} from "../../data-types/Album";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'polecamman-album-preview',
@@ -10,7 +11,11 @@ export class AlbumPreviewComponent implements OnInit {
   @Input()
   album !: Album;
 
+  serverURL = environment.serverURL;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.serverURL = environment.serverURL;
+  }
 }

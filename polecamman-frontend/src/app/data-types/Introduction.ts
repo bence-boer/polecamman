@@ -1,9 +1,6 @@
-export interface Contacts{
+export interface Introduction{
   attributes:{
-    email: string,
-    messenger: string,
-    instagram: string,
-    phone: string,
+    content: string,
 
     length: number,
     createdAt: string,

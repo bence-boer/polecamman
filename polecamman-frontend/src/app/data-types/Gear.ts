@@ -1,8 +1,6 @@
-export interface BlogPost {
-  attributes: {
+export interface Gear{
+  attributes:{
     content: string,
-    title: string,
-    slug: string,
     media: {
       data: {
         attributes:{
@@ -10,11 +8,10 @@ export interface BlogPost {
         }
       }[]
     },
+    length: number,
     createdAt: string,
-    locale: string,
     publishedAt: string,
-    updatedAt: string
+    updatedAt: string,
   },
-  id: number,
-  Prototype: Object
+  id: number
 }

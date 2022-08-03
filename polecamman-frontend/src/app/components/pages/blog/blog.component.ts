@@ -14,7 +14,11 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.blogPostService.getPosts().subscribe((blogPosts) => {
-      this.posts = blogPosts;
+      let length = blogPosts.length;
+      for (let i = 0; i < length; i++) {
+        this.posts[i] = blogPosts[length-i-1];
+        this.posts[i].id = length-i-1;
+      }
     });
   }
 }

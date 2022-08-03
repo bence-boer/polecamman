@@ -13,7 +13,6 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.albumService.getAll().subscribe((albums) => {
-      console.log(albums);
       this.albums = albums;
     });
   }

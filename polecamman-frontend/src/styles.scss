@@ -43,13 +43,13 @@ h1, h2, h3{
 p{
   font-family: 'Karla', sans-serif;
   font-size: 16pt;
-  font-weight: 400;
+  font-weight: 200;
   text-align: justify;
   text-overflow: fade;
   margin: 10px 0;
 }
 
-p::selection, b::selection, em::selection {
+p::selection, b::selection, em::selection, strong::selection, u::selection, span::selection{
   color: colors.$base-light;
   background-color: colors.$base-dark;
 }
@@ -76,7 +76,8 @@ h2{
   user-select: text;
 
   &::selection {
-    color: colors.$base-light;
+    background-color: colors.$accent;
+    color: colors.$base-dark;
   }
 }
 
