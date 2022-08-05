@@ -9,16 +9,13 @@ import {environment} from "../../../environments/environment";
 })
 export class BlogPostPreviewComponent implements OnInit {
   @Input() blogPost !: BlogPost;
-  @Input() thumbnail ?: boolean = false;
-  even!: boolean;
+  @Input() even !: boolean;
   @ViewChild('text', {static: true}) text !: ElementRef<HTMLElement>;
   serverURL = environment.serverURL;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.even = this.blogPost.id%2 == 0;
-
     this.text.nativeElement.innerHTML = this.blogPost.attributes.content;
   }
 }

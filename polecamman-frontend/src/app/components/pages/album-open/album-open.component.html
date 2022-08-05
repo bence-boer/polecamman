@@ -1,2 +1,7 @@
-<h1 *ngIf="album">{{album.attributes.title}}</h1>
-<div class="image-container" ></div>
+<div *ngIf="album">
+  <h1>{{album.attributes.title}}</h1>
+  <div class="image-container">
+    <img class="image" *ngFor="let image of album.attributes.media.data" [src]="serverURL+image.attributes.url">
+  </div>
+</div>
+

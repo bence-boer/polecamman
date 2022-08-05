@@ -4,14 +4,22 @@
 :host{
   display: flex;
   flex-direction: column;
-  padding: sizes.$navbar-height sizes.$page-padding 0;
+  padding: sizes.$navbar-height sizes.$page-padding;
 
   width: 100%;
   flex-grow: 1;
 }
 
 .image-container{
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+  width: 100%;
+}
 
+img{
+  max-width: 100%;
+  height: auto;
 }
 
 h1{

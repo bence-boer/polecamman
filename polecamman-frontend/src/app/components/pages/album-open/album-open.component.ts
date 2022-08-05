@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Album} from "../../../data-types/Album";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {AlbumService} from "../../../services/album.service";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-album-open',
@@ -10,6 +11,7 @@ import {AlbumService} from "../../../services/album.service";
 })
 export class AlbumOpenComponent implements OnInit {
   album ?: Album;
+  serverURL = environment.serverURL;
 
   constructor(private route: ActivatedRoute, private albumService: AlbumService) { }
 
