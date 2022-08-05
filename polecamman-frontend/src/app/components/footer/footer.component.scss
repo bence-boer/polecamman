@@ -10,6 +10,7 @@ footer{
 
   width: 100%;
   height: sizes.$navbar-height*0.8;
+  overflow: hidden;
   overflow: clip;
 
   background-color: colors.$base-light;

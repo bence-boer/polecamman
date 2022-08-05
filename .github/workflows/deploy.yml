@@ -5,19 +5,10 @@ on:
 jobs:
   deploy_job:
     runs-on: ubuntu-latest
-    name: build and deploy
+    name: deploy
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Change directory
-      run: cd polecamman-frontend
-
-    - name: Install Dependencies
-      run: npm i
-
-    - name: Build
-      run: ng build
 
     - name: Deploy file to server
       uses: wlixcc/SFTP-Deploy-Action@v1.2.4

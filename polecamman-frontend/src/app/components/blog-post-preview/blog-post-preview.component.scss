@@ -23,6 +23,7 @@
 
   height: 100%;
   aspect-ratio: 4 / 3;
+  overflow: hidden;
   overflow: clip;
 
   box-shadow: inset 0 5px 10px rgba(0,0,0,0.2); //nem müxik
@@ -46,13 +47,28 @@
 }
 
 #text-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
   width: 100%;
   height: 100%;
-  text-overflow: fade;
+
+  overflow: hidden;
+  overflow: clip;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    z-index: 1;
+
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, colors.$base, rgba(0, 0, 0, 0) 80%);
+  }
 }
 
 .post-title {
@@ -64,8 +80,8 @@
   font-weight: 200;
   text-align: justify;
   text-overflow: ellipsis;
-  overflow: clip;
   overflow: hidden;
+  overflow: clip;
 }
 
 @media only screen and (max-width: sizes.$tablet-view-breakpoint) {

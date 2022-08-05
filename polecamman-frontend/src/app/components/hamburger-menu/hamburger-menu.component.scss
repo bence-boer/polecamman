@@ -8,6 +8,8 @@ $icon-weight: 4px;
   position: relative;
   width: $icon-size;
   height: $icon-size;
+
+  font-size: 2em;
 }
 
 .menu-wrap {
@@ -45,7 +47,6 @@ $icon-weight: 4px;
   justify-content: center;
   padding-top: 10vh;
 
-  font-size: 16pt;
   font-weight: 400;
 
   backdrop-filter: blur(4px) brightness(60%) opacity(0);
