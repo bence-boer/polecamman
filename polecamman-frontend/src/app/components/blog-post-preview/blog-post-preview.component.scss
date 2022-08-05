@@ -6,6 +6,7 @@
   flex-direction: row;
   gap: 5%;
   font-size: 1.2rem;
+  // color: colors.$base-light;
 
   justify-content: flex-start;
   align-items: flex-start;
@@ -80,6 +81,7 @@
 
 @media only screen and (max-width: sizes.$phone-view-breakpoint) {
   #blogpost-preview {
+    height: 60vh;
     flex-direction: column !important;
     padding: 0 !important;
     gap: 20px;

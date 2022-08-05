@@ -1,0 +1,56 @@
+@use "../../../../sizes";
+@use "../../../../colors";
+
+:host{
+  display: flex;
+  flex-direction: column;
+  padding: sizes.$navbar-height sizes.$page-padding;
+
+  width: 100%;
+  flex-grow: 1;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+p{
+  color: colors.$base-dark;
+}
+
+h1{
+  color: colors.$base-dark;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+#date{
+  opacity: 0.3;
+}
+
+#text-container{
+  height: 100vh;
+}
+
+@media only screen and (max-width: sizes.$phone-view-breakpoint) {
+  header{
+    flex-direction: column;
+  }
+
+  h1{
+    margin-bottom: 0;
+  }
+
+  #date{
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}

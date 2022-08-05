@@ -6,6 +6,7 @@
   flex-direction: column;
 
   background-color: colors.$base;
+  color: colors.$base-light;
   width: 100%;
   flex-grow: 1;
   padding: sizes.$navbar-height sizes.$page-padding 50px;

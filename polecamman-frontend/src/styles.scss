@@ -9,7 +9,7 @@ html{
   //font-family: 'Karla', sans-serif;
   font-family: 'Montserrat', sans-serif;
   //font-family: 'Encode Sans', sans-serif;
-  color: colors.$base-light;
+  //color: colors.$base-light;
 }
 @media only screen and (max-width: sizes.$tablet-view-breakpoint) {
   html{ font-size: 14px }
@@ -46,7 +46,6 @@ html, body{
 p{
   font-family: 'Karla', sans-serif;
   font-size: 16pt;
-  font-weight: 200;
   text-align: justify;
   text-overflow: fade;
   margin: 10px 0;

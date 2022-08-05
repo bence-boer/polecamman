@@ -1,1 +1,9 @@
-<div>{{blogPost.attributes.title}}</div>
+<div *ngIf="blogPost">
+  <header>
+    <h1>{{blogPost.attributes.title}}</h1>
+    <h1 id="date">{{blogPost.attributes.publishedAt}}</h1>
+  </header>
+  <img class="image" [src]="serverURL+blogPost.attributes.media.data[0].attributes.url" [alt]="'IMG_'+0">
+
+</div>
+<div #text id="text-container"></div>

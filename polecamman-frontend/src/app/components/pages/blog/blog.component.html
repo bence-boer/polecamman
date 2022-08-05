@@ -1,4 +1,4 @@
 <h1>blog posts</h1>
 <div id="blog-posts">
-  <polecamman-blog-post-preview *ngFor="let blogPost of posts; index as i" [even]="(posts.length-i)%2==0" [blogPost]="blogPost"></polecamman-blog-post-preview>
+  <polecamman-blog-post-preview *ngFor="let blogPost of posts; index as i" [even]="(posts.length-i)%2!=0" [blogPost]="blogPost"></polecamman-blog-post-preview>
 </div>
