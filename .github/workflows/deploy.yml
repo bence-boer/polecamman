@@ -16,7 +16,7 @@ jobs:
           username: ${{ secrets.username }}
           server: ${{ secrets.host }}
           port: ${{ secrets.port }}
-          local_path: './polecamman-frontend/build/'
+          local_path: './polecamman-frontend/build/*'
           remote_path: '/home/polecamman/public_html/'
           sftp_only: true
           password: ${{ secrets.sshkey }}
