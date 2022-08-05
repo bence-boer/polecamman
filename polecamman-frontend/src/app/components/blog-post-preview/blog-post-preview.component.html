@@ -1,4 +1,4 @@
-<div id="blogpost-preview" [ngStyle]="even ? {'flex-direction': 'row-reverse', 'padding-left':'10%'} : {'padding-right':'10%'}">
+<div id="blogpost-preview" [ngStyle]="even ? {'padding-right':'10%'} : {'flex-direction': 'row-reverse', 'padding-left':'10%'}">
   <a class="image-container" [routerLink]="'/blog/blog-post/'+blogPost.id">
     <div class="image" [ngStyle]="{backgroundImage: 'url('+serverURL+blogPost.attributes.media.data[0].attributes.url+')'}"></div>
   </a>
