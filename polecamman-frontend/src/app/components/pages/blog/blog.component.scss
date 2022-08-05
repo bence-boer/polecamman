@@ -9,16 +9,12 @@
   background-color: colors.$base;
   width: 100%;
   padding: sizes.$navbar-height sizes.$page-padding 50px;
-
-  @media only screen and (max-width: sizes.$phone-view-breakpoint) {
-    padding: sizes.$navbar-height 0 50px;
-  }
 }
 
 #blog-posts{
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 5em;
 }
 
 .segment-title{

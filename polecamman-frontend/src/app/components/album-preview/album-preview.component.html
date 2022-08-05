@@ -1,2 +1,4 @@
-<div id="image" [routerLink]="'gallery/album/'+album.attributes.slug" [ngStyle]="{backgroundImage: 'url('+serverURL+album.attributes.media.data[0].attributes.url+')'}"></div>
+<a class="image-container" [routerLink]="'/gallery/album/'+album.id">
+  <div class="image" [ngStyle]="{backgroundImage: 'url('+serverURL+album.attributes.media.data[0].attributes.url+')'}"></div>
+</a>
 <h2>{{album.attributes.title}}</h2>

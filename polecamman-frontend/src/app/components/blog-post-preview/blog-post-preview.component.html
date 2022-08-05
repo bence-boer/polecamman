@@ -1,9 +1,9 @@
 <div id="blogpost-preview" [ngStyle]="even ? {'flex-direction': 'row-reverse', 'padding-left':'10%'} : {'padding-right':'10%'}">
-  <a class="image-container" [routerLink]="'blog/blog-post/'+blogPost.attributes.slug">
+  <a class="image-container" [routerLink]="'/blog/blog-post/'+blogPost.id">
     <div class="image" [ngStyle]="{backgroundImage: 'url('+serverURL+blogPost.attributes.media.data[0].attributes.url+')'}"></div>
   </a>
   <div id="text-container">
-    <div class="article-title"><h2>{{blogPost.attributes.title}}</h2></div>
-    <div #text class="article-content">{{blogPost.attributes.content}}</div>
+    <div class="post-title"><h2>{{blogPost.attributes.title}}</h2></div>
+    <div #text class="post-content">{{blogPost.attributes.content}}</div>
   </div>
 </div>

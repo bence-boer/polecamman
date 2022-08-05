@@ -4,7 +4,6 @@ import {map, Observable} from "rxjs";
 import {BlogPost} from "../data-types/BlogPost";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {environment} from "../../environments/environment";
-import {Album} from "../data-types/Album";
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +16,18 @@ export class BlogPostService {
     return (this.httpClient.get(environment.serverURL+'/api/blog-posts?populate=media') as Observable<ApiResponse<BlogPost[]>>).pipe(map(v=>v.data!));
   }
 
-  getBySlug(slug: string){
-    return (this.httpClient.get(environment.serverURL+'/api/slugify/slugs/blog-posts/'+slug+'?populate=media') as Observable<ApiResponse<BlogPost>>).pipe(map(v=>v.data!));
+  getPostByID(id: number){
+    return (this.httpClient.get(environment.serverURL+'/api/blog-posts/'+id+'?populate=media') as Observable<ApiResponse<BlogPost>>).pipe(map(v=>v.data!));
+  }
+
+  getPostBySlug(slug: string){
+    return this.getPostByID(this.findPostIDBySlug(slug));
+    //return (this.httpClient.get(environment.serverURL+'/api/slugify/slugs/blog-posts/'+slug+'?populate=media') as Observable<ApiResponse<BlogPost>>).pipe(map(v=>v.data!));
+  }
+
+  private findPostIDBySlug(slug: string){
+    let id = 1;
+    return id;
   }
 }
 

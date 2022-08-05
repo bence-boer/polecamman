@@ -11,6 +11,13 @@ html{
   //font-family: 'Encode Sans', sans-serif;
   color: colors.$base-light;
 }
+@media only screen and (max-width: sizes.$tablet-view-breakpoint) {
+  html{ font-size: 14px }
+}
+@media only screen and (max-width: sizes.$phone-view-breakpoint) {
+  html{ font-size: 12px }
+}
+
 html, body{
   width: 100vw;
   height: 100vh;
@@ -23,10 +30,6 @@ html, body{
   overflow: auto;
   //noinspection CssInvalidPropertyValue
   overflow: overlay;
-}
-
-h1, h2, h3{
-  font-family: 'Montserrat', sans-serif;
 }
 
 *{
@@ -49,28 +52,28 @@ p{
   margin: 10px 0;
 }
 
-p::selection, b::selection, em::selection, strong::selection, u::selection, span::selection{
+p::selection, b::selection, em::selection, strong::selection, u::selection, span::selection, i::selection{
   color: colors.$base-light;
   background-color: colors.$base-dark;
 }
 
 h1{
   text-transform: uppercase;
-  font-size: 40pt;
+  font-size: 3.4em;
   font-weight: 900;
   color: colors.$base-light;
 
-  margin: 50px 0 20px;
+  margin: 50px 0 40px;
   border-bottom: solid colors.$base-light 1px;
 
   @media only screen and (max-width: sizes.$phone-view-breakpoint) {
-    font-size: 30pt;
-    margin: 50px sizes.$page-padding 20px;
+    margin-bottom: 20px;
   }
 }
 
 h2{
   font-weight: 800;
+  font-size: 2em;
   height: fit-content;
   margin: 0;
   user-select: text;
@@ -123,9 +126,5 @@ a{
 
   .content-container {
     width: 100%;
-  }
-
-  h2 {
-    font-size: 20pt;
   }
 }

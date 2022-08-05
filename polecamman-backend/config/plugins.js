@@ -9,6 +9,10 @@ module.exports = () => {
             field: 'slug',
             references: 'title'
           },
+          "album": {
+            field: 'slug',
+            references: 'title'
+          },
         },
       },
     },

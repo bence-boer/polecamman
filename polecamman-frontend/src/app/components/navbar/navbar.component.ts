@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
     let limit = 0.3;
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        limit = this.router.url == "/" ?  0.3 : 0.1;
+        limit = this.router.url == "/" ?  0.3 : 0.05;
       }
     });
     document.body.addEventListener("scroll", (e) => {

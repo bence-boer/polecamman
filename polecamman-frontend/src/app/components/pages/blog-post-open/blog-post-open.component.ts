@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BlogPost} from "../../data-types/BlogPost";
+import {BlogPost} from "../../../data-types/BlogPost";
 import {ActivatedRoute} from "@angular/router";
-import {AlbumService} from "../../services/album.service";
-import {BlogPostService} from "../../services/blog-post.service";
+import {AlbumService} from "../../../services/album.service";
+import {BlogPostService} from "../../../services/blog-post.service";
 
 @Component({
   selector: 'app-blog-post-open',
@@ -14,8 +14,8 @@ export class BlogPostOpenComponent implements OnInit {
   constructor(private route: ActivatedRoute, private blogPostService: BlogPostService) { }
 
   ngOnInit(): void {
-    let slug = this.route.snapshot.paramMap.get('slug');
-    this.blogPostService.getBySlug(slug!).subscribe((blogPost) => {
+    let id = this.route.snapshot.paramMap.get('id');
+    this.blogPostService.getPostByID(+id!).subscribe((blogPost) => {
       this.blogPost = blogPost;
     });
   }
