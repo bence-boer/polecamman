@@ -26,7 +26,7 @@ export class LandingComponent implements OnInit {
         // @ts-ignore
         textbox.style.maxHeight = null;
       } else {
-        textbox.style.maxHeight = textbox.scrollHeight + "px";
+        textbox.style.maxHeight = textbox.scrollHeight + 50 + "px";
       }
       textbox.classList.toggle('text-open');
       toggler?.classList.toggle('toggler-open');

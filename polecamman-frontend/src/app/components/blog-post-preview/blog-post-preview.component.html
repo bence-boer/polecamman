@@ -3,7 +3,7 @@
     <div class="image" [ngStyle]="{backgroundImage: 'url('+serverURL+blogPost.attributes.media.data[0].attributes.url+')'}"></div>
   </a>
   <div id="text-container">
-    <div class="post-title"><h2>{{blogPost.attributes.title}}</h2></div>
+    <a class="post-title" [routerLink]="'/blog/blog-post/'+blogPost.id"><h2>{{blogPost.attributes.title}}</h2></a>
     <div #text class="post-content"></div>
   </div>
 </div>

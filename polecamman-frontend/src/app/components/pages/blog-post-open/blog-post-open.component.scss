@@ -1,54 +1,98 @@
 @use "../../../../sizes";
 @use "../../../../colors";
 
-:host{
+:host {
   display: flex;
   flex-direction: column;
-  padding: sizes.$navbar-height sizes.$page-padding;
+  justify-content: flex-start;
+  align-items: center;
+
+  gap: 40px;
+  padding: sizes.$navbar-height 0;
 
   width: 100%;
   flex-grow: 1;
 }
 
-header{
+#post-container{
+  max-width: 800px;
+}
+
+header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-img{
-  max-width: 100%;
-  height: auto;
+#image-container {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+}
+img {
+  height: 100%;
+  min-width: 100%;
+}
+button{
+  border: none;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  height: 100%;
+  width: 5%;
+
+  background-color: transparent;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+  content: "";
 }
 
-p{
+button#previous {
+  left: -5%;
+  background-image: url("../../../../assets/navigate_before.svg"), linear-gradient(90deg, #{colors.$base-light}, rgba(0,0,0,0));
+}
+
+button#next {
+  right: -5%;
+  background-image: url("../../../../assets/navigate_next.svg"), linear-gradient(270deg, #{colors.$base-light}, rgba(0,0,0,0));
+}
+
+p {
   color: colors.$base-dark;
 }
 
-h1{
+h1 {
   color: colors.$base-dark;
   border: none;
   margin-bottom: 1rem;
 }
 
-#date{
+#date {
   opacity: 0.3;
 }
 
-#text-container{
-  height: 100vh;
+#text-container {
+  max-width: 800px;
 }
 
 @media only screen and (max-width: sizes.$phone-view-breakpoint) {
-  header{
+  header {
     flex-direction: column;
   }
 
-  h1{
+  h1 {
     margin-bottom: 0;
   }
 
-  #date{
+  #date {
     font-size: 2em;
     margin-top: 0;
     margin-bottom: 10px;
