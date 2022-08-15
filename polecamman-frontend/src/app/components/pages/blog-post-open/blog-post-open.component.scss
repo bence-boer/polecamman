@@ -14,7 +14,7 @@
   flex-grow: 1;
 }
 
-#post-container{
+#post-container, #text-container {
   max-width: 800px;
 }
 
@@ -34,11 +34,14 @@ header {
 
   border-radius: 10px;
 }
+
 img {
   height: 100%;
   min-width: 100%;
+  transition: 0.35s ease-in-out;
 }
-button{
+
+button {
   border: none;
   position: absolute;
   top: 0;
@@ -57,12 +60,14 @@ button{
 
 button#previous {
   left: -5%;
-  background-image: url("../../../../assets/navigate_before.svg"), linear-gradient(90deg, #{colors.$base-light}, rgba(0,0,0,0));
+  //background-image: url("../../../../assets/navigate_before.svg"), linear-gradient(90deg, #{colors.$base-light}, rgba(0, 0, 0, 0));
+  background-image: url("../../../../assets/navigate_before.svg");
 }
 
 button#next {
   right: -5%;
-  background-image: url("../../../../assets/navigate_next.svg"), linear-gradient(270deg, #{colors.$base-light}, rgba(0,0,0,0));
+  //background-image: url("../../../../assets/navigate_next.svg"), linear-gradient(270deg, #{colors.$base-light}, rgba(0, 0, 0, 0));
+  background-image: url("../../../../assets/navigate_next.svg");
 }
 
 p {
@@ -79,22 +84,36 @@ h1 {
   opacity: 0.3;
 }
 
-#text-container {
-  max-width: 800px;
-}
-
 @media only screen and (max-width: sizes.$phone-view-breakpoint) {
+  :host {
+    gap: 20px;
+  }
+
   header {
     flex-direction: column;
   }
 
   h1 {
-    margin-bottom: 0;
+    margin: 0;
+  }
+
+  button {
+    width: 10%;
+  }
+  button#next {
+    right: -10%;
+  }
+  button#previous {
+    left: -10%
   }
 
   #date {
     font-size: 2em;
     margin-top: 0;
     margin-bottom: 10px;
+  }
+
+  #post-container, #text-container {
+    max-width: 80vw;
   }
 }

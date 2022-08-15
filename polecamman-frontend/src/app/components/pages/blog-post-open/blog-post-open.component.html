@@ -4,7 +4,7 @@
     <h1 id="date">{{blogPost.attributes.publishedAt}}</h1>
   </header>
   <div id="image-container">
-    <img class="image" [src]="serverURL+blogPost.attributes.media.data[imageIndex].attributes.url" [alt]="'IMG_'+imageIndex">
+    <img [src]="serverURL+blogPost.attributes.media.data[imageIndex].attributes.url" [alt]="'IMG_'+imageIndex">
     <button id="previous" (click)="previousImage()" *ngIf="blogPost.attributes.media.data.length > 1"></button>
     <button id="next" (click)="nextImage()" *ngIf="blogPost.attributes.media.data.length > 1"></button>
   </div>
