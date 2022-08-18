@@ -22,6 +22,7 @@ h1{
   }
 }
 h2{
+  color: colors.$base-light;
   animation: opacity 1s;
   filter: drop-shadow(0 0 10px colors.$accent);
 }

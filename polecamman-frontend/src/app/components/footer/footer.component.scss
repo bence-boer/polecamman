@@ -9,15 +9,11 @@ footer{
   gap: 20px;
 
   width: 100%;
-  height: sizes.$navbar-height*0.4;
+  height: sizes.$navbar-height*0.6;
   overflow: hidden;
   overflow: clip;
 
-  background-color: colors.$base-light;
-}
-
-img{
-  color: colors.$accent;
-  height: 32px;
-  width: 32px;
+  background-color: colors.$base-dark;
+  color: colors.$base-light;
+  box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.1);
 }

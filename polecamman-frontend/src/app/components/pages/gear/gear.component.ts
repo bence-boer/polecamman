@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Gear} from "../../../data-types/Gear";
+import {GearService} from "../../../services/gear.service";
 
 @Component({
   selector: 'polecamman-gear',
@@ -6,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gear.component.scss'],
 })
 export class GearComponent implements OnInit {
-  constructor() {}
+  gear ?: Gear;
+  @ViewChild('content', {static: true}) content !: ElementRef<HTMLElement>;
 
-  ngOnInit(): void {}
+  constructor(private gearService: GearService) {}
+
+  ngOnInit(): void {
+    /*this.gearService.getGear().subscribe((gear) => {
+      this.content.nativeElement.innerHTML = gear.attributes.content;
+    }
+    );*/
+  }
 }
