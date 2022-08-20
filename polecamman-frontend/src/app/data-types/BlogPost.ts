@@ -1,3 +1,5 @@
+import {MediaElement} from "./MediaElement";
+
 export interface BlogPost {
   attributes: {
     content: string,
@@ -5,9 +7,7 @@ export interface BlogPost {
     slug: string,
     media: {
       data: {
-        attributes:{
-          url: string
-        }
+        attributes: MediaElement
       }[]
     },
     createdAt: string,
@@ -16,5 +16,4 @@ export interface BlogPost {
     updatedAt: string
   },
   id: number,
-  Prototype: Object
 }

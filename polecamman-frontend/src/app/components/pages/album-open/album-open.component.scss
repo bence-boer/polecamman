@@ -10,14 +10,14 @@
   flex-grow: 1;
 }
 
-.image-container{
+.media-container{
   display: flex;
   flex-direction: column;
   gap: 4em;
   width: 100%;
 }
 
-img{
+.media{
   max-width: 100%;
   height: auto;
 }

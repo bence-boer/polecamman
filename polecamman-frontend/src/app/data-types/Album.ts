@@ -1,12 +1,12 @@
+import {MediaElement} from "./MediaElement";
+
 export interface Album{
   attributes:{
     title: string,
     slug: string,
     media: {
       data: {
-        attributes:{
-          url: string
-        }
+        attributes: MediaElement
       }[]
     },
     length: number,

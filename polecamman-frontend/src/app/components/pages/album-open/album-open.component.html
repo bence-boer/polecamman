@@ -1,7 +1,18 @@
 <div *ngIf="album">
   <h1>{{album.attributes.title}}</h1>
-  <div class="image-container">
-    <img class="image" *ngFor="let image of album.attributes.media.data" [src]="serverURL+image.attributes.url">
+  <div class="media-container">
+    <video class="media" *ngFor="let video of videos" controls>
+      <source [src]="serverURL+video.url" [type]="video.mime">
+    </video>
+    <img class="media" *ngFor="let picture of pictures" [src]="serverURL+picture.url">
+    <!-- <picture class="media" *ngFor="let picture of pictures">
+      <source media="{{'(min-width:'+picture.formats.large.width+'px)'}}"
+              srcset="{{serverURL+picture.formats.large.url+' '+picture.formats.large.width+'w,'+
+                        serverURL+picture.formats.large.url+' '+picture.formats.large.width+'w,'+
+                        serverURL+picture.formats.large.url+' '+picture.formats.large.width+'w,'+
+                        serverURL+picture.formats.large.url+' '+picture.formats.large.width+'w,'}}"
+              [src]="serverURL+picture.url" [type]="picture.formats.large.mime">
+    </picture> -->
   </div>
 </div>
 

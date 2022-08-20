@@ -1,6 +1,7 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {BlogPost} from "../../data-types/BlogPost";
 import {environment} from "../../../environments/environment";
+import {MediaElement} from "../../data-types/MediaElement";
 
 @Component({
   selector: 'polecamman-blog-post-preview',
@@ -9,6 +10,7 @@ import {environment} from "../../../environments/environment";
 })
 export class BlogPostPreviewComponent implements OnInit {
   @Input() blogPost !: BlogPost;
+  thumbnail !: MediaElement;
   @Input() even !: boolean;
   @ViewChild('text', {static: true}) text !: ElementRef<HTMLElement>;
   serverURL = environment.serverURL;
@@ -17,5 +19,6 @@ export class BlogPostPreviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.text.nativeElement.innerHTML = this.blogPost.attributes.content;
+    this.thumbnail = this.blogPost.attributes.media.data[0].attributes;
   }
 }
