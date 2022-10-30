@@ -10,6 +10,7 @@ html{
   font-family: 'Montserrat', sans-serif;
   //font-family: 'Encode Sans', sans-serif;
   //color: colors.$base-light;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 @media only screen and (max-width: sizes.$tablet-view-breakpoint) {
   html{ font-size: 14px }

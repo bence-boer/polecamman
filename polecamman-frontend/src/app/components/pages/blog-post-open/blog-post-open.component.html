@@ -3,8 +3,11 @@
     <h1>{{blogPost.attributes.title}}</h1>
     <h1 id="date">{{blogPost.attributes.publishedAt}}</h1>
   </header>
-  <div id="image-container">
-    <img [src]="serverURL+blogPost.attributes.media.data[imageIndex].attributes.url" [alt]="'IMG_'+imageIndex">
+  <div id="media-container">
+    <img *ngIf="currentMedia && currentMedia.mime.includes('image')" [src]="serverURL+currentMedia.url" [alt]="'IMG_'+imageIndex">
+    <video *ngIf="currentMedia && currentMedia.mime.includes('video')" controls>
+      <source [src]="serverURL+currentMedia.url" [type]="currentMedia.mime">
+    </video>
     <button id="previous" (click)="previousImage()" *ngIf="blogPost.attributes.media.data.length > 1"></button>
     <button id="next" (click)="nextImage()" *ngIf="blogPost.attributes.media.data.length > 1"></button>
   </div>

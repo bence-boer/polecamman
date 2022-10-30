@@ -24,7 +24,7 @@ header {
   justify-content: space-between;
 }
 
-#image-container {
+#media-container {
   position: relative;
   width: 100%;
 
@@ -35,10 +35,11 @@ header {
   border-radius: 10px;
 }
 
-img {
+img, video {
   height: 100%;
   min-width: 100%;
   transition: 0.35s ease-in-out;
+  object-fit: contain;
 }
 
 button {
