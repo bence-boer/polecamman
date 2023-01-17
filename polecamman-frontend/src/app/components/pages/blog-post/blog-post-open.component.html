@@ -3,7 +3,7 @@
     <h1>{{blogPost.attributes.title}}</h1>
     <div id="date">Published: {{blogPost.attributes.publishedAt}}</div>
   </header>
-  <div id="media-container">
+  <div id="media-container" *ngIf="currentMedia">
     <img *ngIf="currentMedia && currentMedia.mime.includes('image')" [src]="serverURL+currentMedia.url"
          [alt]="'IMG_'+imageIndex">
     <video *ngIf="currentMedia && currentMedia.mime.includes('video')" controls>
