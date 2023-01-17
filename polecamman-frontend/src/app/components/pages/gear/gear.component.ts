@@ -3,7 +3,7 @@ import {Gear} from "../../../data-types/Gear";
 import {GearService} from "../../../services/gear.service";
 
 @Component({
-  selector: 'polecamman-gear',
+  selector: 'gear-page',
   templateUrl: './gear.component.html',
   styleUrls: ['./gear.component.scss'],
 })

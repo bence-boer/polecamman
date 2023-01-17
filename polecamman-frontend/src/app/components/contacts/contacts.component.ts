@@ -3,7 +3,7 @@ import {Contacts} from "../../data-types/Contacts";
 import {ContactService} from "../../services/contact.service";
 
 @Component({
-  selector: 'polecamman-contacts',
+  selector: 'contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss'],
 })

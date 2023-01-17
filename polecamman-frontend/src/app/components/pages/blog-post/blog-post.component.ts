@@ -6,11 +6,11 @@ import {environment} from "../../../../environments/environment";
 import {MediaElement} from "../../../data-types/MediaElement";
 
 @Component({
-  selector: 'app-blog-post-open',
+  selector: 'blog-post-page',
   templateUrl: './blog-post-open.component.html',
   styleUrls: ['./blog-post-open.component.scss']
 })
-export class BlogPostOpenComponent implements OnInit {
+export class BlogPostComponent implements OnInit {
   blogPost !: BlogPost;
   imageIndex = 0;
   currentMedia ?: MediaElement;

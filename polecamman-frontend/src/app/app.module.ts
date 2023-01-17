@@ -10,9 +10,9 @@ import {FooterComponent} from "./components/footer/footer.component";
 import {BlogComponent} from "./components/pages/blog/blog.component";
 import {BlogPostPreviewComponent} from "./components/blog-post-preview/blog-post-preview.component";
 import {NavbarItemComponent} from "./components/navbar/navbar-item/navbar-item.component";
-import {BlogPostOpenComponent} from "./components/pages/blog-post-open/blog-post-open.component";
+import {BlogPostComponent} from "./components/pages/blog-post/blog-post.component";
 import {AboutMeComponent} from "./components/pages/about-me/about-me.component";
-import {AlbumOpenComponent} from "./components/pages/album-open/album-open.component";
+import {AlbumComponent} from "./components/pages/album/album.component";
 import {ContactsComponent} from "./components/contacts/contacts.component";
 import {PageNotFoundComponent} from "./components/pages/page-not-found/page-not-found.component";
 import {LandingComponent} from "./components/pages/landing/landing.component";
@@ -37,8 +37,8 @@ import {TokenInterceptor} from "./services/token.interceptor";
     AlbumPreviewComponent,
     ContactsComponent,
     ComingSoonComponent,
-    AlbumOpenComponent,
-    BlogPostOpenComponent,
+    AlbumComponent,
+    BlogPostComponent,
     PageNotFoundComponent,
     AboutMeComponent,
   ],

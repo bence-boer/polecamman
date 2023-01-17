@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AlbumOpenComponent } from './album-open.component';
+import { BlogPostComponent } from './blog-post.component';
 
-describe('AlbumOpenComponent', () => {
-  let component: AlbumOpenComponent;
-  let fixture: ComponentFixture<AlbumOpenComponent>;
+describe('BlogPostOpenComponent', () => {
+  let component: BlogPostComponent;
+  let fixture: ComponentFixture<BlogPostComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlbumOpenComponent ]
+      declarations: [ BlogPostComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AlbumOpenComponent);
+    fixture = TestBed.createComponent(BlogPostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

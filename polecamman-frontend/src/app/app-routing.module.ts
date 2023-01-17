@@ -5,9 +5,9 @@ import {BrowserModule} from "@angular/platform-browser";
 import {GalleryComponent} from "./components/pages/gallery/gallery.component";
 import {BlogComponent} from "./components/pages/blog/blog.component";
 import {GearComponent} from "./components/pages/gear/gear.component";
-import {BlogPostOpenComponent} from "./components/pages/blog-post-open/blog-post-open.component";
+import {BlogPostComponent} from "./components/pages/blog-post/blog-post.component";
 import {PageNotFoundComponent} from "./components/pages/page-not-found/page-not-found.component";
-import {AlbumOpenComponent} from "./components/pages/album-open/album-open.component";
+import {AlbumComponent} from "./components/pages/album/album.component";
 import {AboutMeComponent} from "./components/pages/about-me/about-me.component";
 
 const routes: Routes = [
@@ -23,14 +23,14 @@ const routes: Routes = [
     /*children: [
       {
         path: 'list',
-        component: BlogPostOpenComponent
+        component: BlogPostComponent
       }
     ]*/
   },
   {
     path: 'blog/blog-post/:id',
     title: 'Blog | Polecamman',
-    component: BlogPostOpenComponent,
+    component: BlogPostComponent,
   },
   {
     path: 'gallery',
@@ -40,7 +40,7 @@ const routes: Routes = [
   {
     path: 'gallery/album/:id',
     title: 'Gallery | Polecamman',
-    component: AlbumOpenComponent
+    component: AlbumComponent
   },
   {
     path: 'gear',

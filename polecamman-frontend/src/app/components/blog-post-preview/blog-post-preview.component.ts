@@ -4,7 +4,7 @@ import {environment} from "../../../environments/environment";
 import {MediaElement} from "../../data-types/MediaElement";
 
 @Component({
-  selector: 'polecamman-blog-post-preview',
+  selector: 'blog-post-preview',
   templateUrl: './blog-post-preview.component.html',
   styleUrls: ['./blog-post-preview.component.scss'],
 })

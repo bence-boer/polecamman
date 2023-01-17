@@ -3,7 +3,7 @@ import {BlogPost} from "../../../data-types/BlogPost";
 import {BlogPostService} from "../../../services/blog-post.service";
 
 @Component({
-  selector: 'polecamman-blog',
+  selector: 'blog-page',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss'],
 })

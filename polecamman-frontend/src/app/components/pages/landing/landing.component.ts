@@ -1,10 +1,9 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Contacts} from "../../../data-types/Contacts";
-import {ContactService} from "../../../services/contact.service";
 import {IntroductionService} from "../../../services/introduction.service";
 
 @Component({
-  selector: 'polecamman-landing',
+  selector: 'landing-page',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
 })

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Album} from "../../../data-types/Album";
 import {ActivatedRoute} from "@angular/router";
 import {AlbumService} from "../../../services/album.service";
@@ -6,11 +6,11 @@ import {environment} from "../../../../environments/environment";
 import {MediaElement} from "../../../data-types/MediaElement";
 
 @Component({
-  selector: 'app-album-open',
-  templateUrl: './album-open.component.html',
-  styleUrls: ['./album-open.component.scss']
+  selector: 'album-page',
+  templateUrl: './album.component.html',
+  styleUrls: ['./album.component.scss']
 })
-export class AlbumOpenComponent implements OnInit {
+export class AlbumComponent implements OnInit {
   album ?: Album;
   pictures ?: MediaElement[];
   videos ?: MediaElement[];

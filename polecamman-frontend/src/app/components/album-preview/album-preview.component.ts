@@ -4,7 +4,7 @@ import {environment} from "../../../environments/environment";
 import {MediaElement} from "../../data-types/MediaElement";
 
 @Component({
-  selector: 'polecamman-album-preview',
+  selector: 'album-preview',
   templateUrl: './album-preview.component.html',
   styleUrls: ['./album-preview.component.scss'],
 })

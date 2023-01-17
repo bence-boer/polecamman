@@ -3,7 +3,7 @@ import {AlbumService} from "../../../services/album.service";
 import {Album} from "../../../data-types/Album";
 
 @Component({
-  selector: 'polecamman-gallery',
+  selector: 'gallery-page',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
 })
