@@ -4,7 +4,7 @@
     <video class="media" *ngFor="let video of videos" controls>
       <source [src]="serverURL+video.url" [type]="video.mime">
     </video>
-    <img class="media" *ngFor="let picture of pictures" [src]="serverURL+picture.url">
+    <img class="media" *ngFor="let picture of pictures" [src]="serverURL+picture.url" alt="picture">
     <!-- <picture class="media" *ngFor="let picture of pictures">
       <source media="{{'(min-width:'+picture.formats.large.width+'px)'}}"
               srcset="{{serverURL+picture.formats.large.url+' '+picture.formats.large.width+'w,'+
