@@ -1,9 +1,8 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BlogPost} from "../../../data-types/BlogPost";
 import {ActivatedRoute} from "@angular/router";
 import {BlogPostService} from "../../../services/blog-post.service";
 import {environment} from "../../../../environments/environment";
-import {Element} from "@angular/compiler";
 import {MediaElement} from "../../../data-types/MediaElement";
 
 @Component({
@@ -31,7 +30,7 @@ export class BlogPostOpenComponent implements OnInit {
     });
   }
 
-  nextImage(){
+  nextMedia(){
     if(this.imageIndex == this.blogPost.attributes.media.data.length-1){
       this.imageIndex = 0;
       this.currentMedia = this.blogPost.attributes.media.data[this.imageIndex].attributes;
@@ -41,7 +40,7 @@ export class BlogPostOpenComponent implements OnInit {
     this.currentMedia = this.blogPost.attributes.media.data[this.imageIndex].attributes;
   }
 
-  previousImage(){
+  previousMedia(){
     if(this.imageIndex == 0){
       this.imageIndex = this.blogPost.attributes.media.data.length-1;
       this.currentMedia = this.blogPost.attributes.media.data[this.imageIndex].attributes;

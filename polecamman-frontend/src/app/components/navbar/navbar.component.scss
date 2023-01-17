@@ -8,7 +8,7 @@ header{
 
   width: 100%;
   height: sizes.$navbar-height;
-  padding: 0 sizes.$navbar-height;
+  padding: 0 sizes.$page-padding;
   overflow: visible;
 
   position: fixed;
@@ -17,16 +17,12 @@ header{
 
   color: colors.$accent;
   transition: 0.35s ease-in-out;
-
-  @media only screen and (max-width: sizes.$phone-view-breakpoint) {
-    padding: 0 calc(#{sizes.$navbar-height}/2);
-  }
 }
 
 h2{
   position: relative;
   z-index: 10;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .scrolled{

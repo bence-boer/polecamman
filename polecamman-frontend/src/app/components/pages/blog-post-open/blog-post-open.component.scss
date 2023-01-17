@@ -15,12 +15,13 @@
 }
 
 #post-container, #text-container {
+  width: 100%;
   max-width: 800px;
 }
 
 header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -88,10 +89,7 @@ h1 {
 @media only screen and (max-width: sizes.$phone-view-breakpoint) {
   :host {
     gap: 20px;
-  }
-
-  header {
-    flex-direction: column;
+    padding: calc(#{sizes.$navbar-height}*1.5) 0;
   }
 
   h1 {
@@ -109,12 +107,16 @@ h1 {
   }
 
   #date {
-    font-size: 2em;
+    font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 10px;
   }
 
   #post-container, #text-container {
-    max-width: 80vw;
+    max-width: 90vw;
+  }
+
+  #media-container {
+    margin-bottom: 1em;
   }
 }
