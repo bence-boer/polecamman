@@ -1,7 +1,33 @@
-<a href="mailto:{{contacts.attributes.email}}" target="_blank" rel="noreferrer noopener" *ngIf="contacts"><img src="../../../assets/gmail-icon.svg" alt="gmail"></a>
-<a href="https://m.me/{{contacts.attributes.messenger}}" target="_blank" rel="noreferrer noopener" *ngIf="contacts"><img src="../../../assets/messenger-icon.svg" alt="messenger"></a>
-<a href="{{contacts.attributes.instagram}}" target="_blank" rel="noreferrer noopener" *ngIf="contacts"><img src="../../../assets/instagram-icon.svg" alt="instagram"></a>
-<a href="{{contacts.attributes.phone}}" target="_blank" rel="noreferrer noopener" *ngIf="contacts"><img src="../../../assets/phone-icon.svg" alt="phone"></a>
+<a href="mailto:{{contacts.attributes.email}}"
+   target="_blank" rel="noreferrer noopener"
+   (mouseenter)="showInfo('Email: '+contacts.attributes.email)"
+   *ngIf="contacts">
+  <img src="../../../assets/gmail-icon.svg" alt="gmail">
+</a>
+<a href="https://m.me/{{contacts.attributes.messenger}}"
+   target="_blank"
+   rel="noreferrer noopener"
+   *ngIf="contacts">
+  <img src="../../../assets/messenger-icon.svg" alt="messenger">
+</a>
+<a href="{{contacts.attributes.instagram}}"
+   target="_blank" rel="noreferrer noopener"
+   *ngIf="contacts">
+  <img src="../../../assets/instagram-icon.svg" alt="instagram">
+</a>
+<a href="{{contacts.attributes.phone}}"
+   target="_blank" rel="noreferrer noopener"
+   (mouseenter)="showInfo('Phone: '+contacts.attributes.phone)"
+   *ngIf="contacts">
+  <img src="../../../assets/phone-icon.svg" alt="phone">
+</a>
+<div onclick="copyToClipboard(shownInfo)"
+     [class.fade-out]="!shownInfo"
+     [class.fade-in]="shownInfo"
+     *ngIf="shownInfo"
+     id="info">
+  {{shownInfo}}
+</div>
 
 <!-- <a href="mailto:polecamman@gmail.com"><img src="../../../assets/gmail-icon.svg" alt="gmail"></a>
 <a href="https://m.me/gabor.karolyi.9"><img src="../../../assets/messenger-icon.svg" alt="messenger"></a>
