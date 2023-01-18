@@ -17,7 +17,7 @@ export class LandingComponent implements OnInit {
       this.introduction.nativeElement.innerHTML = introduction.attributes.content;
     });
 
-    const toggler = document.getElementById("toggler")!;
+    const toggler = document.getElementById("introduction-toggler")!;
     const textbox = document.getElementById("introduction")!;
 
     toggler.addEventListener('click', () => {
