@@ -32,7 +32,7 @@ blog-page {
 #title {
   position: absolute;
   bottom: sizes.$navbar-height;
-  right: sizes.$navbar-height;
+  right: sizes.$page-padding;
 
   font-size: 42pt;
   font-weight: 800;
@@ -79,7 +79,7 @@ p{
   overflow: hidden;
   overflow: clip;
   position: relative;
-  max-height: 25vh;
+  height: 25vh;
 
   background-color: colors.$base-light;
   font-size: 14pt;

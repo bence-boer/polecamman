@@ -15,7 +15,7 @@
 
   padding: 0 calc(#{sizes.$navbar-height} / 3);
   background-color: colors.$accent;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 sizes.$border-radius sizes.$border-radius;
 
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   transition: 0.35s ease-in-out;
@@ -65,7 +65,7 @@
   }
   @media only screen and (max-width: sizes.$phone-view-breakpoint) {
     width: 40vw;
-    border-radius: 10px;
+    border-radius: sizes.$border-radius;
     box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
   }
 }
@@ -92,7 +92,7 @@ img {
 
   width: 100%;
   padding: 1em;
-  border-radius: 10px;
+  border-radius: sizes.$border-radius;
 
   display: flex;
   flex-direction: column;

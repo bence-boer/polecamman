@@ -1,10 +1,12 @@
 $navbar-height: 60px;
 $navbar-height-desktop: 80px;
-$content-width: min(90%,1200px);
+$content-width: min(90vw,1200px);
 $page-padding: calc((100% - #{$content-width})/2);
 
 $phone-view-breakpoint: 950px;
 $tablet-view-breakpoint: 1100px;
+
+$border-radius: 10px;
 
 :export{
   navbarHeightPhone: $navbar-height;

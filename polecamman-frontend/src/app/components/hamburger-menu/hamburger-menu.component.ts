@@ -9,7 +9,7 @@ export class HamburgerMenuComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    const toggler = document.getElementById("introduction-toggler") as HTMLInputElement | any;
+    const toggler = document.getElementsByClassName("navigation-toggler")[0] as HTMLInputElement | any;
     let menuOpen = false;
     const menu = document.body;
     menu.addEventListener('click', () => {

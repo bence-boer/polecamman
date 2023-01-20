@@ -4,7 +4,7 @@
   <div id="profile"></div>
 </div>
 <div id="introduction">
-  <div #introduction>
+  <div *ngIf="introduction" [innerHTML]="introduction.attributes.content">
     <i>Loading content...</i>
   </div>
   <div id="introduction-toggler"></div>
