@@ -17,7 +17,7 @@ h1{
   animation: opacity 1s;
   filter: drop-shadow(0 0 10px colors.$accent);
 
-  @media only screen and(max-width: sizes.$phone-view-breakpoint){
+  @media only screen and (max-width: sizes.$phone-view-breakpoint){
     font-size: 30vw;
   }
 }
