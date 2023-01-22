@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Album} from "../../../data-types/Album";
+import {Album} from "../../data-types/Album";
 import {ActivatedRoute} from "@angular/router";
-import {AlbumService} from "../../../services/album.service";
-import {environment} from "../../../../environments/environment";
-import {MediaElement} from "../../../data-types/MediaElement";
+import {AlbumService} from "../../services/album.service";
+import {environment} from "../../../environments/environment";
+import {MediaElement} from "../../data-types/MediaElement";
 
 @Component({
   selector: 'album-page',

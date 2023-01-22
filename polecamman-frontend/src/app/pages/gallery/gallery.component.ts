@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AlbumService} from "../../../services/album.service";
-import {Album} from "../../../data-types/Album";
+import {AlbumService} from "../../services/album.service";
+import {Album} from "../../data-types/Album";
 
 @Component({
   selector: 'gallery-page',

@@ -1,5 +1,5 @@
-@use "../../../../sizes";
-@use "../../../../colors";
+@use "src/sizes";
+@use "src/colors";
 
 $max-blog-width: 800px;
 
@@ -48,13 +48,13 @@ button {
 button#previous {
   left: -5%;
   //background-image: url("../../../../assets/navigate_before.svg"), linear-gradient(90deg, #{colors.$base-light}, rgba(0, 0, 0, 0));
-  background-image: url("../../../../assets/navigate_before.svg");
+  background-image: url("../../../assets/navigate_before.svg");
 }
 
 button#next {
   right: -5%;
   //background-image: url("../../../../assets/navigate_next.svg"), linear-gradient(270deg, #{colors.$base-light}, rgba(0, 0, 0, 0));
-  background-image: url("../../../../assets/navigate_next.svg");
+  background-image: url("../../../assets/navigate_next.svg");
 }
 
 p {

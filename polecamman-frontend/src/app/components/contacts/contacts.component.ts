@@ -10,7 +10,9 @@ import {ContactService} from "../../services/contact.service";
 export class ContactsComponent implements OnInit {
   @Input() open = true;
   @Input() contacts!: Contacts;
-  shownInfo : any;
+  shownInfo: any;
+  displayInfo = false;
+  infoOpacity = 0;
 
   constructor(private contactService: ContactService) {
   }
@@ -23,6 +25,10 @@ export class ContactsComponent implements OnInit {
 
   showInfo(info: string) {
     this.shownInfo = info;
+    this.displayInfo = true;
+    setTimeout(() => {
+      this.infoOpacity = 1;
+    }, 10);
   }
 
   @HostListener('mouseleave') onMouseLeave() {
@@ -30,11 +36,16 @@ export class ContactsComponent implements OnInit {
   }
 
   hideInfo() {
-    this.shownInfo = null;
+    this.infoOpacity = 0;
+    setTimeout(() => {
+      this.displayInfo = false;
+    }, 360);
   }
 
   copyToClipboard(text: string) {
+    if (text == 'Copied to clipboard!') return;
     navigator.clipboard.writeText(text);
-    this.showInfo('Copied to clipboard');
+
+    this.showInfo('Copied to clipboard!');
   }
 }

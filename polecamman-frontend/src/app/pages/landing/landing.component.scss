@@ -1,5 +1,5 @@
-@use "../../../../colors";
-@use "../../../../sizes";
+@use "src/colors";
+@use "src/sizes";
 
 :host {
   position: relative;
@@ -10,7 +10,7 @@ blog-page {
 }
 
 #background-image {
-  background-image: url("../../../../assets/landing-background.webp");
+  background-image: url("../../../assets/landing-background.webp");
   position: fixed;
   top: 0;
   left: 0;
@@ -112,7 +112,7 @@ p{
   width: 20vw;
   height: 36px;
 
-  background-image: url("../../../../assets/down-arrow-icon.svg");
+  background-image: url("../../../assets/down-arrow-icon.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

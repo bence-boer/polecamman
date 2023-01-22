@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
-import {LandingComponent} from "./components/pages/landing/landing.component";
+import {LandingComponent} from "./pages/landing/landing.component";
 import {BrowserModule} from "@angular/platform-browser";
-import {GalleryComponent} from "./components/pages/gallery/gallery.component";
-import {BlogComponent} from "./components/pages/blog/blog.component";
-import {GearComponent} from "./components/pages/gear/gear.component";
-import {BlogPostComponent} from "./components/pages/blog-post/blog-post.component";
-import {PageNotFoundComponent} from "./components/pages/page-not-found/page-not-found.component";
-import {AlbumComponent} from "./components/pages/album/album.component";
-import {AboutMeComponent} from "./components/pages/about-me/about-me.component";
+import {GalleryComponent} from "./pages/gallery/gallery.component";
+import {BlogComponent} from "./pages/blog/blog.component";
+import {GearComponent} from "./pages/gear/gear.component";
+import {BlogPostComponent} from "./pages/blog-post/blog-post.component";
+import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
+import {AlbumComponent} from "./pages/album/album.component";
+import {AboutMeComponent} from "./pages/about-me/about-me.component";
 
 const routes: Routes = [
   {

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Contacts} from "../../../data-types/Contacts";
-import {IntroductionService} from "../../../services/introduction.service";
-import {Introduction} from "../../../data-types/Introduction";
+import {Contacts} from "../../data-types/Contacts";
+import {IntroductionService} from "../../services/introduction.service";
+import {Introduction} from "../../data-types/Introduction";
 
 @Component({
   selector: 'landing-page',

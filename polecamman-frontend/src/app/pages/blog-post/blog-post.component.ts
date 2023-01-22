@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogPost} from "../../../data-types/BlogPost";
+import {BlogPost} from "../../data-types/BlogPost";
 import {ActivatedRoute} from "@angular/router";
-import {BlogPostService} from "../../../services/blog-post.service";
-import {environment} from "../../../../environments/environment";
-import {MediaElement} from "../../../data-types/MediaElement";
+import {BlogPostService} from "../../services/blog-post.service";
+import {environment} from "../../../environments/environment";
+import {MediaElement} from "../../data-types/MediaElement";
 
 @Component({
   selector: 'blog-post-page',
