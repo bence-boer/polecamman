@@ -1,12 +1,32 @@
-<div class="blogpost-preview" [ngStyle]="even ? {'padding-right':'10%'} : {'flex-direction': 'row-reverse', 'padding-left':'10%'}">
-  <a class="image-container" [routerLink]="'/blog/blog-post/'+blogPost.id">
-    <img *ngIf="thumbnail.mime.includes('image')" class="thumbnail-image" [src]="serverURL+thumbnail.url" [alt]="thumbnail.caption">
+<div class="blogpost-preview"
+     [ngStyle]="even ? {'padding-right':'10%'} : {'flex-direction': 'row-reverse', 'padding-left':'10%'}">
+  <a class="image-container"
+     [class.multimedia]="thumbnail.mime.includes('image') || thumbnail.mime.includes('video')"
+     [routerLink]="'/blog/blog-post/'+blogPost.id">
+    <img *ngIf="thumbnail.mime.includes('image')" class="thumbnail-image" [src]="serverURL+thumbnail.url"
+         [alt]="thumbnail.caption">
     <video *ngIf="thumbnail.mime.includes('video')" class="thumbnail-image">
       <source [src]="serverURL+thumbnail.url" [type]="thumbnail.mime">
     </video>
+    <div *ngIf="containsImage || containsVideo || multipleMedia"
+         class="icon-container">
+      <img src="../../../assets/image-icon.svg"
+           alt="contains_image"
+           class="preview-icon"
+           *ngIf="containsImage">
+      <img src="../../../assets/video-icon.svg"
+           alt="contains_video"
+           class="preview-icon"
+           *ngIf="containsVideo">
+      <img src="../../../assets/multiple-images-icon.svg"
+           alt="multiple_images"
+           class="preview-icon"
+           *ngIf="multipleMedia">
+    </div>
   </a>
   <div class="text-container">
     <a class="post-title" [routerLink]="'/blog/blog-post/'+blogPost.id"><h2>{{blogPost.attributes.title}}</h2></a>
-    <div #text class="post-content"></div>
+    <div class="post-content"
+         [innerHTML]="blogPost.attributes.content"></div>
   </div>
 </div>

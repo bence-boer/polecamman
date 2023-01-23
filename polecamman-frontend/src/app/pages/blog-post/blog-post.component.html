@@ -4,35 +4,25 @@
     <div id="date">Published: {{blogPost.attributes.publishedAt}}</div>
   </header>
 
-  <div class="gallery-container">
-    <div class="thumbnails"></div>
-    <div class="slides">
-      <div class="media-container" *ngFor="let media of mediaElements">
+  <div id="gallery-container">
+    <div id="slides">
+      <div class="media-container" *ngFor="let media of mediaElements; index as index">
         <img *ngIf="isImage(media)"
              [src]="serverURL+media.url"
-             [alt]="'IMG_'+imageIndex">
+             [alt]="'IMG_'+index">
         <video *ngIf="isVideo(media)" controls>
           <source [src]="serverURL+media.url" [type]="media.mime">
         </video>
         </div>
     </div>
-    <button id="previous" (click)="previousMedia()" *ngIf="mediaElements.length > 1"></button>
-    <button id="next" (click)="nextMedia()" *ngIf="mediaElements.length > 1"></button>
+    <div id="thumbnails">
+      <div *ngFor="let media of mediaElements; index as i"
+           [class.highlighted]="currentMediaIndex == i"
+           (click)="scrollToMedia(i)">
+      </div>
+    </div>
   </div>
 </div>
-<!--
-  <div id="media-container" *ngIf="currentMedia">
-    <img *ngIf="currentMedia && currentMedia.mime.includes('image')" [src]="serverURL+currentMedia.url"
-         [alt]="'IMG_'+imageIndex">
-    <video *ngIf="currentMedia && currentMedia.mime.includes('video')" controls>
-      <source [src]="serverURL+currentMedia.url" [type]="currentMedia.mime">
-    </video>
-    <button id="previous" (click)="previousMedia()" *ngIf="blogPost.attributes.media.data.length > 1"></button>
-    <button id="next" (click)="nextMedia()" *ngIf="blogPost.attributes.media.data.length > 1"></button>
-  </div>
-
-  <div #text id="text-container" *ngIf="blogPost"></div>
--->
 
 <div id="text-container" *ngIf="blogPost">
   <div id="text" [innerHTML]="blogPost.attributes.content"></div>

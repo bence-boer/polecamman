@@ -22,6 +22,11 @@ a{
   cursor: pointer;
   padding: 0 20px;
   border-radius: sizes.$border-radius;
+  transition: 0.35s ease-in-out;
+
+  &:hover{
+    padding-bottom: 5px;
+  }
 }
 
 .active{

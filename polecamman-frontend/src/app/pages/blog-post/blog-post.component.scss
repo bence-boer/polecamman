@@ -45,18 +45,6 @@ button {
   content: "";
 }
 
-button#previous {
-  left: -5%;
-  //background-image: url("../../../../assets/navigate_before.svg"), linear-gradient(90deg, #{colors.$base-light}, rgba(0, 0, 0, 0));
-  background-image: url("../../../assets/navigate_before.svg");
-}
-
-button#next {
-  right: -5%;
-  //background-image: url("../../../../assets/navigate_next.svg"), linear-gradient(270deg, #{colors.$base-light}, rgba(0, 0, 0, 0));
-  background-image: url("../../../assets/navigate_next.svg");
-}
-
 p {
   color: colors.$base-dark;
 }
@@ -73,13 +61,13 @@ h1 {
   margin-bottom: 1em;
 }
 
-.gallery-container {
+#gallery-container {
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-.slides {
+#slides {
   display: grid;
   grid-auto-flow: column;
   gap: 1rem;
@@ -116,11 +104,11 @@ img, video {
   object-fit: contain;
 }
 
-.slides::-webkit-scrollbar {
+#slides::-webkit-scrollbar {
   display: none;
 }
 
-.thumbnails {
+#thumbnails {
   position: absolute;
   bottom: 8px;
   display: flex;
@@ -128,7 +116,7 @@ img, video {
   gap: 6px;
 }
 
-.thumbnails div {
+#thumbnails div {
   width: 8px;
   height: 8px;
   cursor: pointer;
@@ -136,8 +124,8 @@ img, video {
   border-radius: 100%;
 }
 
-.thumbnails div.highlighted {
-  background-color: #777;
+#thumbnails div.highlighted {
+  background-color: colors.$accent;
 }
 
 @media only screen and (max-width: sizes.$phone-view-breakpoint) {
@@ -150,14 +138,8 @@ img, video {
     margin: 0;
   }
 
-  button {
-    width: 10%;
-  }
-  button#next {
-    right: -10%;
-  }
-  button#previous {
-    left: -10%
+  #slides {
+    aspect-ratio: 4 / 3;
   }
 
   #date {

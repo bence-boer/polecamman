@@ -81,6 +81,12 @@ img {
   user-select: none;
   visibility: hidden;
 
+  transition: translate 0.1s ease-out;
+
+  &:hover {
+    translate: 0 -3px;
+  }
+
   @media only screen and (min-width: sizes.$tablet-view-breakpoint) {
     visibility: visible;
   }
