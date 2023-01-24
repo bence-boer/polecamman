@@ -4,24 +4,8 @@
     <div id="date">Published: {{blogPost.attributes.publishedAt}}</div>
   </header>
 
-  <div id="gallery-container">
-    <div id="slides">
-      <div class="media-container" *ngFor="let media of mediaElements; index as index">
-        <img *ngIf="isImage(media)"
-             [src]="serverURL+media.url"
-             [alt]="'IMG_'+index">
-        <video *ngIf="isVideo(media)" controls>
-          <source [src]="serverURL+media.url" [type]="media.mime">
-        </video>
-        </div>
-    </div>
-    <div id="thumbnails">
-      <div *ngFor="let media of mediaElements; index as i"
-           [class.highlighted]="currentMediaIndex == i"
-           (click)="scrollToMedia(i)">
-      </div>
-    </div>
-  </div>
+  <media-viewer [mediaElements]="mediaElements"
+                [isModeChangeable]="true"></media-viewer>
 </div>
 
 <div id="text-container" *ngIf="blogPost">

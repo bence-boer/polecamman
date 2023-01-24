@@ -21,6 +21,8 @@ import {ComingSoonComponent} from "./pages/coming-soon/coming-soon.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./services/token.interceptor";
+import { MediaViewerComponent } from './components/media-viewer/media-viewer.component';
+import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import {TokenInterceptor} from "./services/token.interceptor";
     BlogPostComponent,
     PageNotFoundComponent,
     AboutMeComponent,
+    MediaViewerComponent,
+    LazyLoadImagesDirective,
   ],
   imports: [
     BrowserModule,
