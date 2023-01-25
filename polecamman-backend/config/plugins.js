@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = ({ env }) => {
   return {
     ckeditor: true,
     slugify: {
@@ -7,11 +7,15 @@ module.exports = () => {
         contentTypes: {
           "blog-post": {
             field: 'slug',
-            references: 'title'
+            references: 'title',
+            slugifyWithCount: true,
+            shouldUpdateSlug: true
           },
-          "album": {
+          album: {
             field: 'slug',
-            references: 'title'
+            references: 'title',
+            slugifyWithCount: true,
+            shouldUpdateSlug: true
           },
         },
       },

@@ -21,13 +21,7 @@ export class BlogPostService {
   }
 
   getPostBySlug(slug: string){
-    return this.getPostByID(this.findPostIDBySlug(slug));
-    //return (this.httpClient.get(environment.serverURL+'/api/slugify/slugs/blog-posts/'+slug+'?populate=media') as Observable<ApiResponse<BlogPost>>).pipe(map(v=>v.data!));
-  }
-
-  private findPostIDBySlug(slug: string){
-    let id = 1;
-    return id;
+    return (this.httpClient.get(environment.serverURL+'/api/slugify/slugs/blog-post/'+slug+'?populate=media') as Observable<ApiResponse<BlogPost>>).pipe(map(v=>v.data!));
   }
 }
 

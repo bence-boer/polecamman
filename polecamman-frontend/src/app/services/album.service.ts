@@ -21,12 +21,6 @@ export class AlbumService {
   }
 
   getAlbumBySlug(slug: string){
-    return this.getAlbumByID(this.findAlbumIDBySlug(slug));
-    //return (this.httpClient.get(environment.serverURL+'/api/slugify/slugs/album/'+slug+'?populate=media') as Observable<ApiResponse<Album>>).pipe(map(v=>v.data!));
+    return (this.httpClient.get(environment.serverURL+'/api/slugify/slugs/album/'+slug+'?populate=media') as Observable<ApiResponse<Album>>).pipe(map(v=>v.data!));
   }                                                       //api/slugify/slugs/:modelName/:slug
-
-  private findAlbumIDBySlug(slug: string){
-    let id = 1;
-    return id;
-  }
 }

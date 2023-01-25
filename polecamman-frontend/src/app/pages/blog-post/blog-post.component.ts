@@ -19,8 +19,8 @@ export class BlogPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.paramMap.get('id');
-    this.blogPostService.getPostByID(+id!).subscribe((blogPost) => {
+    let slug = this.route.snapshot.paramMap.get('slug');
+    this.blogPostService.getPostBySlug(slug!).subscribe((blogPost) => {
       this.blogPost = blogPost;
       this.mediaElements = blogPost.attributes.media.data.map((media) => media.attributes);
       this.blogPost.attributes.publishedAt = this.blogPost.attributes.publishedAt.substring(0, 10);

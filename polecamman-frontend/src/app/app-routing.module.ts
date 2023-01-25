@@ -28,7 +28,7 @@ const routes: Routes = [
     ]*/
   },
   {
-    path: 'blog/blog-post/:id',
+    path: 'blog/blog-post/:slug',
     title: 'Blog | Polecamman',
     component: BlogPostComponent,
   },
@@ -38,7 +38,7 @@ const routes: Routes = [
     component: GalleryComponent
   },
   {
-    path: 'gallery/album/:id',
+    path: 'gallery/album/:slug',
     title: 'Gallery | Polecamman',
     component: AlbumComponent
   },
