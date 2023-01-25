@@ -47,5 +47,8 @@ export class ContactsComponent implements OnInit {
     navigator.clipboard.writeText(text);
 
     this.showInfo('Copied to clipboard!');
+    setTimeout(() => {
+      if(this.displayInfo) this.showInfo(text);
+    }, 2000);
   }
 }

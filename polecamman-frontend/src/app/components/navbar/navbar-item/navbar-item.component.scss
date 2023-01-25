@@ -2,10 +2,19 @@
 @use "../../../../sizes";
 
 :host{
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  height: 100%;
+  border-radius: sizes.$border-radius;
+  overflow: clip;
+
+  transition: 0.35s ease-in-out;
+
+  &:hover{
+    backdrop-filter: brightness(1.5);
+  }
 }
 
 a{
@@ -21,12 +30,7 @@ a{
   user-select: none;
   cursor: pointer;
   padding: 0 20px;
-  border-radius: sizes.$border-radius;
   transition: 0.35s ease-in-out;
-
-  &:hover{
-    padding-bottom: 5px;
-  }
 }
 
 .active{

@@ -1,34 +1,36 @@
-<a href="mailto:{{contacts.attributes.email}}"
-   target="_blank"
-   rel="noreferrer noopener"
-   title="Email me!"
-   (mouseenter)="showInfo(contacts.attributes.email)"
-   *ngIf="contacts">
-  <img src="../../../assets/gmail-icon.svg" alt="gmail">
-</a>
-<a href="https://m.me/{{contacts.attributes.messenger}}"
-   target="_blank"
-   rel="noreferrer noopener"
-   title="Message me!"
-   *ngIf="contacts">
-  <img src="../../../assets/messenger-icon.svg" alt="messenger">
-</a>
-<a href="{{contacts.attributes.instagram}}"
-   target="_blank"
-   rel="noreferrer noopener"
-   title="Follow me!"
-   *ngIf="contacts">
-  <img src="../../../assets/instagram-icon.svg" alt="instagram">
-</a>
-<a href="{{contacts.attributes.phone}}"
-   target="_blank"
-   rel="noreferrer noopener"
-   title="Call me!"
-   (mouseenter)="showInfo(contacts.attributes.phone)"
-   *ngIf="contacts">
-  <img src="../../../assets/phone-icon.svg" alt="phone">
+<div id="aligner">
+  <a href="mailto:{{contacts.attributes.email}}"
+     target="_blank"
+     rel="noreferrer noopener"
+     title="Email me!"
+     (mouseenter)="showInfo(contacts.attributes.email)"
+     *ngIf="contacts">
+    <img src="../../../assets/gmail-icon.svg" alt="gmail">
+  </a>
+  <a href="https://m.me/{{contacts.attributes.messenger}}"
+     target="_blank"
+     rel="noreferrer noopener"
+     title="Message me!"
+     *ngIf="contacts">
+    <img src="../../../assets/messenger-icon.svg" alt="messenger">
+  </a>
+  <a href="{{contacts.attributes.instagram}}"
+     target="_blank"
+     rel="noreferrer noopener"
+     title="Follow me!"
+     *ngIf="contacts">
+    <img src="../../../assets/instagram-icon.svg" alt="instagram">
+  </a>
+  <a href="{{contacts.attributes.phone}}"
+     target="_blank"
+     rel="noreferrer noopener"
+     title="Call me!"
+     (mouseenter)="showInfo(contacts.attributes.phone)"
+     *ngIf="contacts">
+    <img src="../../../assets/phone-icon.svg" alt="phone">
+  </a>
 
-</a>
+</div>
 <div id="info"
      title="Copy to clipboard"
      *ngIf="displayInfo"
