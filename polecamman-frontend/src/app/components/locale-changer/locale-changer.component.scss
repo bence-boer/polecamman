@@ -1,0 +1,59 @@
+@use "../../../colors";
+@use "../../../sizes";
+
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  width: fit-content;
+
+  padding: 0 10px;
+  border-radius: sizes.$border-radius;
+
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover .locale-selector {
+    scale: 1;
+  }
+}
+
+.locale-selector {
+  scale: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+  padding: 10px 0;
+
+  background-color: colors.$base-dark;
+  border-radius: sizes.$border-radius;
+
+  transition: scale 0.2s ease-in-out;
+
+  div {
+    width: 100%;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+}
+
+.selected-locale {
+  display: none;
+}

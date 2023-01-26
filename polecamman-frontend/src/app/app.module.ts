@@ -23,6 +23,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./services/token.interceptor";
 import { MediaViewerComponent } from './components/media-viewer/media-viewer.component';
 import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive';
+import { LocaleChangerComponent } from './components/locale-changer/locale-changer.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive
     AboutMeComponent,
     MediaViewerComponent,
     LazyLoadImagesDirective,
+    LocaleChangerComponent,
   ],
   imports: [
     BrowserModule,
