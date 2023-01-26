@@ -10,17 +10,18 @@ import {environment} from "../../environments/environment";
 })
 export class AlbumService {
 
-  constructor(private httpClient: HttpClient) { }
-
-  getAllAlbums(){
-    return (this.httpClient.get(environment.serverURL+'/api/albums?populate=media') as Observable<ApiResponse<Album[]>>).pipe(map(v=>v.data!));
+  constructor(private httpClient: HttpClient) {
   }
 
-  getAlbumByID(id: number){
-    return (this.httpClient.get(environment.serverURL+'/api/albums/'+id+'?populate=media') as Observable<ApiResponse<Album>>).pipe(map(v=>v.data!));
+  getAllAlbums(locale: string) {
+    return (this.httpClient.get(environment.serverURL + '/api/albums?locale=' + locale + '&populate=media') as Observable<ApiResponse<Album[]>>).pipe(map(v => v.data!));
   }
 
-  getAlbumBySlug(slug: string){
-    return (this.httpClient.get(environment.serverURL+'/api/slugify/slugs/album/'+slug+'?populate=media') as Observable<ApiResponse<Album>>).pipe(map(v=>v.data!));
-  }                                                       //api/slugify/slugs/:modelName/:slug
+  getAlbumByID(id: number, locale: string) {
+    return (this.httpClient.get(environment.serverURL + '/api/albums/' + id + '?locale=' + locale + '&populate=media') as Observable<ApiResponse<Album>>).pipe(map(v => v.data!));
+  }
+
+  getAlbumBySlug(slug: string, locale: string) {
+    return (this.httpClient.get(environment.serverURL + '/api/slugify/slugs/album/' + slug + '?locale=' + locale + '&populate=media') as Observable<ApiResponse<Album>>).pipe(map(v => v.data!));
+  }
 }

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Contacts} from "../../data-types/Contacts";
 import {IntroductionService} from "../../services/introduction.service";
 import {Introduction} from "../../data-types/Introduction";
+import {LanguageService} from "../../services/language.service";
 
 @Component({
   selector: 'landing-page',
@@ -11,11 +12,15 @@ import {Introduction} from "../../data-types/Introduction";
 export class LandingComponent implements OnInit {
   @Input() contacts!: Contacts;
   introduction?: Introduction;
-  constructor(private introductionService: IntroductionService) {}
+  language = 'en';
+  constructor(private introductionService: IntroductionService, private languageService: LanguageService) {}
 
   ngOnInit(): void {
-    this.introductionService.getIntroduction().subscribe((introduction) => {
-      this.introduction = introduction;
+    this.languageService.currentLanguage.subscribe((language) => {
+      this.language = language;
+      this.introductionService.getIntroduction(language).subscribe((introduction) => {
+        this.introduction = introduction;
+      });
     });
 
     const toggler = document.getElementById("introduction-toggler")!;

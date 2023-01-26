@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AlbumService} from "../../services/album.service";
 import {Album} from "../../data-types/Album";
+import {LanguageService} from "../../services/language.service";
 
 @Component({
   selector: 'gallery-page',
@@ -9,11 +10,17 @@ import {Album} from "../../data-types/Album";
 })
 export class GalleryComponent implements OnInit {
   albums: Album[] = [];
-  constructor(private albumService: AlbumService) {}
+  language = 'en';
+
+  constructor(private albumService: AlbumService, private languageService: LanguageService) {
+  }
 
   ngOnInit(): void {
-    this.albumService.getAllAlbums().subscribe((albums) => {
-      this.albums = albums.reverse();
+    this.languageService.currentLanguage.subscribe((language) => {
+      this.language = language;
+      this.albumService.getAllAlbums(language).subscribe((albums) => {
+        this.albums = albums.reverse();
+      });
     });
   }
 }

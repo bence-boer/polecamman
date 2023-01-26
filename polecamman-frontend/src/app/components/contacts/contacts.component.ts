@@ -9,7 +9,7 @@ import {ContactService} from "../../services/contact.service";
 })
 export class ContactsComponent implements OnInit {
   @Input() open = true;
-  @Input() contacts!: Contacts;
+  contacts!: Contacts;
   shownInfo: any;
   displayInfo = false;
   infoOpacity = 0;
