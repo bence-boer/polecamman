@@ -56,8 +56,6 @@ $icon-weight: 3px;
 .menu-wrap .menu > div {
   background: colors.$base;
 
-  // height: 40vh;
-
   height: 50vh;
   padding-right: 24px;
   flex-direction: row;
@@ -69,12 +67,10 @@ $icon-weight: 3px;
   border-radius: sizes.$border-radius;
 
   display: flex;
-  // flex-direction: column;
   flex: none;
-  // align-items: center;
   justify-content: center;
 
-  transform: scale(0);
+  scale: 0;
   transform-origin: center center;
   transition: all 0.35s ease-in-out;
 }
@@ -82,13 +78,11 @@ $icon-weight: 3px;
 .menu-wrap .menu > div > div {
   display: flex;
   flex-direction: column;
-  // align-items: center;
 
-   align-items: flex-start;
-   padding: 6vh 0 8vh 3vmax;
+  align-items: flex-start;
+  padding: 6vh 0 8vh 3vmax;
 
   justify-content: center;
-  // padding: 3vh 0;
 
   width: 100%;
   height: 100%;
@@ -98,12 +92,10 @@ $icon-weight: 3px;
 
 #contacts {
   height: fit-content;
-  // width: 100%;
   width: 80px;
   padding: 20px;
 
   display: flex;
-  // flex-direction: row;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -173,19 +165,19 @@ img {
 /* TOGGLED ANIMATION */
 
 .menu-wrap .navigation-toggler:checked + .hamburger > div {
-  transform: rotate(135deg);
+  rotate: 135deg;
 }
 
 /* Turns Lines Into X */
 .menu-wrap .navigation-toggler:checked + .hamburger > div:before,
 .menu-wrap .navigation-toggler:checked + .hamburger > div:after {
   top: 0;
-  transform: rotate(90deg);
+  rotate: 90deg;
 }
 
 /* Rotate On Hover When Checked */
 .menu-wrap .navigation-toggler:checked:hover + .hamburger > div {
-  transform: rotate(225deg);
+  rotate: 225deg;
 }
 
 /* Show Menu */
@@ -197,7 +189,7 @@ img {
 
 /**/
 .menu-wrap .navigation-toggler:checked ~ .menu > div {
-  transform: scale(1);
+  scale: 1;
   transition-duration: 0.35s;
 }
 

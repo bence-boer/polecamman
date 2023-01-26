@@ -14,6 +14,7 @@ export class ContactsComponent implements OnInit, AfterViewInit {
   shownInfo: any;
   displayInfo = false;
   infoOpacity = 0;
+  localeCopy = 'Copy to clipboard';
 
   @ViewChild('aligner') aligner!: ElementRef;
 
@@ -23,6 +24,9 @@ export class ContactsComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.contactService.getContacts().subscribe((contacts) => {
       this.contacts = contacts;
+    });
+    this.languageService.currentLanguage.subscribe((language) => {
+      this.localeCopy = language === 'hu' ? 'Vágólapra másolva!' : 'Copied to clipboard!';
     });
   }
 
@@ -53,10 +57,10 @@ export class ContactsComponent implements OnInit, AfterViewInit {
   }
 
   copyToClipboard(text: string) {
-    if (text == 'Copied to clipboard!') return;
+    if (text === this.localeCopy) return;
     navigator.clipboard.writeText(text);
 
-    this.showInfo('Copied to clipboard!');
+    this.showInfo(this.localeCopy);
     setTimeout(() => {
       if(this.displayInfo) this.showInfo(text);
     }, 2000);

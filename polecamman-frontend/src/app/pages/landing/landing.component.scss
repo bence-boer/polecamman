@@ -50,23 +50,6 @@ blog-page {
   }
 }
 
-#profile {
-  //background-image: url("../../../../assets/profile.png");
-  background-position: bottom;
-  background-size: cover;
-
-  height: 80%;
-  aspect-ratio: 3 / 4;
-
-  position: absolute;
-  left: sizes.$page-padding;
-  bottom: 0;
-}
-
-p{
-  font-weight: 400 !important;
-}
-
 .font-semi-bold {
   font-weight: 600;
 }
@@ -126,10 +109,6 @@ p{
 }
 
 @media only screen and (max-width: 1500px) {
-  #profile {
-    display: none;
-  }
-
   #title {
     bottom: sizes.$navbar-height;
     left: sizes.$navbar-height;
@@ -140,10 +119,6 @@ p{
     border-left: 2px solid colors.$base-light;
     padding-right: sizes.$navbar-height;
     padding-left: 20px;
-
-    &::selection {
-      color: colors.$accent;
-    }
   }
 }
 
@@ -171,7 +146,7 @@ p{
   }
 }
 .toggler-open{
-  transform: scaleY(-1);
+  scale: 1 -1;
 
   &:hover{
     margin-top: 0 !important;
