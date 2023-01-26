@@ -24,6 +24,7 @@ import {TokenInterceptor} from "./services/token.interceptor";
 import { MediaViewerComponent } from './components/media-viewer/media-viewer.component';
 import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive';
 import { LocaleChangerComponent } from './components/locale-changer/locale-changer.component';
+import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { LocaleChangerComponent } from './components/locale-changer/locale-chang
     MediaViewerComponent,
     LazyLoadImagesDirective,
     LocaleChangerComponent,
+    ImageCarouselComponent,
   ],
   imports: [
     BrowserModule,
