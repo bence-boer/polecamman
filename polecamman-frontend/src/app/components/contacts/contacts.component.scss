@@ -71,7 +71,7 @@
       text-transform: uppercase;
       font-weight: 600;
       color: colors.$base-dark;
-      content: "contact";
+      content: var(--aligner-content);
 
       transition: 0.35s ease-in-out;
     }
