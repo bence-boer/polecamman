@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Contacts} from "../../data-types/Contacts";
 import {ContactService} from "../../services/contact.service";
-import {LanguageService} from "../../services/language.service";
+import {LocaleService} from "../../services/locale.service";
 import {Unsubscriber} from "../../utilities/unsubscriber";
 
 @Component({
@@ -20,7 +20,7 @@ export class ContactsComponent extends Unsubscriber implements OnInit, AfterView
 
   @ViewChild('aligner') aligner!: ElementRef;
 
-  constructor(private contactService: ContactService, private languageService: LanguageService) {
+  constructor(private contactService: ContactService, private languageService: LocaleService) {
     super();
   }
 
@@ -28,14 +28,14 @@ export class ContactsComponent extends Unsubscriber implements OnInit, AfterView
     this.subscription = this.contactService.getContacts().subscribe((contacts) => {
       this.contacts = contacts;
     });
-    this.subscription = this.languageService.currentLanguage.subscribe((language) => {
+    this.subscription = this.languageService.currentLocale.subscribe((language) => {
       this.localizedCopyText = language === 'hu' ? 'Vágólapra másolva!' : 'Copied to clipboard!';
       this.localizedNotSupportedText = language === 'hu' ? 'Nem támogatott!' : 'Not supported!';
     });
   }
 
   ngAfterViewInit() {
-    this.subscription = this.languageService.currentLanguage.subscribe((language) => {
+    this.subscription = this.languageService.currentLocale.subscribe((language) => {
       let content = language === 'hu' ? 'Kapcsolat' : 'Contacts';
       this.aligner.nativeElement.style.setProperty('--aligner-content', '"' + content + '"');
     });

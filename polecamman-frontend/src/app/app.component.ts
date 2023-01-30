@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {LanguageService} from "./services/language.service";
-import {LocalesService} from "./services/locales.service";
+import {LocaleService} from "./services/locale.service";
 
 @Component({
   selector: 'app-root',
@@ -10,16 +9,10 @@ import {LocalesService} from "./services/locales.service";
 export class AppComponent implements OnInit{
   title = 'polecamman-frontend';
 
-  constructor(private localesService: LocalesService, private languageService: LanguageService) { }
+  constructor(private localeService: LocaleService) { }
 
   ngOnInit() {
     let browserLang = navigator.language.slice(0,2);
-    this.localesService.getLocales().subscribe((locales) => {
-      if(locales.some((locale) => locale.code === browserLang)){
-        this.languageService.changeLanguage(browserLang);
-        return;
-      }
-      this.languageService.changeLanguage('en');
-    });
+    this.localeService.setLocale(browserLang);
   }
 }

@@ -3,7 +3,7 @@ import {Contacts} from "../../data-types/Contacts";
 import {IntroductionService} from "../../services/introduction.service";
 import {Introduction} from "../../data-types/Introduction";
 import {Unsubscriber} from "../../utilities/unsubscriber";
-import {LanguageService} from "../../services/language.service";
+import {LocaleService} from "../../services/locale.service";
 
 @Component({
   selector: 'landing-page',
@@ -18,12 +18,12 @@ export class LandingComponent extends Unsubscriber implements OnInit, AfterViewI
   language = 'en';
 
   constructor(private introductionService: IntroductionService,
-              private languageService: LanguageService) {
+              private languageService: LocaleService) {
     super();
   }
 
   ngOnInit(): void {
-    this.subscription = this.languageService.currentLanguage.subscribe((language: string) => {
+    this.subscription = this.languageService.currentLocale.subscribe((language: string) => {
       this.language = language;
       this.subscription = this.introductionService.getIntroduction(language).subscribe((introduction) => {
         this.introduction = introduction;

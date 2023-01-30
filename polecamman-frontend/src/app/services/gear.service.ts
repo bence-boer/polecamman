@@ -5,7 +5,7 @@ import {map, Observable} from "rxjs";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {Gear} from "../data-types/Gear";
 import {QueryBuilder} from "../utilities/query.builder";
-import {LanguageService} from "./language.service";
+import {LocaleService} from "./locale.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class GearService {
   locale: string = 'en';
 
   constructor(private httpClient:HttpClient,
-              private languageService: LanguageService) {
-    this.languageService.currentLanguage.subscribe(language => this.locale = language);
+              private languageService: LocaleService) {
+    this.languageService.currentLocale.subscribe(language => this.locale = language);
   }
 
   getGear(locale = this.locale){

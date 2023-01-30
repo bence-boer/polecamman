@@ -4,7 +4,7 @@ import {map, Observable} from "rxjs";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {Album} from "../data-types/Album";
 import {environment} from "../../environments/environment";
-import {LanguageService} from "./language.service";
+import {LocaleService} from "./locale.service";
 import {QueryBuilder} from "../utilities/query.builder";
 
 @Injectable({
@@ -13,8 +13,8 @@ import {QueryBuilder} from "../utilities/query.builder";
 export class AlbumService {
   locale: string = 'en';
 
-  constructor(private httpClient: HttpClient, private languageService: LanguageService) {
-    this.languageService.currentLanguage.subscribe((language) => {
+  constructor(private httpClient: HttpClient, private languageService: LocaleService) {
+    this.languageService.currentLocale.subscribe((language) => {
       this.locale = language;
     });
   }

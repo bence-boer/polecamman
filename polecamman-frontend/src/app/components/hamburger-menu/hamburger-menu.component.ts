@@ -1,5 +1,5 @@
 import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
-import {LanguageService} from "../../services/language.service";
+import {LocaleService} from "../../services/locale.service";
 import {Observable} from "rxjs";
 
 @Component({
@@ -13,8 +13,8 @@ export class HamburgerMenuComponent {
   canClose = false;
   @ViewChild('toggler') toggler!: ElementRef;
 
-  constructor(private languageService: LanguageService) {
-    this.language$ = this.languageService.currentLanguage;
+  constructor(private languageService: LocaleService) {
+    this.language$ = this.languageService.currentLocale;
   }
 
   @HostListener('click') onClick() {

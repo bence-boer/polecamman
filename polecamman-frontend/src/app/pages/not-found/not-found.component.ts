@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LanguageService} from "../../services/language.service";
+import {LocaleService} from "../../services/locale.service";
 import {Unsubscriber} from "../../utilities/unsubscriber";
 import {Router} from "@angular/router";
 
@@ -10,15 +10,22 @@ import {Router} from "@angular/router";
 })
 export class NotFoundComponent extends Unsubscriber implements OnInit {
   language: string = 'en';
+  state: any;
 
-  constructor(private languageService: LanguageService, private router: Router) {
+  constructor(private languageService: LocaleService,
+              private router: Router) {
     super();
-    // @ts-ignore
-    // this.state.console.log(this.router.getCurrentNavigation().extras.state.source);
+    try {
+      // @ts-ignore
+      this.state = this.router.getCurrentNavigation().extras.state;
+    } catch (e) {
+      this.state = {};
+    }
+    console.log(this.state);
   }
 
   ngOnInit(): void {
-    this.subscription = this.languageService.currentLanguage.subscribe((language: string) => {
+    this.subscription = this.languageService.currentLocale.subscribe((language: string) => {
       this.language = language;
     });
   }

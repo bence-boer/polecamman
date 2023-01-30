@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {LanguageService} from "../../services/language.service";
+import {LocaleService} from "../../services/locale.service";
 
 @Component({
   selector: 'coming-soon-page',
@@ -8,10 +8,10 @@ import {LanguageService} from "../../services/language.service";
 })
 export class ComingSoonComponent implements OnInit {
   language = 'en';
-  constructor(private languageService: LanguageService) { }
+  constructor(private languageService: LocaleService) { }
 
   ngOnInit(): void {
-    this.languageService.currentLanguage.subscribe(language => {
+    this.languageService.currentLocale.subscribe(language => {
       this.language = language;
     });
   }

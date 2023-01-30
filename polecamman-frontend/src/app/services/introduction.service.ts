@@ -5,7 +5,7 @@ import {map, Observable} from "rxjs";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {Introduction} from "../data-types/Introduction";
 import {QueryBuilder} from "../utilities/query.builder";
-import {LanguageService} from "./language.service";
+import {LocaleService} from "./locale.service";
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ import {LanguageService} from "./language.service";
 export class IntroductionService {
   locale: string = 'en';
 
-  constructor(private httpClient: HttpClient, private languageService: LanguageService) {
-    this.languageService.currentLanguage.subscribe(locale => this.locale = locale);
+  constructor(private httpClient: HttpClient, private languageService: LocaleService) {
+    this.languageService.currentLocale.subscribe(locale => this.locale = locale);
   }
 
   getIntroduction(locale = this.locale) {

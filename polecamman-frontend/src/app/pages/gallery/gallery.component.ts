@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {AlbumService} from "../../services/album.service";
 import {Album} from "../../data-types/Album";
-import {LanguageService} from "../../services/language.service";
+import {LocaleService} from "../../services/locale.service";
 import {Observable} from "rxjs";
 
 @Component({
@@ -13,8 +13,8 @@ export class GalleryComponent {
   albums$: Observable<Album[]>;
   language$: Observable<string>;
 
-  constructor(private albumService: AlbumService, private languageService: LanguageService) {
+  constructor(private albumService: AlbumService, private languageService: LocaleService) {
     this.albums$ = this.albumService.getAlbums();
-    this.language$ = this.languageService.currentLanguage;
+    this.language$ = this.languageService.currentLocale;
   }
 }

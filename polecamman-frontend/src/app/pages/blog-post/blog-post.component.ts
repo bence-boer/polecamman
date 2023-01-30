@@ -5,8 +5,8 @@ import {BlogPostService} from "../../services/blog-post.service";
 import {environment} from "../../../environments/environment";
 import {MediaElement} from "../../data-types/MediaElement";
 import {Unsubscriber} from "../../utilities/unsubscriber";
-import {catchError, Observable, of} from "rxjs";
-import {LanguageService} from "../../services/language.service";
+import {Observable} from "rxjs";
+import {LocaleService} from "../../services/locale.service";
 
 @Component({
   selector: 'blog-post-page',
@@ -21,36 +21,47 @@ export class BlogPostComponent extends Unsubscriber implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private languageService: LanguageService,
+              private languageService: LocaleService,
               private blogPostService: BlogPostService) {
     super();
-    this.language$ = this.languageService.currentLanguage;
+    this.language$ = this.languageService.currentLocale;
   }
 
   ngOnInit(): void {
+    this.getPost();
+  }
+
+  private getPost() {
     this.subscription = this.route.params.subscribe(params => {
-      this.subscription = this.language$.subscribe((language: string) => {
-        this.subscription = this.blogPostService.getPostBySlug(params['slug'], language)
-          .pipe(catchError(error => {
-            this.router.navigate(['/404'], {
-              skipLocationChange: true,
-              state: {
-                // Whatever data you need on the 404 page
-                source: 'blog-post',
-                error: error
-              }
-            });
-            return of(null);
-          }))
-          .subscribe((blogPost) => {
-            if (!blogPost) {
-              console.log('Blog post not found')
-            } else {
-              this.blogPost = blogPost;
-              this.mediaElements = blogPost.attributes.media.data.map((mediaElement) => mediaElement.attributes);
-            }
-          });
+      this.subscription = this.blogPostService.getPostBySlug(params['slug']).subscribe({
+        next: blogPost => {
+          if (!blogPost) {
+            this.navigateTo404Page();
+          } else {
+            this.blogPost = blogPost;
+            this.mediaElements = BlogPostComponent.extractMedia(blogPost);
+          }
+        },
+        error: error => this.handleError(error)
       });
     });
+  }
+
+  private handleError(error: Error) {
+    this.navigateTo404Page(error);
+  }
+
+  private navigateTo404Page(error?: Error) {
+    this.router.navigate(['/404'], {
+      skipLocationChange: true,
+      state: {
+        source: 'blog-post',
+        error: error
+      }
+    });
+  }
+
+  private static extractMedia(blogPost: BlogPost) {
+    return blogPost.attributes.media.data.map((mediaElement) => mediaElement.attributes);
   }
 }
