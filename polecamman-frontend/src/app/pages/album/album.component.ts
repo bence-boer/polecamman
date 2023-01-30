@@ -13,6 +13,7 @@ import {Unsubscriber} from "../../utilities/unsubscriber";
 })
 export class AlbumComponent extends Unsubscriber implements OnInit {
   album ?: Album;
+  media ?: MediaElement[];
   pictures ?: MediaElement[];
   videos ?: MediaElement[];
   serverURL = environment.serverURL;
@@ -25,8 +26,7 @@ export class AlbumComponent extends Unsubscriber implements OnInit {
     let slug = this.route.snapshot.paramMap.get('slug');
     this.subscription = this.albumService.getAlbumBySlug(slug!).subscribe((album) => {
       this.album = album;
-      this.pictures = album.attributes.media.data.filter((media) => media.attributes.mime.includes("image")).map((media) => media.attributes);
-      this.videos = album.attributes.media.data.filter((media) => media.attributes.mime.includes("video")).map((media) => media.attributes);
+      this.media = album.attributes.media.data.map((media) => media.attributes);
     });
   }
 }

@@ -1,4 +1,6 @@
-import {Component, HostListener, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {LanguageService} from "../../services/language.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'hamburger-menu',
@@ -6,20 +8,24 @@ import {Component, HostListener, ViewChild} from '@angular/core';
   styleUrls: ['./hamburger-menu.component.scss'],
 })
 export class HamburgerMenuComponent {
+  language$: Observable<string>;
   menuOpen = false;
-  @ViewChild('toggler') toggler!: HTMLInputElement;
+  canClose = false;
+  @ViewChild('toggler') toggler!: ElementRef;
 
-  constructor() {
+  constructor(private languageService: LanguageService) {
+    this.language$ = this.languageService.currentLanguage;
   }
 
   @HostListener('click') onClick() {
-    if (this.menuOpen) {
+    if (this.menuOpen && this.canClose) {
       this.menuOpen = false;
-      this.toggler.checked = false;
+      this.toggler.nativeElement.checked = false;
       return;
     }
-    if (this.toggler.checked) {
+    if (this.toggler.nativeElement.checked) {
       this.menuOpen = true;
+      this.canClose = true;
     }
   }
 }

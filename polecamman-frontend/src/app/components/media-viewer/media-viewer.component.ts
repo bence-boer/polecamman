@@ -9,7 +9,7 @@ import {environment} from "../../../environments/environment";
 })
 export class MediaViewerComponent implements AfterViewInit {
   @Input()
-  mediaElements !: MediaElement[];
+  media !: MediaElement[];
   @Input()
   fullScreen = false;
   @Input()
@@ -61,7 +61,7 @@ export class MediaViewerComponent implements AfterViewInit {
   }
 
   nextMedia() {
-    if (this.currentMediaIndex == this.mediaElements.length - 1) {
+    if (this.currentMediaIndex == this.media.length - 1) {
       this.currentMediaIndex = -1;
     }
     this.currentMediaIndex++;
@@ -70,7 +70,7 @@ export class MediaViewerComponent implements AfterViewInit {
 
   previousMedia() {
     if (this.currentMediaIndex == 0) {
-      this.currentMediaIndex = this.mediaElements.length;
+      this.currentMediaIndex = this.media.length;
     }
     this.currentMediaIndex--;
     this.scrollToMedia(this.currentMediaIndex);

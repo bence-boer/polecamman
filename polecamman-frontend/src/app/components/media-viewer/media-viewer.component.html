@@ -1,5 +1,5 @@
 <div id="slides" #slides>
-  <div class="media-container" *ngFor="let media of mediaElements; index as index">
+  <div class="media-container" *ngFor="let media of media; index as index">
     <img *ngIf="isImage(media)"
          [src]="serverURL+media.url"
          [alt]="media.alternativeText">
@@ -8,8 +8,8 @@
     </video>
   </div>
 </div>
-<div *ngIf="mediaElements.length > 1" id="thumbnails" #thumbnails>
-  <div *ngFor="let media of mediaElements; index as i"
+<div *ngIf="media.length > 1" id="thumbnails" #thumbnails>
+  <div *ngFor="let media of media; index as i"
        [class.highlighted]="currentMediaIndex == i"
        (click)="scrollToMedia(i)">
   </div>

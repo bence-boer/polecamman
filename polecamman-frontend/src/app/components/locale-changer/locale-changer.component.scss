@@ -16,10 +16,6 @@
 
   text-transform: uppercase;
   cursor: pointer;
-
-  &:hover .locale-selector {
-    scale: 1;
-  }
 }
 
 .locale-selector {
@@ -41,6 +37,10 @@
   border-radius: sizes.$border-radius;
 
   transition: scale 0.2s ease-in-out;
+
+  &.open{
+    scale: 1;
+  }
 
   div {
     width: 100%;
