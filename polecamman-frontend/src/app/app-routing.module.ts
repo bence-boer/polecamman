@@ -6,7 +6,7 @@ import {GalleryComponent} from "./pages/gallery/gallery.component";
 import {BlogComponent} from "./pages/blog/blog.component";
 import {GearComponent} from "./pages/gear/gear.component";
 import {BlogPostComponent} from "./pages/blog-post/blog-post.component";
-import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
+import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {AlbumComponent} from "./pages/album/album.component";
 import {AboutMeComponent} from "./pages/about-me/about-me.component";
 
@@ -53,9 +53,14 @@ const routes: Routes = [
     component: AboutMeComponent
   },
   {
+    path: '404',
+    title: '404 | Not Found',
+    component: NotFoundComponent
+  },
+  {
     path: '**',
-    title: '404 | Page Not Found',
-    component: PageNotFoundComponent
+    title: '404 | Not Found',
+    component: NotFoundComponent
   }
 ]
 

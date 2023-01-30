@@ -19,9 +19,9 @@ export class AlbumService {
     });
   }
 
-  getAlbums() {
+  getAlbums(locale = this.locale) {
     const url = new QueryBuilder(environment.serverURL, '/api/albums')
-      .setLocale(this.locale)
+      .setLocale(locale)
       .setPopulate('media')
       .setSort('id','desc')
       .setPagination(0,10)
@@ -29,17 +29,17 @@ export class AlbumService {
     return (this.httpClient.get(url) as Observable<ApiResponse<Album[]>>).pipe(map(v => v.data!));
   }
 
-  getAlbumByID(id: number) {
+  getAlbumByID(id: number, locale = this.locale) {
     const url = new QueryBuilder(environment.serverURL, '/api/albums/' + id)
-      .setLocale(this.locale)
+      .setLocale(locale)
       .setPopulate('media')
       .build();
     return (this.httpClient.get(url) as Observable<ApiResponse<Album>>).pipe(map(v => v.data!));
   }
 
-  getAlbumBySlug(slug: string) {
+  getAlbumBySlug(slug: string, locale = this.locale) {
     const url = new QueryBuilder(environment.serverURL, '/api/slugify/slugs/album/' + slug)
-      .setLocale(this.locale)
+      .setLocale(locale)
       .setPopulate('media')
       .build();
     return (this.httpClient.get(url) as Observable<ApiResponse<Album>>).pipe(map(v => v.data!));

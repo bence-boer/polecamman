@@ -17,9 +17,9 @@ export class IntroductionService {
     this.languageService.currentLanguage.subscribe(locale => this.locale = locale);
   }
 
-  getIntroduction() {
+  getIntroduction(locale = this.locale) {
     const url = new QueryBuilder(environment.serverURL, '/api/introduction')
-      .setLocale(this.locale)
+      .setLocale(locale)
       .build();
     return (this.httpClient.get(url) as Observable<ApiResponse<Introduction>>).pipe(map(v => v.data!));
   }

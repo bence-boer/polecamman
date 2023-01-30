@@ -19,27 +19,27 @@ export class BlogPostService {
     });
   }
 
-  getPosts() {
+  getPosts(locale = this.locale) {
     const url = new QueryBuilder(environment.serverURL, '/api/blog-posts')
-      .setLocale(this.locale)
+      .setLocale(locale)
       .setPopulate('media')
-      .setSort('id','desc')
-      .setPagination(0,10)
+      .setSort('id', 'desc')
+      .setPagination(0, 10)
       .build();
     return (this.httpClient.get(url) as Observable<ApiResponse<BlogPost[]>>).pipe(map(v => v.data!));
   }
 
-  getPostByID(id: number) {
+  getPostByID(id: number, locale = this.locale) {
     const url = new QueryBuilder(environment.serverURL, '/api/blog-posts/' + id)
-      .setLocale(this.locale)
+      .setLocale(locale)
       .setPopulate('media')
       .build();
     return (this.httpClient.get(url) as Observable<ApiResponse<BlogPost>>).pipe(map(v => v.data!));
   }
 
-  getPostBySlug(slug: string) {
+  getPostBySlug(slug: string, locale = this.locale) {
     const url = new QueryBuilder(environment.serverURL, '/api/slugify/slugs/blog-post/' + slug)
-      .setLocale(this.locale)
+      .setLocale(locale)
       .setPopulate('media')
       .build();
     return (this.httpClient.get(url) as Observable<ApiResponse<BlogPost>>).pipe(map(v => v.data!));

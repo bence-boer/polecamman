@@ -14,7 +14,7 @@ import {BlogPostComponent} from "./pages/blog-post/blog-post.component";
 import {AboutMeComponent} from "./pages/about-me/about-me.component";
 import {AlbumComponent} from "./pages/album/album.component";
 import {ContactsComponent} from "./components/contacts/contacts.component";
-import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
+import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {LandingComponent} from "./pages/landing/landing.component";
 import {GalleryComponent} from "./pages/gallery/gallery.component";
 import {ComingSoonComponent} from "./pages/coming-soon/coming-soon.component";
@@ -43,7 +43,7 @@ import { ImageCarouselComponent } from './components/image-carousel/image-carous
     ComingSoonComponent,
     AlbumComponent,
     BlogPostComponent,
-    PageNotFoundComponent,
+    NotFoundComponent,
     AboutMeComponent,
     MediaViewerComponent,
     LazyLoadImagesDirective,
