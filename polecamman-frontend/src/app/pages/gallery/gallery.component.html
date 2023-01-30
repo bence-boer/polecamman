@@ -1,5 +1,5 @@
-<h1 *ngIf="language === 'en'">Gallery</h1>
-<h1 *ngIf="language === 'hu'">Galéria</h1>
+<h1 *ngIf="(language$ | async) === 'en'">Gallery</h1>
+<h1 *ngIf="(language$ | async) === 'hu'">Galéria</h1>
   <div id="albums">
-  <album-preview *ngFor="let album of albums" [album]="album"></album-preview>
+  <album-preview *ngFor="let album of (albums$ | async)" [album]="album"></album-preview>
 </div>

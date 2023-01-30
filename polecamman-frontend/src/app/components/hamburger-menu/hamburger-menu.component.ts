@@ -1,50 +1,25 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'hamburger-menu',
   templateUrl: './hamburger-menu.component.html',
   styleUrls: ['./hamburger-menu.component.scss'],
 })
-export class HamburgerMenuComponent implements OnInit {
-  @Input() language!: string;
-  localizedHomeText = 'Home';
-  localizedBlogText = 'Blog';
-  localizedGalleryText = 'Gallery';
-  localizedGearText = 'Gear';
-  constructor() {}
+export class HamburgerMenuComponent {
+  menuOpen = false;
+  @ViewChild('toggler') toggler!: HTMLInputElement;
 
-  ngOnInit(): void {
-    this.setLanguage(this.language);
-    const toggler = document.getElementsByClassName("navigation-toggler")[0] as HTMLInputElement | any;
-    let menuOpen = false;
-    const menu = document.body;
-    menu.addEventListener('click', () => {
-      if(menuOpen){
-        menuOpen = false;
-        toggler.checked = false;
-        return;
-      }
-      if(toggler.checked){
-        menuOpen = true;
-      }
-    });
+  constructor() {
   }
 
-  setLanguage(language: string) {
-    switch (language) {
-      case 'hu':
-        this.localizedHomeText = 'Főoldal';
-        this.localizedBlogText = 'Blog';
-        this.localizedGalleryText = 'Galéria';
-        this.localizedGearText = 'Felszerelés';
-        break;
-      case 'en':
-      default:
-        this.localizedHomeText = 'Home';
-        this.localizedBlogText = 'Blog';
-        this.localizedGalleryText = 'Gallery';
-        this.localizedGearText = 'Gear';
-        break;
+  @HostListener('click') onClick() {
+    if (this.menuOpen) {
+      this.menuOpen = false;
+      this.toggler.checked = false;
+      return;
+    }
+    if (this.toggler.checked) {
+      this.menuOpen = true;
     }
   }
 }

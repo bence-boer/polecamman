@@ -1,7 +1,7 @@
 <div id="post-container" *ngIf="blogPost">
   <header>
     <h1>{{blogPost.attributes.title}}</h1>
-    <div id="date">Published: {{blogPost.attributes.publishedAt}}</div>
+    <div id="date">Published: {{blogPost.attributes.publishedAt.substring(0, 10)}}</div>
   </header>
 
   <media-viewer [mediaElements]="mediaElements"

@@ -13,6 +13,7 @@ export class LocalesService {
   }
 
   getLocales(): Observable<Locale[]> {
-    return (this.httpClient.get(environment.serverURL + '/api/i18n/locales') as Observable<Locale[]>);
+    const url = environment.serverURL + '/api/i18n/locales';
+    return (this.httpClient.get(url) as Observable<Locale[]>);
   }
 }

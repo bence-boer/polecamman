@@ -4,24 +4,44 @@ import {map, Observable} from "rxjs";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {Album} from "../data-types/Album";
 import {environment} from "../../environments/environment";
+import {LanguageService} from "./language.service";
+import {QueryBuilder} from "../utilities/query.builder";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlbumService {
+  locale: string = 'en';
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private languageService: LanguageService) {
+    this.languageService.currentLanguage.subscribe((language) => {
+      this.locale = language;
+    });
   }
 
-  getAllAlbums(locale: string) {
-    return (this.httpClient.get(environment.serverURL + '/api/albums?locale=' + locale + '&populate=media') as Observable<ApiResponse<Album[]>>).pipe(map(v => v.data!));
+  getAlbums() {
+    const url = new QueryBuilder(environment.serverURL, '/api/albums')
+      .setLocale(this.locale)
+      .setPopulate('media')
+      .setSort('id','desc')
+      .setPagination(0,10)
+      .build();
+    return (this.httpClient.get(url) as Observable<ApiResponse<Album[]>>).pipe(map(v => v.data!));
   }
 
-  getAlbumByID(id: number, locale: string) {
-    return (this.httpClient.get(environment.serverURL + '/api/albums/' + id + '?locale=' + locale + '&populate=media') as Observable<ApiResponse<Album>>).pipe(map(v => v.data!));
+  getAlbumByID(id: number) {
+    const url = new QueryBuilder(environment.serverURL, '/api/albums/' + id)
+      .setLocale(this.locale)
+      .setPopulate('media')
+      .build();
+    return (this.httpClient.get(url) as Observable<ApiResponse<Album>>).pipe(map(v => v.data!));
   }
 
-  getAlbumBySlug(slug: string, locale: string) {
-    return (this.httpClient.get(environment.serverURL + '/api/slugify/slugs/album/' + slug + '?locale=' + locale + '&populate=media') as Observable<ApiResponse<Album>>).pipe(map(v => v.data!));
+  getAlbumBySlug(slug: string) {
+    const url = new QueryBuilder(environment.serverURL, '/api/slugify/slugs/album/' + slug)
+      .setLocale(this.locale)
+      .setPopulate('media')
+      .build();
+    return (this.httpClient.get(url) as Observable<ApiResponse<Album>>).pipe(map(v => v.data!));
   }
 }

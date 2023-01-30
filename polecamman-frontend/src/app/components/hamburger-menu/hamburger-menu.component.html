@@ -1,15 +1,15 @@
 <div class="menu-wrap">
-  <input type="checkbox" class="navigation-toggler">
+  <input type="checkbox" class="navigation-toggler" #toggler>
   <div class="hamburger">
     <div></div>
   </div>
   <div class="menu">
     <div>
       <div>
-        <app-navbar-item route="">{{localizedHomeText}}</app-navbar-item>
-        <app-navbar-item route="blog">{{localizedBlogText}}</app-navbar-item>
-        <app-navbar-item route="gallery">{{localizedGalleryText}}</app-navbar-item>
-        <app-navbar-item route="gear">{{localizedGearText}}</app-navbar-item>
+        <app-navbar-item route="">Home</app-navbar-item>
+        <app-navbar-item route="blog">Blog</app-navbar-item>
+        <app-navbar-item route="gallery">Gallery</app-navbar-item>
+        <app-navbar-item route="gear">Gear</app-navbar-item>
       </div>
       <div id="contacts">
         <a href="mailto:polecamman@gmail.com"><img src="../../../assets/gmail-icon.svg" alt="gmail"></a>

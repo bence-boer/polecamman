@@ -1,32 +1,28 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
 import {LanguageService} from "../../services/language.service";
+import {Observable} from "rxjs";
+import {Unsubscriber} from "../../utilities/unsubscriber";
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent extends Unsubscriber implements OnInit {
   scrolled = false;
-  language = 'en';
-  localizedHomeText = 'Home';
-  localizedBlogText = 'Blog';
-  localizedGalleryText = 'Gallery';
-  localizedGearText = 'Gear';
+  language$: Observable<string>;
 
   constructor(private router: Router, private languageService: LanguageService) {
+    super();
+    this.language$ = this.languageService.currentLanguage;
   }
 
   ngOnInit(): void {
-    this.languageService.currentLanguage.subscribe(language => {
-      this.language = language;
-      this.setLanguage(language);
-    });
     let setScrolled = () => {
       this.scrolled = document.body.scrollTop >= window.innerHeight * 0.3;
     }
-    this.router.events.subscribe(event => {
+    this.subscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         if (this.router.url == "/") {
           document.body.addEventListener("scroll", setScrolled);
@@ -37,23 +33,5 @@ export class NavbarComponent implements OnInit {
         }
       }
     });
-  }
-
-  setLanguage(language: string) {
-    switch (language) {
-      case 'hu':
-        this.localizedHomeText = 'Főoldal';
-        this.localizedBlogText = 'Blog';
-        this.localizedGalleryText = 'Galéria';
-        this.localizedGearText = 'Felszerelés';
-        break;
-      case 'en':
-      default:
-        this.localizedHomeText = 'Home';
-        this.localizedBlogText = 'Blog';
-        this.localizedGalleryText = 'Gallery';
-        this.localizedGearText = 'Gear';
-        break;
-    }
   }
 }

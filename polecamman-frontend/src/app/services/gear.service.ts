@@ -13,6 +13,7 @@ export class GearService {
   constructor(private httpClient:HttpClient) { }
 
   getGear(){
-    return (this.httpClient.get(environment.serverURL+'/api/gear') as Observable<ApiResponse<Gear>>).pipe(map(v=>v.data!));
+    const url = environment.serverURL + '/api/gear';
+    return (this.httpClient.get(url) as Observable<ApiResponse<Gear>>).pipe(map(v=>v.data!));
   }
 }

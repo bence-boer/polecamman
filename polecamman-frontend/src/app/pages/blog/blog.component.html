@@ -1,6 +1,6 @@
-<h1 *ngIf="language === 'en'">Blog Posts</h1>
-<h1 *ngIf="language === 'hu'">Blog Bejegyzések</h1>
+<h1 *ngIf="(language$ | async) === 'en'">Blog Posts</h1>
+<h1 *ngIf="(language$ | async) === 'hu'">Blog Bejegyzések</h1>
 <div id="blog-posts">
-  <blog-post-preview *ngFor="let blogPost of posts; index as i" [even]="i%2==0"
+  <blog-post-preview *ngFor="let blogPost of posts$ | async; index as i" [even]="i%2==0"
                      [blogPost]="blogPost"></blog-post-preview>
 </div>

@@ -5,11 +5,11 @@
     <span *ngIf="language === 'hu'">Professzionális<br>Polecam Operatőr</span>
   </div>
 </div>
-<div id="introduction">
+<div id="introduction" #textbox>
   <div *ngIf="introduction" [innerHTML]="introduction.attributes.content">
     <i *ngIf="language === 'en'">Loading content...</i>
     <i *ngIf="language === 'hu'">Tartalom betöltése...</i>
   </div>
-  <div id="introduction-toggler"></div>
+  <div id="introduction-toggler" #toggler></div>
 </div>
 <blog-page></blog-page>

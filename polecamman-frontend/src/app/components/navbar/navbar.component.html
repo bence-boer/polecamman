@@ -1,12 +1,12 @@
 <header [class.scrolled]="scrolled">
   <h2><a routerLink="">Polecamman</a></h2>
   <nav id="nav-horizontal">
-    <app-navbar-item route="">{{localizedHomeText}}</app-navbar-item>
-    <app-navbar-item route="blog">{{localizedBlogText}}</app-navbar-item>
-    <app-navbar-item route="gallery">{{localizedGalleryText}}</app-navbar-item>
-    <app-navbar-item route="gear">{{localizedGearText}}</app-navbar-item>
+    <app-navbar-item route="">{{(language$ | async) === 'en' ? 'Home' : 'Főoldal'}}</app-navbar-item>
+    <app-navbar-item route="blog">Blog</app-navbar-item>
+    <app-navbar-item route="gallery">{{(language$ | async) === 'en' ? 'Gallery' : 'Galéria'}}</app-navbar-item>
+    <app-navbar-item route="gear">{{(language$ | async) === 'en' ? 'Gear' : 'Felszerelés'}}</app-navbar-item>
     <contacts></contacts>
     <locale-changer></locale-changer>
   </nav>
-    <hamburger-menu [language]="language"></hamburger-menu>
+    <hamburger-menu></hamburger-menu>
 </header>

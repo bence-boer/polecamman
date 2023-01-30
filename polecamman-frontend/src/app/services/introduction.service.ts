@@ -4,16 +4,23 @@ import {environment} from "../../environments/environment";
 import {map, Observable} from "rxjs";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {Introduction} from "../data-types/Introduction";
+import {QueryBuilder} from "../utilities/query.builder";
+import {LanguageService} from "./language.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class IntroductionService {
+  locale: string = 'en';
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private languageService: LanguageService) {
+    this.languageService.currentLanguage.subscribe(locale => this.locale = locale);
   }
 
-  getIntroduction(language: string) {
-    return (this.httpClient.get(environment.serverURL + '/api/introduction?locale=' + language) as Observable<ApiResponse<Introduction>>).pipe(map(v => v.data!));
+  getIntroduction() {
+    const url = new QueryBuilder(environment.serverURL, '/api/introduction')
+      .setLocale(this.locale)
+      .build();
+    return (this.httpClient.get(url) as Observable<ApiResponse<Introduction>>).pipe(map(v => v.data!));
   }
 }

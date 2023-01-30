@@ -13,6 +13,7 @@ export class ContactService {
   constructor(private httpClient:HttpClient) { }
 
   getContacts(){
-    return (this.httpClient.get(environment.serverURL+'/api/contact') as Observable<ApiResponse<Contacts>>).pipe(map(v=>v.data!));
+    const url = environment.serverURL + '/api/contact';
+    return (this.httpClient.get(url) as Observable<ApiResponse<Contacts>>).pipe(map(v=>v.data!));
   }
 }
