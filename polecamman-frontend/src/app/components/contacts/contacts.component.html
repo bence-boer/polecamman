@@ -4,7 +4,7 @@
   <a href="mailto:{{contacts.attributes.email}}"
      target="_blank"
      rel="noreferrer noopener"
-     title="Email me!"
+     title="Email me!" i18n-title
      (mouseenter)="showInfo(contacts.attributes.email)"
      *ngIf="contacts">
     <img src="../../../assets/gmail-icon.svg" alt="gmail">
@@ -12,28 +12,28 @@
   <a href="https://m.me/{{contacts.attributes.messenger}}"
      target="_blank"
      rel="noreferrer noopener"
-     title="Message me!"
+     title="Message me!" i18n-title
      *ngIf="contacts">
     <img src="../../../assets/messenger-icon.svg" alt="messenger">
   </a>
   <a href="{{contacts.attributes.instagram}}"
      target="_blank"
      rel="noreferrer noopener"
-     title="Follow me!"
+     title="Follow me!" i18n-title
      *ngIf="contacts">
     <img src="../../../assets/instagram-icon.svg" alt="instagram">
   </a>
   <a href="{{contacts.attributes.phone}}"
      target="_blank"
      rel="noreferrer noopener"
-     title="Call me!"
+     title="Call me!" i18n-title
      (mouseenter)="showInfo(contacts.attributes.phone)"
      *ngIf="contacts">
     <img src="../../../assets/phone-icon.svg" alt="phone">
   </a>
 </div>
 <div id="info"
-     title="Copy to clipboard"
+     title="Copy to clipboard" i18n-title
      *ngIf="displayInfo"
      (click)="copyToClipboard(shownInfo)"
      [ngStyle]="{'opacity': infoOpacity}">

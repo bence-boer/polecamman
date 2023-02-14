@@ -2,7 +2,7 @@
   <div id="post-container" *ngIf="blogPost">
     <header>
       <h1>{{blogPost.attributes.title}}</h1>
-      <div id="date">{{(language$ | async) === 'hu' ? 'Közzétéve' : 'Published'}}: {{blogPost.attributes.publishedAt.substring(0, 10)}}</div>
+      <div i18n id="date">Published: {{blogPost.attributes.publishedAt.substring(0, 10)}}</div>
     </header>
 
     <ng-container *ngIf="mediaElements$ | async as mediaElements">

@@ -1,7 +1,4 @@
-<ng-container *ngIf="(language$ | async) as language">
-  <h1 *ngIf="language === 'en'">Blog Posts</h1>
-  <h1 *ngIf="language === 'hu'">Blog Bejegyzések</h1>
-</ng-container>
+<h1 i18n>Blog Posts</h1>
 <div id="blog-posts">
   <blog-post-preview *ngFor="let blogPost of posts$ | async; even as even" [even]="even"
                      [blogPost]="blogPost"></blog-post-preview>

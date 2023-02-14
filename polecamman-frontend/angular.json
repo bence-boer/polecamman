@@ -4,6 +4,14 @@
   "newProjectRoot": "projects",
   "projects": {
     "polecamman-frontend": {
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "hu": {
+            "translation": "src/locale/messages.hu.xlf"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,6 +25,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": [
+              "hu",
+              "en"
+            ],
             "outputPath": "build",
             "index": "src/index.html",
             "main": "src/main.ts",

@@ -1,10 +1,10 @@
 <header [class.scrolled]="scrolled">
   <h2><a routerLink="">Polecamman</a></h2>
   <nav id="nav-horizontal">
-    <app-navbar-item route="">{{(language$ | async) === 'en' ? 'Home' : 'Főoldal'}}</app-navbar-item>
-    <app-navbar-item route="blog">Blog</app-navbar-item>
-    <app-navbar-item route="gallery">{{(language$ | async) === 'en' ? 'Gallery' : 'Galéria'}}</app-navbar-item>
-    <app-navbar-item route="gear">{{(language$ | async) === 'en' ? 'Gear' : 'Felszerelés'}}</app-navbar-item>
+    <app-navbar-item i18n route="">Home</app-navbar-item>
+    <app-navbar-item i18n route="blog">Blog</app-navbar-item>
+    <app-navbar-item i18n route="gallery">Gallery</app-navbar-item>
+    <app-navbar-item i18n route="gear">Gear</app-navbar-item>
     <contacts></contacts>
     <locale-changer></locale-changer>
   </nav>

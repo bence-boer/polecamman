@@ -2,14 +2,12 @@
   <div id="background-image-container">
     <img id="background-image" src="assets/landing-background.webp" alt="background image">
     <div id="title">
-      <span *ngIf="language === 'en'">Professional<br>Polecam Videographer</span>
-      <span *ngIf="language === 'hu'">Professzionális<br>Polecam Operatőr</span>
+      <span i18n>Professional<br>Polecam Videographer</span>
     </div>
   </div>
   <div id="introduction" #textbox>
     <div *ngIf="introduction$ | async as introduction" [innerHTML]="introduction.attributes.content">
-      <i *ngIf="language === 'en'">Loading content...</i>
-      <i *ngIf="language === 'hu'">Tartalom betöltése...</i>
+      <i i18n>Loading content...</i>
     </div>
     <div id="introduction-toggler" #toggler></div>
   </div>

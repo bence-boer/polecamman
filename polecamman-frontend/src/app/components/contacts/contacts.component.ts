@@ -1,55 +1,34 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, ViewChild} from '@angular/core';
 import {Contacts} from "../../data-types/Contacts";
 import {ContactService} from "../../services/contact.service";
-import {LocaleService} from "../../services/locale.service";
-import {catchError, Observable, retry, Subscription} from "rxjs";
+import {catchError, Observable, retry} from "rxjs";
 
 @Component({
   selector: 'contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss'],
 })
-export class ContactsComponent implements OnInit, AfterViewInit {
+export class ContactsComponent implements AfterViewInit {
   open = true;
   contacts$: Observable<Contacts>;
   shownInfo: any;
   displayInfo = false;
   infoOpacity = 0;
-  localizedCopyText = 'Copy to clipboard';
-  localizedNotSupportedText = 'Not supported';
-  subscriptions: Subscription[] = [];
+  localizedCopyText = $localize`Copied to clipboard`;
+  localizedNotSupportedText = $localize`Not supported`;
 
   @ViewChild('aligner') aligner!: ElementRef;
 
-  constructor(private contactService: ContactService,
-              private languageService: LocaleService) {
+  constructor(private contactService: ContactService) {
     this.contacts$ = this.contactService.getContacts().pipe(
       retry(3),
       catchError(error => ContactsComponent.handleError(error))
     );
   }
 
-  ngOnInit(): void {
-    // TODO: remove this when localization is implemented
-    const subscription = this.languageService.currentLocale.subscribe((language) => {
-      this.localizedCopyText = language === 'hu' ? 'Vágólapra másolva!' : 'Copied to clipboard!';
-      this.localizedNotSupportedText = language === 'hu' ? 'Nem támogatott!' : 'Not supported!';
-    });
-    this.subscriptions.push(subscription);
-  }
-
   ngAfterViewInit() {
-    // TODO: remove this when localization is implemented
-    const subscription = this.languageService.currentLocale.subscribe((language) => {
-      let content = language === 'hu' ? 'Kapcsolat' : 'Contacts';
-      this.aligner.nativeElement.style.setProperty('--aligner-content', '"' + content + '"');
-    });
-    this.subscriptions.push(subscription);
-  }
-
-  ngOnDestroy() {
-    // TODO: remove this when localization is implemented
-    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    const content = $localize`Contacts`;
+    this.aligner.nativeElement.style.setProperty('--aligner-content', '"' + content + '"');
   }
 
   showInfo(info: string) {
@@ -77,12 +56,12 @@ export class ContactsComponent implements OnInit, AfterViewInit {
     navigator.clipboard.writeText(text).then(() => {
       this.showInfo(this.localizedCopyText);
       setTimeout(() => {
-        if(this.displayInfo) this.showInfo(text);
+        if (this.displayInfo) this.showInfo(text);
       }, 2000);
     }, () => {
       this.showInfo(this.localizedNotSupportedText);
       setTimeout(() => {
-        if(this.displayInfo) this.showInfo(text);
+        if (this.displayInfo) this.showInfo(text);
       }, 2000);
     });
   }
