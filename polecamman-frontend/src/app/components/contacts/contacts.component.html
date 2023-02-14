@@ -1,4 +1,6 @@
-<div id="aligner" #aligner>
+<div *ngIf="contacts$ | async as contacts"
+     id="aligner" #aligner>
+
   <a href="mailto:{{contacts.attributes.email}}"
      target="_blank"
      rel="noreferrer noopener"

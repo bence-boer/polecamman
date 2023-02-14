@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, retry} from 'rxjs';
+import {BehaviorSubject, catchError, Observable, of, retry} from 'rxjs';
 import {Locale} from "../data-types/Locale";
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
@@ -17,7 +17,13 @@ export class LocaleService {
     this.locale = new BehaviorSubject<string>(this.availableLocales[0]);
     this.currentLocale = this.locale.asObservable();
 
-    this.getLocales().pipe(retry(3)).subscribe(locales => {
+    this.getLocales().pipe(
+      retry(3),
+      catchError(err => {
+        console.log('Error while fetching locales', err);
+        return of([]);
+      })
+    ).subscribe(locales => {
       this.availableLocales = locales.map(locale => locale.code);
     });
   }

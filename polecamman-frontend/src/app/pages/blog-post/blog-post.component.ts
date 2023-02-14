@@ -1,11 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {BlogPost} from "../../data-types/BlogPost";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BlogPostService} from "../../services/blog-post.service";
 import {environment} from "../../../environments/environment";
 import {MediaElement} from "../../data-types/MediaElement";
-import {Unsubscriber} from "../../utilities/unsubscriber";
-import {Observable} from "rxjs";
+import {catchError, map, Observable, retry, switchMap} from "rxjs";
 import {LocaleService} from "../../services/locale.service";
 
 @Component({
@@ -13,42 +12,31 @@ import {LocaleService} from "../../services/locale.service";
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss']
 })
-export class BlogPostComponent extends Unsubscriber implements OnInit {
+export class BlogPostComponent {
   language$: Observable<string>;
-  blogPost!: BlogPost;
-  mediaElements!: MediaElement[];
+  blogPost$: Observable<BlogPost>;
+  mediaElements$: Observable<MediaElement[]>;
   serverURL = environment.serverURL;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private languageService: LocaleService,
               private blogPostService: BlogPostService) {
-    super();
     this.language$ = this.languageService.currentLocale;
+    this.blogPost$ = this.route.params.pipe(
+      switchMap(params => this.blogPostService.getPostBySlug(params['slug']).pipe(
+        retry(3),
+        catchError(error => this.handleError(error))
+      ))
+    );
+    this.mediaElements$ = this.blogPost$.pipe(
+      map(blogPost => BlogPostComponent.extractMedia(blogPost))
+    );
   }
 
-  ngOnInit(): void {
-    this.getPost();
-  }
-
-  private getPost() {
-    this.subscription = this.route.params.subscribe(params => {
-      this.subscription = this.blogPostService.getPostBySlug(params['slug']).subscribe({
-        next: blogPost => {
-          if (!blogPost) {
-            this.navigateTo404Page();
-          } else {
-            this.blogPost = blogPost;
-            this.mediaElements = BlogPostComponent.extractMedia(blogPost);
-          }
-        },
-        error: error => this.handleError(error)
-      });
-    });
-  }
-
-  private handleError(error: Error) {
+  private handleError(error: Error): Observable<BlogPost> {
     this.navigateTo404Page(error);
+    return new Observable<BlogPost>();
   }
 
   private navigateTo404Page(error?: Error) {
@@ -61,7 +49,7 @@ export class BlogPostComponent extends Unsubscriber implements OnInit {
     });
   }
 
-  private static extractMedia(blogPost: BlogPost) {
+  private static extractMedia(blogPost: BlogPost): MediaElement[] {
     return blogPost.attributes.media.data.map((mediaElement) => mediaElement.attributes);
   }
 }

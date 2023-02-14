@@ -1,20 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {LocaleService} from "../../services/locale.service";
-import {Unsubscriber} from "../../utilities/unsubscriber";
 import {Router} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'not-found-page',
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.scss']
 })
-export class NotFoundComponent extends Unsubscriber implements OnInit {
-  language: string = 'en';
+export class NotFoundComponent {
+  language$: Observable<string>;
   state: any;
 
   constructor(private languageService: LocaleService,
               private router: Router) {
-    super();
+    this.language$ = this.languageService.currentLocale;
     try {
       // @ts-ignore
       this.state = this.router.getCurrentNavigation().extras.state;
@@ -22,11 +22,5 @@ export class NotFoundComponent extends Unsubscriber implements OnInit {
       this.state = {};
     }
     console.log(this.state);
-  }
-
-  ngOnInit(): void {
-    this.subscription = this.languageService.currentLocale.subscribe((language: string) => {
-      this.language = language;
-    });
   }
 }

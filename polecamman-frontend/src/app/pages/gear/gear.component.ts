@@ -1,24 +1,25 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Gear} from "../../data-types/Gear";
 import {GearService} from "../../services/gear.service";
-import {Unsubscriber} from "../../utilities/unsubscriber";
+import {catchError, Observable, retry} from "rxjs";
 
 @Component({
   selector: 'gear-page',
   templateUrl: './gear.component.html',
   styleUrls: ['./gear.component.scss'],
 })
-export class GearComponent extends Unsubscriber implements OnInit {
-  gear ?: Gear;
+export class GearComponent {
+  gear$: Observable<Gear>;
 
   constructor(private gearService: GearService) {
-    super();
+    this.gear$ = this.gearService.getGear().pipe(
+      retry(3),
+      catchError(error => GearComponent.handleError(error))
+    );
   }
 
-  ngOnInit(): void {
-    this.subscription = this.gearService.getGear().subscribe((gear) => {
-        this.gear = gear;
-      }
-    );
+  private static handleError(error: Error): Observable<Gear> {
+    console.error(error);
+    return new Observable<Gear>();
   }
 }

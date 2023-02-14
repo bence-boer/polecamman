@@ -1,5 +1,7 @@
-<div *ngIf="album">
+<ng-container *ngIf="album$ | async as album">
   <h1>{{album.attributes.title}}</h1>
-  <media-viewer [media]="media!"></media-viewer>
-</div>
+  <ng-container *ngIf="media$ | async as media">
+    <media-viewer [media]="media"></media-viewer>
+  </ng-container>
+</ng-container>
 
