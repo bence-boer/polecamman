@@ -22,7 +22,7 @@ export class MediaViewerComponent implements AfterViewInit {
   currentMediaIndex = 0;
   serverURL = environment.serverURL;
 
-  constructor(private ref: ElementRef) {
+  constructor(private host: ElementRef) {
   }
 
   ngAfterViewInit(): void {
@@ -50,7 +50,7 @@ export class MediaViewerComponent implements AfterViewInit {
     });
 
     if(this.isModeChangeable) {
-      this.ref.nativeElement.addEventListener("click", () => {
+      this.host.nativeElement.addEventListener("click", () => {
         this.fullScreen ? this.exitFullScreen() : this.enterFullScreen();
       });
     }
@@ -84,7 +84,7 @@ export class MediaViewerComponent implements AfterViewInit {
   }
 
   setSlideWidth() {
-    this.slideWidth = this.ref.nativeElement.offsetWidth;
+    this.slideWidth = this.host.nativeElement.offsetWidth;
   }
 
   isImage(media: MediaElement) {
@@ -97,13 +97,13 @@ export class MediaViewerComponent implements AfterViewInit {
 
   private enterFullScreen() {
     this.fullScreen = true;
-    this.ref.nativeElement.classList.add("full-screen");
+    this.host.nativeElement.classList.add("full-screen");
     this.setSlideWidth();
   }
 
   private exitFullScreen() {
     this.fullScreen = false;
-    this.ref.nativeElement.classList.remove("full-screen");
+    this.host.nativeElement.classList.remove("full-screen");
     this.setSlideWidth();
   }
 }
