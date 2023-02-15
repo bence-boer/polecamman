@@ -25,6 +25,7 @@ import { MediaViewerComponent } from './components/media-viewer/media-viewer.com
 import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive';
 import { LocaleChangerComponent } from './components/locale-changer/locale-changer.component';
 import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ImageCarouselComponent } from './components/image-carousel/image-carous
     LazyLoadImagesDirective,
     LocaleChangerComponent,
     ImageCarouselComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

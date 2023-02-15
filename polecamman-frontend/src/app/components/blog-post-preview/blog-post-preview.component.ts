@@ -6,7 +6,7 @@ import {MediaElement} from "../../data-types/MediaElement";
 @Component({
   selector: 'blog-post-preview',
   templateUrl: './blog-post-preview.component.html',
-  styleUrls: ['./blog-post-preview.component.scss'],
+  styleUrls: ['./blog-post-preview.component.scss'], // TODO: responsive height
 })
 export class BlogPostPreviewComponent implements OnInit {
   @Input() blogPost !: BlogPost;
