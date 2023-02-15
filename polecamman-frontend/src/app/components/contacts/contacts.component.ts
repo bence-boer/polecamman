@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener} from '@angular/core';
 import {Contacts} from "../../data-types/Contacts";
 import {ContactService} from "../../services/contact.service";
 import {catchError, Observable, retry} from "rxjs";
@@ -17,9 +17,8 @@ export class ContactsComponent implements AfterViewInit {
   localizedCopyText = $localize`Copied to clipboard`;
   localizedNotSupportedText = $localize`Not supported`;
 
-  @ViewChild('aligner') aligner!: ElementRef;
-
-  constructor(private contactService: ContactService) {
+  constructor(private contactService: ContactService,
+              private host: ElementRef) {
     this.contacts$ = this.contactService.getContacts().pipe(
       retry(3),
       catchError(error => ContactsComponent.handleError(error))
@@ -28,7 +27,7 @@ export class ContactsComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     const content = $localize`Contacts`;
-    this.aligner.nativeElement.style.setProperty('--aligner-content', '"' + content + '"');
+    this.host.nativeElement.style.setProperty('--aligner-content', '"' + content + '"');
   }
 
   showInfo(info: string) {

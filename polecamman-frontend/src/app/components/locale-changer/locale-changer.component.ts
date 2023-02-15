@@ -1,5 +1,5 @@
 import {Component, HostListener} from '@angular/core';
-import {LocaleService} from "../../services/locale.service";
+import {LanguageService} from "../../services/language.service";
 
 @Component({
   selector: 'locale-changer',
@@ -7,14 +7,14 @@ import {LocaleService} from "../../services/locale.service";
   styleUrls: ['./locale-changer.component.scss']
 })
 export class LocaleChangerComponent {
-  open = false;
-  changed = false;
+  public open = false;
+  public changed = false;
+  readonly locale = this.languageService.locale;
 
-  constructor(public languageService: LocaleService) {
+  constructor(public languageService: LanguageService) {
   }
 
-  changeLanguage(language: string) {
-    this.languageService.setLocale(language);
+  changeLanguage() {
     this.changed = true;
   }
 

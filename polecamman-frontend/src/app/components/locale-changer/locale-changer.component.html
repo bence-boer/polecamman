@@ -1,10 +1,11 @@
 <div>
-  {{languageService.currentLocale | async}}
+  {{locale}}
 </div>
 <div class="locale-selector" [class.open]="open">
-  <div *ngFor="let language of languageService.availableLocales"
-       (click)="changeLanguage(language)"
-       [class.selected-locale]="language === (languageService.currentLocale | async)">
+  <a *ngFor="let language of languageService.availableLocales"
+     [href]="'http://polecamman.eu/' + language"
+     (click)="changeLanguage()"
+     [class.selected-locale]="language === locale">
     {{language}}
-  </div>
+  </a>
 </div>

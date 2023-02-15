@@ -5,7 +5,6 @@ import {BlogPostService} from "../../services/blog-post.service";
 import {environment} from "../../../environments/environment";
 import {MediaElement} from "../../data-types/MediaElement";
 import {catchError, map, Observable, retry, switchMap} from "rxjs";
-import {LocaleService} from "../../services/locale.service";
 
 @Component({
   selector: 'blog-post-page',
@@ -13,16 +12,13 @@ import {LocaleService} from "../../services/locale.service";
   styleUrls: ['./blog-post.component.scss']
 })
 export class BlogPostComponent {
-  language$: Observable<string>;
   blogPost$: Observable<BlogPost>;
   mediaElements$: Observable<MediaElement[]>;
   serverURL = environment.serverURL;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private languageService: LocaleService,
               private blogPostService: BlogPostService) {
-    this.language$ = this.languageService.currentLocale;
     this.blogPost$ = this.route.params.pipe(
       switchMap(params => this.blogPostService.getPostBySlug(params['slug']).pipe(
         retry(3),

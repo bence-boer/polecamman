@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
-import {LocaleService} from "../../services/locale.service";
-import {Observable} from "rxjs";
 import {Unsubscriber} from "../../utilities/unsubscriber";
 
 @Component({
@@ -11,11 +9,9 @@ import {Unsubscriber} from "../../utilities/unsubscriber";
 })
 export class NavbarComponent extends Unsubscriber implements OnInit {
   scrolled = false;
-  language$: Observable<string>;
 
-  constructor(private router: Router, private languageService: LocaleService) {
+  constructor(private router: Router) {
     super();
-    this.language$ = this.languageService.currentLocale;
   }
 
   ngOnInit(): void {

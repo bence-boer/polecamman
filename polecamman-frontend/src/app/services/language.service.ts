@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject, catchError, Observable, of, retry} from 'rxjs';
+import { Injectable, LOCALE_ID, Inject } from '@angular/core';
+import {catchError, Observable, of, retry} from 'rxjs';
 import {Locale} from "../data-types/Locale";
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
@@ -7,15 +7,12 @@ import {HttpClient} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class LocaleService {
+export class LanguageService {
   availableLocales: string[];
-  private locale: BehaviorSubject<string>;
-  currentLocale: Observable<string>;
 
-  constructor(private httpClient: HttpClient) {
-    this.availableLocales = ['en'];
-    this.locale = new BehaviorSubject<string>(this.availableLocales[0]);
-    this.currentLocale = this.locale.asObservable();
+  constructor(@Inject(LOCALE_ID) readonly locale: string,
+              private httpClient: HttpClient) {
+    this.availableLocales = [locale];
 
     this.getLocales().pipe(
       retry(3),
@@ -31,11 +28,5 @@ export class LocaleService {
   getLocales(): Observable<Locale[]> {
     const url = environment.serverURL + '/api/i18n/locales';
     return (this.httpClient.get(url) as Observable<Locale[]>);
-  }
-
-  setLocale(locale: string): void {
-    if (this.availableLocales.includes(locale)) {
-      this.locale.next(locale);
-    }
   }
 }

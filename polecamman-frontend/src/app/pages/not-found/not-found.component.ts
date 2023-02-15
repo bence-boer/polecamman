@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
-import {LocaleService} from "../../services/locale.service";
 import {Router} from "@angular/router";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'not-found-page',
@@ -9,12 +7,11 @@ import {Observable} from "rxjs";
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent {
-  language$: Observable<string>;
   state: any;
 
-  constructor(private languageService: LocaleService,
-              private router: Router) {
-    this.language$ = this.languageService.currentLocale;
+  constructor(private router: Router) {
+    // TODO: Fix this
+    /*
     try {
       // @ts-ignore
       this.state = this.router.getCurrentNavigation().extras.state;
@@ -22,5 +19,6 @@ export class NotFoundComponent {
       this.state = {};
     }
     console.log(this.state);
+     */
   }
 }

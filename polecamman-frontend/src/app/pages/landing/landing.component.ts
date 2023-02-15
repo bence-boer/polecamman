@@ -2,8 +2,7 @@ import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/c
 import {Contacts} from "../../data-types/Contacts";
 import {IntroductionService} from "../../services/introduction.service";
 import {Introduction} from "../../data-types/Introduction";
-import {LocaleService} from "../../services/locale.service";
-import {catchError, Observable, retry, switchMap} from "rxjs";
+import {catchError, Observable, retry} from "rxjs";
 
 @Component({
   selector: 'landing-page',
@@ -17,16 +16,10 @@ export class LandingComponent implements AfterViewInit {
   language$!: Observable<string>;
   introduction$!: Observable<Introduction>;
 
-  constructor(private introductionService: IntroductionService,
-              private languageService: LocaleService) {
-    this.language$ = this.languageService.currentLocale;
-    this.introduction$ = this.language$.pipe(
-      switchMap((language: string) => {
-        return this.introductionService.getIntroduction(language).pipe(
-          retry(3),
-          catchError(error => LandingComponent.handleError(error))
-        );
-      })
+  constructor(private introductionService: IntroductionService) {
+    this.introduction$ = this.introductionService.getIntroduction().pipe(
+      retry(3),
+      catchError(error => LandingComponent.handleError(error))
     );
   }
 

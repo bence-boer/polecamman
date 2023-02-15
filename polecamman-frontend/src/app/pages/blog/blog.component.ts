@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {BlogPost} from "../../data-types/BlogPost";
 import {BlogPostService} from "../../services/blog-post.service";
-import {LocaleService} from "../../services/locale.service";
 import {catchError, Observable, of, retry} from "rxjs";
 
 @Component({
@@ -11,11 +10,8 @@ import {catchError, Observable, of, retry} from "rxjs";
 })
 export class BlogComponent {
   posts$: Observable<BlogPost[]>;
-  language$: Observable<string>;
 
-  constructor(private languageService: LocaleService,
-              private blogPostService: BlogPostService) {
-    this.language$ = this.languageService.currentLocale;
+  constructor(private blogPostService: BlogPostService) {
     this.posts$ = this.blogPostService.getPosts().pipe(
       retry(3),
       catchError(error => BlogComponent.handleError(error))

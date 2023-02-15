@@ -1,22 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable, LOCALE_ID} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {Album} from "../data-types/Album";
 import {environment} from "../../environments/environment";
-import {LocaleService} from "./locale.service";
 import {QueryBuilder} from "../utilities/query.builder";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlbumService {
-  locale: string = 'en';
-
-  constructor(private httpClient: HttpClient, private languageService: LocaleService) {
-    this.languageService.currentLocale.subscribe((language) => {
-      this.locale = language;
-    });
+  constructor(private httpClient: HttpClient,
+              @Inject(LOCALE_ID) readonly locale: string) {
   }
 
   getAlbums(locale = this.locale) {

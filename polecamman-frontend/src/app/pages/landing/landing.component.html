@@ -1,16 +1,15 @@
-<ng-container *ngIf="language$ | async as language">
-  <div id="background-image-container">
-    <img id="background-image" src="assets/landing-background.webp" alt="background image">
-    <div id="title">
-      <span i18n>Professional<br>Polecam Videographer</span>
-    </div>
+<div id="background-image-container">
+  <img id="background-image" src="assets/landing-background.webp" alt="background image">
+  <div id="title">
+    <span i18n>Professional<br>Polecam Videographer</span>
   </div>
-  <div id="introduction" #textbox>
-    <div *ngIf="introduction$ | async as introduction" [innerHTML]="introduction.attributes.content">
-      <i i18n>Loading content...</i>
-    </div>
-    <div id="introduction-toggler" #toggler></div>
+</div>
+<div id="introduction" #textbox>
+  <div *ngIf="introduction$ | async as introduction" [innerHTML]="introduction.attributes.content">
+    <i i18n>Loading content...</i>
   </div>
-</ng-container>
+  <div id="introduction-toggler" #toggler></div>
+</div>
+
 
 <blog-page></blog-page>
