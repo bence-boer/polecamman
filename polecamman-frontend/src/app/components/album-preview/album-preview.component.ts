@@ -11,6 +11,9 @@ import {MediaElement} from "../../data-types/MediaElement";
 export class AlbumPreviewComponent implements OnInit {
   @Input() album !: Album;
   thumbnail !: MediaElement;
+  multipleMedia = false;
+  containsImage = false;
+  containsVideo = false;
 
   serverURL = environment.serverURL;
 
@@ -18,6 +21,10 @@ export class AlbumPreviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.serverURL = environment.serverURL;
+    if(!this.album.attributes.media.data.length) return;
     this.thumbnail = this.album.attributes.media.data[0].attributes;
+    this.multipleMedia = this.album.attributes.media.data.length > 1;
+    this.containsImage = this.album.attributes.media.data.some(media => media.attributes.mime.includes('image'));
+    this.containsVideo = this.album.attributes.media.data.some(media => media.attributes.mime.includes('video'));
   }
 }

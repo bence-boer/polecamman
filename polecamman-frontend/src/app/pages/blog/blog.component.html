@@ -1,5 +1,15 @@
 <h1 i18n>Blog Posts</h1>
 <div id="blog-posts">
-  <blog-post-preview *ngFor="let blogPost of posts$ | async; even as even" [even]="even"
-                     [blogPost]="blogPost"></blog-post-preview>
+  <ng-container *ngIf="posts$ | async as posts; else loading">
+    <ng-container *ngIf="posts.length; else noPosts">
+      <blog-post-preview *ngFor="let blogPost of posts; even as even" [even]="even"
+                         [blogPost]="blogPost"></blog-post-preview>
+    </ng-container>
+    <ng-template #noPosts>
+      <p i18n>No blog posts yet.</p>
+    </ng-template>
+  </ng-container>
+  <ng-template #loading>
+    <p i18n>Loading...</p>
+  </ng-template>
 </div>

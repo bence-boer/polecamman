@@ -1,6 +1,6 @@
 <div class="blogpost-preview"
      [ngStyle]="even ? {'padding-right':'10%'} : {'flex-direction': 'row-reverse', 'padding-left':'10%'}">
-  <a class="image-container" [routerLink]="'/blog/blog-post/'+blogPost.attributes.slug">
+  <a *ngIf="thumbnail" class="image-container" [routerLink]="'/blog/blog-post/'+blogPost.attributes.slug">
     <img *ngIf="thumbnail.mime.includes('image')"
          class="thumbnail-image"
          [src]="serverURL+thumbnail.formats.medium.url"

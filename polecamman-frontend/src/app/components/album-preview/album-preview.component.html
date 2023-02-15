@@ -3,5 +3,21 @@
   <video *ngIf="thumbnail.mime.includes('video')" class="thumbnail-image">
     <source [src]="serverURL+thumbnail.url" [type]="thumbnail.mime">
   </video>
+
+  <div *ngIf="containsImage || containsVideo || multipleMedia"
+       class="icon-container">
+    <img *ngIf="containsImage && !multipleMedia"
+         src="assets/image-icon.svg"
+         alt="contains_image" i18n-alt
+         class="preview-icon">
+    <img *ngIf="containsVideo"
+         src="assets/video-icon.svg"
+         alt="contains_video" i18n-alt
+         class="preview-icon">
+    <img *ngIf="multipleMedia"
+         src="assets/multiple-images-icon.svg"
+         alt="multiple_images" i18n-alt
+         class="preview-icon">
+  </div>
 </a>
 <h2>{{album.attributes.title}}</h2>
