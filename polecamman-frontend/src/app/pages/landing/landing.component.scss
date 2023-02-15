@@ -85,17 +85,15 @@ blog-page {
   position: absolute;
   bottom: 0;
   left: 40vw;
-  margin-bottom: 10px;
   z-index: 2;
   cursor: pointer;
 
   width: 20vw;
   height: 36px;
 
-  background-image: url("../../../assets/down-arrow-icon.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  display: block;
+  margin: 0 auto 10px;
+  max-width: 100%;
   transition: 0.35s ease-in-out;
 
   &:hover{

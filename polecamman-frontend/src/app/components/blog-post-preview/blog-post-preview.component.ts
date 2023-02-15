@@ -18,6 +18,7 @@ export class BlogPostPreviewComponent implements OnInit {
   containsVideo = false;
 
   ngOnInit(): void {
+    console.log(this.blogPost);
     this.thumbnail = this.blogPost.attributes.media.data[0].attributes;
     this.multipleMedia = this.blogPost.attributes.media.data.length > 1;
     this.containsImage = this.blogPost.attributes.media.data.some(media => media.attributes.mime.includes('image'));

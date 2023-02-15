@@ -8,7 +8,8 @@
   <div *ngIf="introduction$ | async as introduction" [innerHTML]="introduction.attributes.content">
     <i i18n>Loading content...</i>
   </div>
-  <div id="introduction-toggler" #toggler></div>
+  <img id="introduction-toggler" #toggler
+       src="assets/down-arrow-icon.svg" alt="down_arrow">
 </div>
 
 
