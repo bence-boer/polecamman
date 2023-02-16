@@ -20,4 +20,4 @@
          class="preview-icon">
   </div>
 </a>
-<h2>{{album.attributes.title}}</h2>
+<h2 [routerLink]="'/gallery/album/'+album.attributes.slug">{{album.attributes.title}}</h2>

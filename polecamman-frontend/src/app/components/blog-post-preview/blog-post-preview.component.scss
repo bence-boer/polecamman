@@ -78,6 +78,10 @@ $preview-height-desktop: 50vh;
 .post-title {
   font-size: 1.2em;
   font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .post-content {
