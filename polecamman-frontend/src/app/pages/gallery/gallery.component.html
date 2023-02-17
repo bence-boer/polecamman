@@ -1,4 +1,9 @@
 <h1 i18n>Gallery</h1>
   <div id="albums">
-  <album-preview *ngFor="let album of (albums$ | async)" [album]="album"></album-preview>
+    <ng-container *ngIf="(albums$ | async) as albums; else skeletons">
+      <album-preview *ngFor="let album of albums" [album]="album"></album-preview>
+    </ng-container>
+    <ng-template #skeletons>
+      <album-preview *ngFor="let album of [null, null, null, null]" [album]="album"></album-preview>
+    </ng-template>
 </div>

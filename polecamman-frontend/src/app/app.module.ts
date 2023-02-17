@@ -26,6 +26,7 @@ import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive
 import { LocaleChangerComponent } from './components/locale-changer/locale-changer.component';
 import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { SkeletonRect } from './components/skeleton-rect/skeleton-rect.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     LocaleChangerComponent,
     ImageCarouselComponent,
     LoaderComponent,
+    SkeletonRect,
   ],
   imports: [
     BrowserModule,
