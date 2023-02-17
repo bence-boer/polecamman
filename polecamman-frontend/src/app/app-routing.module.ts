@@ -13,12 +13,12 @@ import {AboutMeComponent} from "./pages/about-me/about-me.component";
 const routes: Routes = [
   {
     path: '',
-    title: 'Polecamman | Professional Polecam Videographer',
+    title: $localize`Polecamman | Professional Polecam Videographer`,
     component: LandingComponent
   },
   {
     path: 'blog',
-    title: 'Blog | Polecamman',
+    title: $localize`Blog | Polecamman`,
     component: BlogComponent,
     /*children: [
       {
@@ -29,37 +29,37 @@ const routes: Routes = [
   },
   {
     path: 'blog/blog-post/:slug',
-    title: 'Blog | Polecamman',
+    title: $localize`Blog | Polecamman`,
     component: BlogPostComponent,
   },
   {
     path: 'gallery',
-    title: 'Gallery | Polecamman',
+    title: $localize`Gallery | Polecamman`,
     component: GalleryComponent
   },
   {
     path: 'gallery/album/:slug',
-    title: 'Gallery | Polecamman',
+    title: $localize`Gallery | Polecamman`,
     component: AlbumComponent
   },
   {
     path: 'gear',
-    title: 'Gear | Polecamman',
+    title: $localize`Gear | Polecamman`,
     component: GearComponent
   },
   {
     path: 'about-me',
-    title: 'About Me | Polecamman',
+    title: $localize`About Me | Polecamman`,
     component: AboutMeComponent
   },
   {
     path: '404',
-    title: '404 | Not Found',
+    title: $localize`404 | Not Found`,
     component: NotFoundComponent
   },
   {
     path: '**',
-    title: '404 | Not Found',
+    title: $localize`404 | Not Found`,
     component: NotFoundComponent
   }
 ]
