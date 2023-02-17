@@ -1,8 +1,10 @@
 :host{
   --image-count: 4;
   --image-height: 40vh;
+  --image-height: 40svh;
   --aspect-ratio: 4 / 3;
   --gap: 5vh;
+  --gap: 5svh;
 
   width: fit-content;
   height: var(--image-height);
@@ -13,6 +15,7 @@
   align-items: center;
   gap: var(--gap);
   margin: 10vh 0;
+  margin: 10svh 0;
   animation: cycle 40s linear infinite;
 }
 

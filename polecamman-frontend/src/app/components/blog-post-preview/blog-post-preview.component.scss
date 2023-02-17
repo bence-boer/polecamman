@@ -2,6 +2,7 @@
 @use "../../../sizes";
 
 $preview-height-phone: 50vh;
+$preview-height-phone: 50svh;
 $preview-height-tablet: 50vh;
 $preview-height-desktop: 50vh;
 
@@ -140,11 +141,13 @@ $preview-height-desktop: 50vh;
   .image-container{
     width: 100%;
     flex: 0 0 30vh;
+    flex: 0 0 30svh;
     aspect-ratio: 4 / 3 !important;
   }
 
   .text-container {
     max-height: 20vh;
+    max-height: 20svh;
     width: 100%;
     padding: 0;
   }
