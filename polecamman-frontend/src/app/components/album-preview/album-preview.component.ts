@@ -33,7 +33,7 @@ export class AlbumPreviewComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     window!.addEventListener("load", () => {
-      this.thumbanilLoaded = this.thumbnailImage.nativeElement.complete;
+      this.thumbanilLoaded = this.thumbnailImage?.nativeElement.complete;
     });
   }
 }
