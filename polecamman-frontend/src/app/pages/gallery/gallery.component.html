@@ -1,6 +1,6 @@
 <h1 i18n>Gallery</h1>
   <div id="albums">
-    <ng-container *ngIf="(albums$ | async) as albums; else skeletons">
+    <ng-container *ngIf="albums$ | async as albums; else skeletons">
       <album-preview *ngFor="let album of albums" [album]="album"></album-preview>
     </ng-container>
     <ng-template #skeletons>
