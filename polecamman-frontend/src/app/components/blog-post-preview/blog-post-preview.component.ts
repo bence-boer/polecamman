@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {BlogPost} from "../../data-types/BlogPost";
 import {environment} from "../../../environments/environment";
 import {MediaElement} from "../../data-types/MediaElement";
@@ -8,8 +8,8 @@ import {MediaElement} from "../../data-types/MediaElement";
   templateUrl: './blog-post-preview.component.html',
   styleUrls: ['./blog-post-preview.component.scss'], // TODO: responsive height
 })
-export class BlogPostPreviewComponent implements OnInit {
-  @Input() blogPost !: BlogPost;
+export class BlogPostPreviewComponent{
+  @Input() blogPost !: BlogPost | null;
   thumbnail?: MediaElement;
   @Input() even !: boolean;
   serverURL = environment.serverURL;
@@ -18,8 +18,9 @@ export class BlogPostPreviewComponent implements OnInit {
   containsImage = false;
   containsVideo = false;
 
-  ngOnInit(): void {
-    if(!this.blogPost.attributes.media.data.length) return;
+  ngOnChanges(){
+    if(!this.blogPost) return;
+    if (!this.blogPost.attributes.media.data.length) return;
     this.thumbnail = this.blogPost.attributes.media.data[0].attributes;
     this.multipleMedia = this.blogPost.attributes.media.data.length > 1;
     this.containsImage = this.blogPost.attributes.media.data.some(media => media.attributes.mime.includes('image'));

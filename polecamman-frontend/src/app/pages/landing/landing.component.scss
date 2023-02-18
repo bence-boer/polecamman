@@ -54,9 +54,6 @@ blog-page {
 }
 
 #introduction {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   padding: 40px sizes.$page-padding 50px;
   overflow: hidden;
   overflow: clip;
@@ -82,6 +79,10 @@ blog-page {
     height: 25vh;
     height: 25svh;
     background: linear-gradient(to top, colors.$base-light, rgba(0, 0, 0, 0) 50%);
+  }
+
+  & > div {
+    width: 100%;
   }
 }
 

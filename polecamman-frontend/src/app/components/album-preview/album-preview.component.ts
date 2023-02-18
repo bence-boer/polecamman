@@ -8,7 +8,7 @@ import {MediaElement, MediaFormat} from "../../data-types/MediaElement";
   templateUrl: './album-preview.component.html',
   styleUrls: ['./album-preview.component.scss'],
 })
-export class AlbumPreviewComponent implements OnInit, AfterViewInit {
+export class AlbumPreviewComponent implements AfterViewInit {
   @Input() album !: Album | null;
   albumFirstMedia !: MediaElement;
   thumbnail !: MediaFormat;
@@ -20,13 +20,6 @@ export class AlbumPreviewComponent implements OnInit, AfterViewInit {
   thumbanilLoaded = false;
 
   serverURL = environment.serverURL;
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-    this.serverURL = environment.serverURL;
-  }
 
   ngOnChanges(){
     if(!this.album) return;

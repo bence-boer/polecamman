@@ -5,12 +5,15 @@
   </div>
 </div>
 <div id="introduction" #textbox>
-  <div *ngIf="introduction$ | async as introduction" [innerHTML]="introduction.attributes.content">
-    <i i18n>Loading content...</i>
+  <div *ngIf="introduction$ | async as introduction; else skeletons"
+       [innerHTML]="introduction.attributes.content">
   </div>
+  <ng-template #skeletons style="width: 100%">
+    <skeleton-rect *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+                   mimic="text"></skeleton-rect>
+  </ng-template>
   <img id="introduction-toggler" #toggler
        src="assets/down-arrow-icon.svg" alt="down_arrow">
 </div>
-
 
 <blog-page></blog-page>
