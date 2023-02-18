@@ -1,13 +1,13 @@
 <div class="blogpost-preview"
      [ngStyle]="even ? {'padding-right':'10%'} : {'flex-direction': 'row-reverse', 'padding-left':'10%'}">
   <ng-container *ngIf="blogPost; else skeleton">
-    <a *ngIf="thumbnail" class="image-container" [routerLink]="'/blog/blog-post/'+blogPost.attributes.slug">
-      <img *ngIf="thumbnail.mime.includes('image')"
+    <a *ngIf="media_0" class="image-container" [routerLink]="'/blog/blog-post/'+blogPost.attributes.slug">
+      <img *ngIf="media_0.mime.includes('image') && thumbnail"
            class="thumbnail-image"
-           [src]="serverURL+thumbnail.formats.medium.url"
-           [alt]="thumbnail.caption">
-      <video *ngIf="thumbnail.mime.includes('video')" class="thumbnail-image">
-        <source [src]="serverURL+thumbnail.url" [type]="thumbnail.mime">
+           [src]="serverURL+thumbnail.url"
+           [alt]="media_0.caption">
+      <video *ngIf="media_0.mime.includes('video')" class="thumbnail-image">
+        <source [src]="serverURL+media_0.url" [type]="media_0.mime">
       </video>
 
       <div *ngIf="containsImage || containsVideo || multipleMedia"
