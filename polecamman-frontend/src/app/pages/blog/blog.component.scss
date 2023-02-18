@@ -6,7 +6,7 @@
   flex-direction: column;
   flex-grow: 1;
 
-  background-color: colors.$base;
+  background-color: colors.$primary;
   width: 100vw;
   padding: sizes.$navbar-height sizes.$page-padding 50px;
 }
@@ -16,7 +16,7 @@
   flex-direction: column;
   gap: 5em;
   max-width: 1000px;
-  color: colors.$base-light;
+  color: colors.$neutral-light;
 }
 
 /*

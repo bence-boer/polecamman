@@ -38,8 +38,8 @@ blog-page {
   text-align: right;
   text-transform: uppercase;
 
-  border-right: 2px solid colors.$base-light;
-  color: colors.$base-light;
+  border-right: 2px solid colors.$neutral-light;
+  color: colors.$neutral-light;
   padding-right: 20px;
   padding-left: sizes.$navbar-height;
   overflow-x: hidden;
@@ -61,10 +61,10 @@ blog-page {
   height: 25vh;
   height: 25svh;
 
-  background-color: colors.$base-light;
+  background-color: colors.$neutral-light;
   font-size: 14pt;
   font-weight: 400;
-  color: colors.$base-dark;
+  color: colors.$neutral-dark;
 
   transition: all 0.35s ease-in-out;
 
@@ -78,7 +78,7 @@ blog-page {
     width: 100%;
     height: 25vh;
     height: 25svh;
-    background: linear-gradient(to top, colors.$base-light, rgba(0, 0, 0, 0) 50%);
+    background: linear-gradient(to top, colors.$neutral-light, rgba(0, 0, 0, 0) 50%);
   }
 
   & > div {
@@ -97,13 +97,14 @@ blog-page {
   height: 36px;
 
   display: block;
-  margin: 0 auto 10px;
+  margin: 0 auto;
+  padding-bottom: 10px;
   max-width: 100%;
   transition: 0.35s ease-in-out;
 
   &:hover{
-    margin-top: 5px;
-    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     transition: 0.35s ease-in-out;
   }
 }
@@ -116,7 +117,7 @@ blog-page {
     text-align: left;
 
     border-right: none;
-    border-left: 2px solid colors.$base-light;
+    border-left: 2px solid colors.$neutral-light;
     padding-right: sizes.$navbar-height;
     padding-left: 20px;
   }

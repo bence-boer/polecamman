@@ -70,7 +70,7 @@
 
       text-transform: uppercase;
       font-weight: 600;
-      color: colors.$base-dark;
+      color: colors.$neutral-dark;
       content: var(--aligner-content);
 
       transition: 0.35s ease-in-out;
@@ -90,13 +90,13 @@ img {
 
   transition: translate 0.1s ease-out;
 
-  &:hover {
-    translate: 0 -3px;
-  }
-
   @media only screen and (min-width: sizes.$tablet-view-breakpoint) {
     visibility: visible;
   }
+}
+
+a:hover img{
+  translate: 0 -3px;
 }
 
 #info {
@@ -112,12 +112,12 @@ img {
   justify-content: center;
   align-items: center;
 
-  background: colors.$base-dark;
+  background: colors.$neutral-dark;
   text-align: center;
   font-size: 0.8rem;
   font-weight: 600;
 
-  color: colors.$base-light;
+  color: colors.$neutral-light;
   text-transform: uppercase;
   user-select: none;
 

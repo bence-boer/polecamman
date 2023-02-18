@@ -2,7 +2,7 @@
 @use "src/sizes";
 
 :host{
-  background-color: colors.$base;
+  background-color: colors.$primary;
   flex-grow: 1;
 
   padding-top: 10vh;
@@ -23,7 +23,7 @@ h1{
   }
 }
 h2{
-  color: colors.$base-light;
+  color: colors.$neutral-light;
   animation: opacity 1s;
   filter: drop-shadow(0 0 10px colors.$accent);
 }
