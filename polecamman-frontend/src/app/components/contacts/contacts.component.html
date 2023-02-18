@@ -5,7 +5,6 @@
      target="_blank"
      rel="noreferrer noopener"
      title="Email me!" i18n-title
-     (mouseenter)="showInfo(contacts.attributes.email)"
      *ngIf="contacts">
     <img src="assets/gmail-icon.svg" alt="gmail">
   </a>
@@ -27,15 +26,7 @@
      target="_blank"
      rel="noreferrer noopener"
      title="Call me!" i18n-title
-     (mouseenter)="showInfo(contacts.attributes.phone)"
      *ngIf="contacts">
     <img src="assets/phone-icon.svg" alt="phone">
   </a>
-</div>
-<div id="info"
-     title="Copy to clipboard" i18n-title
-     *ngIf="displayInfo"
-     (click)="copyToClipboard(shownInfo)"
-     [ngStyle]="{'opacity': infoOpacity}">
-  {{shownInfo}}
 </div>
