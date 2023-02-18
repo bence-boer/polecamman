@@ -26,7 +26,6 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "localize": [
-              "hu",
               "en"
             ],
             "outputPath": "build",

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {Album} from "../../data-types/Album";
 import {environment} from "../../../environments/environment";
 import {MediaElement, MediaFormat} from "../../data-types/MediaElement";
@@ -23,7 +23,7 @@ export class AlbumPreviewComponent implements AfterViewInit {
 
   ngOnChanges(){
     if(!this.album) return;
-    if (!this.album.attributes.media.data.length) return;
+    if (!this.album.attributes.media.data?.length) return;
     this.albumFirstMedia = this.album.attributes.media.data[0].attributes;
     this.thumbnail = this.albumFirstMedia.formats?.large;
     this.multipleMedia = this.album.attributes.media.data.length > 1;
