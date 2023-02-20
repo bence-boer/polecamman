@@ -10,7 +10,6 @@ import {NavbarItemComponent} from "./components/navbar/navbar-item/navbar-item.c
 import {AboutMeComponent} from "./pages/about-me/about-me.component";
 import {ContactsComponent} from "./components/navbar/contacts/contacts.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
-import {HomePage} from "./home/home.page";
 import {ComingSoonComponent} from "./pages/coming-soon/coming-soon.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
@@ -25,7 +24,6 @@ import {BlogModule} from "./blog/blog.module";
     NavbarComponent,
     NavbarItemComponent,
     FooterComponent,
-    HomePage,
     GearComponent,
     HamburgerMenuComponent,
     ContactsComponent,
