@@ -28,11 +28,9 @@ export class UiMediaLoaderDirective {
     // Create a skeleton rect component
     const componentRef = this.vcr.createComponent(SkeletonRectComponent);
     // Set the mimic property to image
-    componentRef.instance.mimic = 'image';
+    componentRef.instance.mimic = 'media';
     // Insert the skeleton rect component before the image
     this.renderer.insertBefore(this.el.nativeElement.parentNode, componentRef.location.nativeElement, this.el.nativeElement);
-    // Hide the image
-    this.renderer.setStyle(this.el.nativeElement, 'visibility', 'hidden');
   }
 
   private handleVideo() {
@@ -44,7 +42,7 @@ export class UiMediaLoaderDirective {
     // Create a skeleton rect component
     const componentRef = this.vcr.createComponent(SkeletonRectComponent);
     // Set the mimic property to video
-    componentRef.instance.mimic = 'video';
+    componentRef.instance.mimic = 'media';
     // Insert the skeleton rect component before the video
     this.renderer.insertBefore(this.el.nativeElement.parentNode, componentRef.location.nativeElement, this.el.nativeElement);
   }
@@ -52,8 +50,6 @@ export class UiMediaLoaderDirective {
   // Host listener for if the video thumbnail is loaded
   @HostListener('loadedmetadata')
   onLoadedMetadata() {
-    // Show the video
-    this.renderer.setStyle(this.el.nativeElement, 'visibility', 'visible');
     // Remove the skeleton rect component
     this.vcr.clear();
   }
@@ -61,9 +57,6 @@ export class UiMediaLoaderDirective {
   // Host listener for if the image is loaded
   @HostListener('load')
   onLoad() {
-    // Show the image
-    this.renderer.setStyle(this.el.nativeElement, 'visibility', 'visible');
-    // Remove the skeleton rect component
     this.vcr.clear();
   }
 

@@ -1,6 +1,7 @@
 <div id="slides" #slides>
   <div class="media-container" *ngFor="let media of media; index as index">
     <img *ngIf="isImage(media)"
+         uiMediaLoader
          [src]="serverURL+media.url"
          [alt]="media.alternativeText">
     <video *ngIf="isVideo(media)" controls>

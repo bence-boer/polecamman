@@ -4,6 +4,9 @@
     <album-preview *ngFor="let album of albums$ | async; even as even"
                    [album]="album"></album-preview>
   </ng-container>
+  <ng-container *ngIf="allLoaded">
+    <p i18n style="vertical-align: center">All albums loaded.</p>
+  </ng-container>
   <ng-template [ngSwitch]="problem" #fallback>
     <ng-container *ngSwitchCase="'EMPTY'">
       <p i18n>No albums yet.</p>

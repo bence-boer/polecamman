@@ -19,7 +19,7 @@ export class SkeletonRectComponent {
   position?: "absolute" | "relative" | "fixed" | "sticky" | "static" | "inherit" | "initial" | "unset";
 
   @Input()
-  mimic?: "image" | "video" | "heading" | "text";
+  mimic?: "media" | "heading" | "text";
 
   constructor(private host: ElementRef<HTMLElement>) {
   }
@@ -28,11 +28,7 @@ export class SkeletonRectComponent {
     const host = this.host.nativeElement;
 
     switch (this.mimic) {
-      case "image":
-        this.width = "fill";
-        this.height = "fill";
-        break;
-      case "video":
+      case "media":
         this.width = "fill";
         this.height = "fill";
         this.position = "absolute";

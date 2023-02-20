@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {AlbumService} from "./data-access/album.service";
 import {Album} from "./utils/Album";
-import {catchError, mergeMap, Observable, of, retry, startWith, tap} from "rxjs";
+import {BehaviorSubject, catchError, mergeMap, Observable, retry, tap} from "rxjs";
 
 @Component({
   selector: 'gallery-page',
@@ -9,28 +9,55 @@ import {catchError, mergeMap, Observable, of, retry, startWith, tap} from "rxjs"
   styleUrls: ['./gallery.page.scss'],
 })
 export class GalleryPage {
-  albums$: Observable<Album[]>;
+  albums$: BehaviorSubject<Album[]> = new BehaviorSubject<Album[]>(Array(4).fill(null));
   problem?: 'ERROR' | 'EMPTY';
+  allLoaded = false;
 
   private startWith: number = 4;
   private loadStep: number = 3;
+  private loaded: number = 0;
 
   constructor(private albumService: AlbumService) {
-    this.albums$ = this.albumService.getAlbums().pipe(
-      startWith(Array(this.startWith).fill(null)),
+    let request = this.albumService.getAlbums(0, this.startWith).pipe(
       retry(3),
-      catchError(error => {
-        // TODO: handleError()
-        this.problem = 'ERROR';
-        console.error(error);
-        return of([] as Album[]);
-      }),      tap(albums => {
-        if (albums.length == 0) this.problem = 'EMPTY';
-      })
+      catchError(error => this.handleError(error))
     );
+
+    this.albums$.pipe(
+      mergeMap(albums => request.pipe(
+        tap(newAlbums => {
+          albums.splice(0, albums.length, ...newAlbums);
+          this.loaded += newAlbums.length;
+        }),
+        catchError(error => this.handleError(error))
+      ))
+    ).subscribe();
   }
 
   getMoreAlbums(): void {
+    if (this.allLoaded) return;
+    let request = this.albumService.getAlbums(this.loaded, this.loadStep).pipe(
+      retry(3),
+      catchError(error => this.handleError(error))
+    );
+
+    this.albums$.pipe(
+      // push loadStep nulls to the end of the array
+      mergeMap(albums => {
+        albums.push(...Array(this.loadStep).fill(null));
+        return request.pipe(
+          tap(newAlbums => {
+            albums.splice(albums.length - this.loadStep, this.loadStep, ...newAlbums);
+            this.loaded += newAlbums.length;
+            if (newAlbums.length < this.loadStep) this.allLoaded = true;
+          }),
+          catchError(error => this.handleError(error))
+        );
+      })
+    ).subscribe();
+
+
+    /*
     this.albums$ = this.albums$.pipe(
       mergeMap(albums => {
         return this.albumService.getAlbums(albums.length, this.loadStep).pipe(
@@ -45,6 +72,7 @@ export class GalleryPage {
       }),
       catchError(error => this.handleError(error))
     );
+     */
   }
 
   private handleError(error: Error): Observable<Album[]> {
