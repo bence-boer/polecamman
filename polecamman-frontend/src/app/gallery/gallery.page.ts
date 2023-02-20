@@ -9,16 +9,16 @@ import {BehaviorSubject, catchError, mergeMap, Observable, retry, tap} from "rxj
   styleUrls: ['./gallery.page.scss'],
 })
 export class GalleryPage {
-  albums$: BehaviorSubject<Album[]> = new BehaviorSubject<Album[]>(Array(4).fill(null));
-  problem?: 'ERROR' | 'EMPTY';
-  allLoaded = false;
-
-  private startWith: number = 4;
+  private firstLoad: number = 4;
   private loadStep: number = 3;
   private loaded: number = 0;
 
+  albums$: BehaviorSubject<Album[]> = new BehaviorSubject<Album[]>(Array(this.firstLoad).fill(null));
+  problem?: 'ERROR' | 'EMPTY';
+  allLoaded = false;
+
   constructor(private albumService: AlbumService) {
-    let request = this.albumService.getAlbums(0, this.startWith).pipe(
+    let request = this.albumService.getAlbums(0, this.firstLoad).pipe(
       retry(3),
       catchError(error => this.handleError(error))
     );
@@ -61,7 +61,7 @@ export class GalleryPage {
     this.albums$ = this.albums$.pipe(
       mergeMap(albums => {
         return this.albumService.getAlbums(albums.length, this.loadStep).pipe(
-          startWith(albums.concat(Array(this.loadStep).fill(null))),
+          firstLoad(albums.concat(Array(this.loadStep).fill(null))),
           catchError(error => {
             // TODO: handleError()
             console.error(error);
@@ -79,9 +79,5 @@ export class GalleryPage {
     console.error(error);
     this.problem = 'ERROR';
     return new Observable<Album[]>();
-  }
-
-  onScrollingFinished() {
-    this.getMoreAlbums();
   }
 }

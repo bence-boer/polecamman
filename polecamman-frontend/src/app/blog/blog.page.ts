@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {BlogPost} from "./utils/BlogPost";
 import {BlogPostService} from "./data-access/blog-post.service";
-import {catchError, mergeMap, Observable, of, retry, startWith, tap} from "rxjs";
+import {BehaviorSubject, catchError, mergeMap, Observable, retry, tap} from "rxjs";
 
 @Component({
   selector: 'blog-page',
@@ -9,42 +9,53 @@ import {catchError, mergeMap, Observable, of, retry, startWith, tap} from "rxjs"
   styleUrls: ['./blog.page.scss'],
 })
 export class BlogPage {
-  posts$: Observable<BlogPost[]>;
-  problem?: 'ERROR' | 'EMPTY';
-
-  private startWith: number = 3;
+  private firstLoad: number = 3;
   private loadStep: number = 3;
+  private loaded: number = 0;
+
+  posts$: BehaviorSubject<BlogPost[]> = new BehaviorSubject<BlogPost[]>(Array(this.firstLoad).fill(null));
+  problem?: 'ERROR' | 'EMPTY';
+  allLoaded = false;
 
   constructor(private blogPostService: BlogPostService) {
-    this.posts$ = this.blogPostService.getPosts(this.startWith, this.loadStep).pipe(
-      startWith(Array(this.startWith).fill(null)),
+    let request = this.blogPostService.getPosts(0, this.firstLoad).pipe(
       retry(3),
-      catchError(error => {
-        this.problem = 'ERROR';
-        console.error(error);
-        return of([] as BlogPost[]);
-      }),
-      tap(posts => {
-        if (posts.length == 0) this.problem = 'EMPTY';
-      })
+      catchError(error => this.handleError(error))
     );
+
+    this.posts$.pipe(
+      mergeMap(posts => request.pipe(
+        tap(newPosts => {
+          posts.splice(0, posts.length, ...newPosts);
+          this.loaded += newPosts.length;
+          if (newPosts.length < this.firstLoad) this.allLoaded = true;
+        }),
+        catchError(error => this.handleError(error))
+      ))
+    ).subscribe();
   }
 
   getMorePosts(): void {
-    this.posts$ = this.posts$.pipe(
-      mergeMap(posts => {
-        return this.blogPostService.getPosts(posts.length, this.loadStep).pipe(
-          startWith(posts.concat(Array(this.loadStep).fill(null))),
-          catchError(error => {
-            // TODO: handleError()
-            this.problem = 'ERROR';
-            console.error(error);
-            return of(posts);
-          })
-        );
-      }),
+    if (this.allLoaded) return;
+    let request = this.blogPostService.getPosts(this.loaded, this.loadStep).pipe(
+      retry(3),
       catchError(error => this.handleError(error))
     );
+
+    this.posts$.pipe(
+      // push loadStep nulls to the end of the array
+      mergeMap(posts => {
+        posts.push(...Array(this.loadStep).fill(null));
+        return request.pipe(
+          tap(newPosts => {
+            posts.splice(posts.length - this.loadStep, this.loadStep, ...newPosts);
+            this.loaded += newPosts.length;
+            if (newPosts.length < this.loadStep) this.allLoaded = true;
+          }),
+          catchError(error => this.handleError(error))
+        );
+      })
+    ).subscribe();
   }
 
   private handleError(error: Error): Observable<BlogPost[]> {

@@ -5,9 +5,10 @@
   flex-direction: column;
 
   width: 100%;
-  height: 100%;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
 
-  padding: 15vmax 10vw;
   background-color: colors.$neutral-dark;
   font-size: 10vw;
   font-weight: 800;

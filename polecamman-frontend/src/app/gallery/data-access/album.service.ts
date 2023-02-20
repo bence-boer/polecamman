@@ -13,7 +13,7 @@ export class AlbumService {
               @Inject(LOCALE_ID) readonly locale: string) {
   }
 
-  getAlbums(start: number = 0, limit: number = 4): Observable<Album[]> {
+  getAlbums(start: number, limit: number): Observable<Album[]> {
     const url = `${environment.serverURL}/api/albums`;
     let queryParams = new HttpParams()
       .append("locale", this.locale)

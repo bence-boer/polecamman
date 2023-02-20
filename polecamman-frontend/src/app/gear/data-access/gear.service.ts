@@ -13,7 +13,7 @@ export class GearService {
               @Inject(LOCALE_ID) readonly locale: string) {
   }
 
-  getGearItems(start: number = 0, limit: number = 5): Observable<GearItem[]> {
+  getGearItems(start: number, limit: number): Observable<GearItem[]> {
     const url = `${environment.serverURL}/api/gears`;
     let queryParams = new HttpParams()
       .append("locale", this.locale)

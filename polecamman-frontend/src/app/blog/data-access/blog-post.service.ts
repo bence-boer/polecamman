@@ -13,7 +13,7 @@ export class BlogPostService {
               @Inject(LOCALE_ID) readonly locale: string,) {
   }
 
-  getPosts(start: number = 0, limit: number = 4): Observable<BlogPost[]> {
+  getPosts(start: number, limit: number): Observable<BlogPost[]> {
     const url = `${environment.serverURL}/api/blog-posts`;
 
     let queryParams = new HttpParams()
