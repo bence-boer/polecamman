@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import {Contacts} from "../../../shared/utils/Contacts";
-import {ContactService} from "../../../shared/data-access/contact.service";
+import {Contacts} from "../../utils/Contacts";
+import {ContactService} from "../../data-access/contact.service";
 import {catchError, Observable, retry} from "rxjs";
 
 @Component({

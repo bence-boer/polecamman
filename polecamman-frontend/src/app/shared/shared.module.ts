@@ -8,6 +8,12 @@ import {ScrollTrackerDirective} from "./utils/scroll-tracker.directive";
 import {UiMediaLoaderDirective} from "./utils/ui-media-loader.directive";
 import {ImageCarouselComponent} from "./ui/image-carousel/image-carousel.component";
 import {LocaleChangerComponent} from "./feature/locale-changer/locale-changer.component";
+import {NavbarComponent} from "./feature/navbar/navbar.component";
+import {NavbarItemComponent} from "./feature/navbar/navbar-item/navbar-item.component";
+import {ContactsComponent} from "./feature/contacts/contacts.component";
+import {FooterComponent} from "./ui/footer/footer.component";
+import {HamburgerMenuComponent} from "./feature/hamburger-menu/hamburger-menu.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -18,10 +24,16 @@ import {LocaleChangerComponent} from "./feature/locale-changer/locale-changer.co
     ScrollTrackerDirective,
     UiMediaLoaderDirective,
     ImageCarouselComponent,
-    LocaleChangerComponent
+    LocaleChangerComponent,
+    NavbarComponent,
+    NavbarItemComponent,
+    HamburgerMenuComponent,
+    ContactsComponent,
+    FooterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     MediaViewerComponent,
@@ -31,7 +43,12 @@ import {LocaleChangerComponent} from "./feature/locale-changer/locale-changer.co
     ScrollTrackerDirective,
     UiMediaLoaderDirective,
     ImageCarouselComponent,
-    LocaleChangerComponent
+    LocaleChangerComponent,
+    NavbarComponent,
+    NavbarItemComponent,
+    HamburgerMenuComponent,
+    ContactsComponent,
+    FooterComponent
   ]
 })
 export class SharedModule {
