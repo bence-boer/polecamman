@@ -1,67 +1,45 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import {HamburgerMenuComponent} from "./components/hamburger-menu/hamburger-menu.component";
+import {AppComponent} from './app.component';
+import {HamburgerMenuComponent} from "./shared/feature/hamburger-menu/hamburger-menu.component";
 import {GearComponent} from "./pages/gear/gear.component";
-import {AlbumPreviewComponent} from "./components/album-preview/album-preview.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {FooterComponent} from "./components/footer/footer.component";
-import {BlogComponent} from "./pages/blog/blog.component";
-import {BlogPostPreviewComponent} from "./components/blog-post-preview/blog-post-preview.component";
 import {NavbarItemComponent} from "./components/navbar/navbar-item/navbar-item.component";
-import {BlogPostComponent} from "./pages/blog-post/blog-post.component";
 import {AboutMeComponent} from "./pages/about-me/about-me.component";
-import {AlbumComponent} from "./pages/album/album.component";
-import {ContactsComponent} from "./components/contacts/contacts.component";
+import {ContactsComponent} from "./components/navbar/contacts/contacts.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
-import {LandingComponent} from "./pages/landing/landing.component";
-import {GalleryComponent} from "./pages/gallery/gallery.component";
+import {HomePage} from "./home/home.page";
 import {ComingSoonComponent} from "./pages/coming-soon/coming-soon.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./services/token.interceptor";
-import { MediaViewerComponent } from './components/media-viewer/media-viewer.component';
-import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive';
-import { LocaleChangerComponent } from './components/locale-changer/locale-changer.component';
-import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
-import { SkeletonRect } from './components/skeleton-rect/skeleton-rect.component';
-import { TooltipComponent } from './components/tooltip/tooltip.component';
-import { ScrollTrackerDirective } from './directives/scroll-tracker.directive';
-import { UiMediaLoaderDirective } from './directives/ui-media-loader.directive';
+import {SharedModule} from './shared/shared.module';
+import { HomeModule } from './home/home.module';
+import {BlogModule} from "./blog/blog.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     NavbarItemComponent,
-    BlogPostPreviewComponent,
     FooterComponent,
-    GalleryComponent,
-    LandingComponent,
+    HomePage,
     GearComponent,
-    BlogComponent,
     HamburgerMenuComponent,
-    AlbumPreviewComponent,
     ContactsComponent,
     ComingSoonComponent,
-    AlbumComponent,
-    BlogPostComponent,
     NotFoundComponent,
     AboutMeComponent,
-    MediaViewerComponent,
-    LazyLoadImagesDirective,
-    LocaleChangerComponent,
-    ImageCarouselComponent,
-    SkeletonRect,
-    TooltipComponent,
-    ScrollTrackerDirective,
-    UiMediaLoaderDirective,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    HomeModule,
+    BlogModule
   ],
   providers: [
     {
@@ -70,6 +48,8 @@ import { UiMediaLoaderDirective } from './directives/ui-media-loader.directive';
       multi: true,
     }
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

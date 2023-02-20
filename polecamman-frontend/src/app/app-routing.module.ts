@@ -1,46 +1,27 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
-import {LandingComponent} from "./pages/landing/landing.component";
+import {HomePage} from "./home/home.page";
 import {BrowserModule} from "@angular/platform-browser";
-import {GalleryComponent} from "./pages/gallery/gallery.component";
-import {BlogComponent} from "./pages/blog/blog.component";
 import {GearComponent} from "./pages/gear/gear.component";
-import {BlogPostComponent} from "./pages/blog-post/blog-post.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
-import {AlbumComponent} from "./pages/album/album.component";
 import {AboutMeComponent} from "./pages/about-me/about-me.component";
 
 const routes: Routes = [
   {
     path: '',
     title: $localize`Polecamman | Professional Polecam Videographer`,
-    component: LandingComponent
+    component: HomePage,
+    pathMatch: 'full'
   },
   {
     path: 'blog',
     title: $localize`Blog | Polecamman`,
-    component: BlogComponent,
-    /*children: [
-      {
-        path: 'list',
-        component: BlogPostComponent
-      }
-    ]*/
-  },
-  {
-    path: 'blog/blog-post/:slug',
-    title: $localize`Blog | Polecamman`,
-    component: BlogPostComponent,
+    loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
   },
   {
     path: 'gallery',
     title: $localize`Gallery | Polecamman`,
-    component: GalleryComponent
-  },
-  {
-    path: 'gallery/album/:slug',
-    title: $localize`Gallery | Polecamman`,
-    component: AlbumComponent
+    loadChildren: () => import('./gallery/gallery.module').then(m => m.GalleryModule)
   },
   {
     path: 'gear',
