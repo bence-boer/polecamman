@@ -1,5 +1,6 @@
-import { Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {slideInAnimation} from "./animations";
+import {ChildrenOutletContexts} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,13 @@ import {slideInAnimation} from "./animations";
     slideInAnimation
   ]
 })
-export class AppComponent{
+export class AppComponent {
   title = 'polecamman-frontend';
+
+  constructor(private contexts: ChildrenOutletContexts) {
+  }
+
+  getRouteAnimationData() {
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
+  }
 }

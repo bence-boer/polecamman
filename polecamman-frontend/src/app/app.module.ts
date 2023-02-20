@@ -11,6 +11,7 @@ import {TokenInterceptor} from "./shared/utils/token.interceptor";
 import {SharedModule} from './shared/shared.module';
 import {HomeModule} from './home/home.module';
 import {BlogModule} from "./blog/blog.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {BlogModule} from "./blog/blog.module";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     SharedModule,

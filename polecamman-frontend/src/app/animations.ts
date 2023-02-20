@@ -2,8 +2,8 @@ import {animate, animateChild, group, query, style, transition, trigger} from "@
 
 export const slideInAnimation =
   trigger('routeAnimations', [
-    transition('HomePage <=> AboutPage', [
-      style({ position: 'relative' }),
+    transition('HomePage <=> BlogPage', [
+      style({position: 'relative'}),
       query(':enter, :leave', [
         style({
           position: 'absolute',
@@ -13,20 +13,21 @@ export const slideInAnimation =
         })
       ]),
       query(':enter', [
-        style({ left: '-100%' })
+        style({left: '-100%'})
       ]),
       query(':leave', animateChild()),
       group([
         query(':leave', [
-          animate('300ms ease-out', style({ left: '100%' }))
+          animate('300ms ease-out', style({left: '100%'}))
         ]),
         query(':enter', [
-          animate('300ms ease-out', style({ left: '0%' }))
+          animate('300ms ease-out', style({left: '0%'}))
         ]),
       ]),
     ]),
+    // zoom in/out animation
     transition('* <=> *', [
-      style({ position: 'relative' }),
+      style({position: 'relative'}),
       query(':enter, :leave', [
         style({
           position: 'absolute',
@@ -36,15 +37,15 @@ export const slideInAnimation =
         })
       ]),
       query(':enter', [
-        style({ left: '-100%' })
+        style({left: '-100%'})
       ]),
       query(':leave', animateChild()),
       group([
         query(':leave', [
-          animate('200ms ease-out', style({ left: '100%', opacity: 0 }))
+          animate('200ms ease-out', style({left: '100%'}))
         ]),
         query(':enter', [
-          animate('300ms ease-out', style({ left: '0%' }))
+          animate('300ms ease-out', style({left: '0%'}))
         ]),
         query('@*', animateChild())
       ]),
