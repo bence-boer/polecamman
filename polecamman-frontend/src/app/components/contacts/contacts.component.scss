@@ -98,30 +98,3 @@ img {
 a:hover img{
   translate: 0 -3px;
 }
-
-#info {
-  position: absolute;
-  top: 100%;
-
-  width: 100%;
-  padding: 1em;
-  border-radius: sizes.$border-radius;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background: colors.$neutral-dark;
-  text-align: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-
-  color: colors.$neutral-light;
-  text-transform: uppercase;
-  user-select: none;
-
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.35s ease-in-out;
-}

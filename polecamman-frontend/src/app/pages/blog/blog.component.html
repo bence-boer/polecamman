@@ -1,16 +1,15 @@
 <h1 i18n>Blog Posts</h1>
 <div id="blog-posts">
-  <ng-container *ngIf="posts$ | async as posts; else skeletons">
-    <ng-container *ngIf="posts.length; else noPosts">
-      <blog-post-preview *ngFor="let blogPost of posts; even as even" [even]="even"
-                         [blogPost]="blogPost"></blog-post-preview>
-    </ng-container>
-    <ng-template #noPosts>
-      <p i18n>No blog posts yet.</p>
-    </ng-template>
+  <ng-container *ngIf="posts$ | async as posts; else fallback">
+      <blog-post-preview *ngFor="let blogPost of posts$ | async; even as even"
+                         [blogPost]="blogPost" [even]="even"></blog-post-preview>
   </ng-container>
-  <ng-template #skeletons>
-    <blog-post-preview *ngFor="let blogPost of [null, null, null]; even as even" [even]="even"
-                       [blogPost]="blogPost"></blog-post-preview>
+  <ng-template [ngSwitch]="problem" #fallback>
+    <ng-container *ngSwitchCase="'EMPTY'">
+      <p i18n>No blog posts yet.</p>
+    </ng-container>
+    <ng-container *ngSwitchCase="'ERROR'">
+      <p i18n>Blog posts couldn't be loaded.</p>
+    </ng-container>
   </ng-template>
 </div>

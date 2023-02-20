@@ -1,42 +1,46 @@
 import {Inject, Injectable, LOCALE_ID} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {Album} from "../data-types/Album";
 import {environment} from "../../environments/environment";
-import {QueryBuilder} from "../utilities/query.builder";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlbumService {
-  constructor(private httpClient: HttpClient,
+  constructor(private http: HttpClient,
               @Inject(LOCALE_ID) readonly locale: string) {
   }
 
-  getAlbums(locale = this.locale) {
-    const url = new QueryBuilder(environment.serverURL, '/api/albums')
-      .setLocale(locale)
-      .setPopulate('media')
-      .setSort('id','desc')
-      .setPagination(0,10)
-      .build();
-    return (this.httpClient.get(url) as Observable<ApiResponse<Album[]>>).pipe(map(v => v.data!));
+  getAlbums(start: number = 0, limit: number = 4): Observable<Album[]> {
+    const url = `${environment.serverURL}/api/albums`;
+    let queryParams = new HttpParams()
+      .append("locale", this.locale)
+      .append("populate", "media")
+      .append("sort[0]", "id:desc")
+      .append("pagination[start]", start.toString())
+      .append("pagination[limit]", limit.toString());
+
+    return this.http.get<ApiResponse<Album[]>>(url, {params: queryParams})
+      .pipe(map(v => v.data!));
   }
 
   getAlbumByID(id: number, locale = this.locale) {
-    const url = new QueryBuilder(environment.serverURL, '/api/albums/' + id)
-      .setLocale(locale)
-      .setPopulate('media')
-      .build();
-    return (this.httpClient.get(url) as Observable<ApiResponse<Album>>).pipe(map(v => v.data!));
+    const url = `${environment.serverURL}/api/albums/${id}`;
+    let queryParams = new HttpParams()
+      .append("locale", locale)
+      .append("populate", "media");
+
+    return this.http.get<ApiResponse<Album>>(url, {params: queryParams}).pipe(map(v => v.data!));
   }
 
   getAlbumBySlug(slug: string, locale = this.locale) {
-    const url = new QueryBuilder(environment.serverURL, '/api/slugify/slugs/album/' + slug)
-      .setLocale(locale)
-      .setPopulate('media')
-      .build();
-    return (this.httpClient.get(url) as Observable<ApiResponse<Album>>).pipe(map(v => v.data!));
+    const url = `${environment.serverURL}/api/slugify/slugs/album/${slug}`;
+    let queryParams = new HttpParams()
+      .append("locale", locale)
+      .append("populate", "media");
+
+    return this.http.get<ApiResponse<Album>>(url, {params: queryParams}).pipe(map(v => v.data!));
   }
 }

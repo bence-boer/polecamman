@@ -1,42 +1,49 @@
 import {Inject, Injectable, LOCALE_ID} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {BlogPost} from "../data-types/BlogPost";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {environment} from "../../environments/environment";
-import {QueryBuilder} from "../utilities/query.builder";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogPostService {
-  constructor(private httpClient: HttpClient,
+  constructor(private http: HttpClient,
               @Inject(LOCALE_ID) readonly locale: string,) {
   }
 
-  getPosts() {
-    const url = new QueryBuilder(environment.serverURL, '/api/blog-posts')
-      .setLocale(this.locale)
-      .setPopulate('media')
-      .setSort('id', 'desc')
-      .setPagination(0, 10)
-      .build();
-    return (this.httpClient.get(url) as Observable<ApiResponse<BlogPost[]>>).pipe(map(v => v.data!));
+  getPosts(start: number = 0, limit: number = 4): Observable<BlogPost[]> {
+    const url = `${environment.serverURL}/api/blog-posts`;
+
+    let queryParams = new HttpParams()
+      .append("locale", this.locale)
+      .append("populate", "media")
+      .append("sort[0]", "id:desc")
+      .append("pagination[start]", start.toString())
+      .append("pagination[limit]", limit.toString());
+
+    return this.http.get<ApiResponse<BlogPost[]>>(url, {params: queryParams})
+      .pipe(map(v => v.data!));
   }
 
   getPostByID(id: number) {
-    const url = new QueryBuilder(environment.serverURL, '/api/blog-posts/' + id)
-      .setLocale(this.locale)
-      .setPopulate('media')
-      .build();
-    return (this.httpClient.get(url) as Observable<ApiResponse<BlogPost>>).pipe(map(v => v.data!));
+    const url = `${environment.serverURL}/api/blog-posts/${id}`;
+    let queryParams = new HttpParams()
+      .append("locale", this.locale)
+      .append("populate", "media");
+
+    return this.http.get<ApiResponse<BlogPost>>(url, {params: queryParams})
+      .pipe(map(v => v.data!));
   }
 
   getPostBySlug(slug: string) {
-    const url = new QueryBuilder(environment.serverURL, '/api/slugify/slugs/blog-post/' + slug)
-      .setLocale(this.locale)
-      .setPopulate('media')
-      .build();
-    return (this.httpClient.get(url) as Observable<ApiResponse<BlogPost>>).pipe(map(v => v.data!));
+    const url = `${environment.serverURL}/api/slugify/slugs/blog-post/${slug}`;
+    let queryParams = new HttpParams()
+      .append("locale", this.locale)
+      .append("populate", "media");
+
+    return this.http.get<ApiResponse<BlogPost>>(url, {params: queryParams})
+      .pipe(map(v => v.data!));
   }
 }

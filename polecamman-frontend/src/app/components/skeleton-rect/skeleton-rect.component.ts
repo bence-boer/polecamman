@@ -16,7 +16,10 @@ export class SkeletonRect {
   aspectRatio?: string;
 
   @Input()
-  mimic?: "image" | "heading" | "text";
+  position?: "absolute" | "relative" | "fixed" | "sticky" | "static" | "inherit" | "initial" | "unset";
+
+  @Input()
+  mimic?: "image" | "video" | "heading" | "text";
 
   constructor(private host: ElementRef<HTMLElement>) {
   }
@@ -28,6 +31,11 @@ export class SkeletonRect {
       case "image":
         this.width = "fill";
         this.height = "fill";
+        break;
+      case "video":
+        this.width = "fill";
+        this.height = "fill";
+        this.position = "absolute";
         break;
       case "heading":
         this.width = "fill";
@@ -45,6 +53,7 @@ export class SkeletonRect {
 
     host.style.width = this.finalize(this.width);
     host.style.height = this.finalize(this.height);
+    host.style.position = this.position ?? "relative";
     host.style.aspectRatio = this.aspectRatio ?? "unset";
   }
 

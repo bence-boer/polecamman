@@ -4,9 +4,13 @@
     <a *ngIf="media_0" class="image-container" [routerLink]="'/blog/blog-post/'+blogPost.attributes.slug">
       <img *ngIf="media_0.mime.includes('image') && thumbnail"
            class="thumbnail-image"
+           uiMediaLoader
            [src]="serverURL+thumbnail.url"
            [alt]="media_0.caption">
-      <video *ngIf="media_0.mime.includes('video')" class="thumbnail-image">
+      <video *ngIf="media_0.mime.includes('video')"
+             uiMediaLoader
+             preload="metadata"
+             class="thumbnail-image">
         <source [src]="serverURL+media_0.url" [type]="media_0.mime">
       </video>
 

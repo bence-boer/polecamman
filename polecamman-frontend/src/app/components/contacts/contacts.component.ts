@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {Contacts} from "../../data-types/Contacts";
 import {ContactService} from "../../services/contact.service";
 import {catchError, Observable, retry} from "rxjs";
@@ -9,6 +9,8 @@ import {catchError, Observable, retry} from "rxjs";
   styleUrls: ['./contacts.component.scss'],
 })
 export class ContactsComponent implements AfterViewInit {
+  @ViewChild('mail') mail!: ElementRef;
+  @ViewChild('phone') phone!: ElementRef;
   open = true;
   contacts$: Observable<Contacts>;
 

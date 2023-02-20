@@ -27,6 +27,8 @@ import { LocaleChangerComponent } from './components/locale-changer/locale-chang
 import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
 import { SkeletonRect } from './components/skeleton-rect/skeleton-rect.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
+import { ScrollTrackerDirective } from './directives/scroll-tracker.directive';
+import { UiMediaLoaderDirective } from './directives/ui-media-loader.directive';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
     ImageCarouselComponent,
     SkeletonRect,
     TooltipComponent,
+    ScrollTrackerDirective,
+    UiMediaLoaderDirective,
   ],
   imports: [
     BrowserModule,

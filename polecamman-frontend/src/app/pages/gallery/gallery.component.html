@@ -1,14 +1,15 @@
 <h1 i18n>Gallery</h1>
-  <div id="albums">
-    <ng-container *ngIf="albums$ | async as albums; else skeletons">
-      <ng-container *ngIf="albums.length; else noAlbums">
-        <album-preview *ngFor="let album of albums" [album]="album"></album-preview>
-      </ng-container>
-      <ng-template #noAlbums>
-        <p i18n>No albums yet</p>
-      </ng-template>
+<div id="albums" scrollTracker (scrollingFinished)="onScrollingFinished()">
+  <ng-container *ngIf="albums$ | async as albums; else fallback">
+    <album-preview *ngFor="let album of albums$ | async; even as even"
+                   [album]="album"></album-preview>
+  </ng-container>
+  <ng-template [ngSwitch]="problem" #fallback>
+    <ng-container *ngSwitchCase="'EMPTY'">
+      <p i18n>No albums yet.</p>
     </ng-container>
-    <ng-template #skeletons>
-      <album-preview *ngFor="let album of [null, null, null, null]" [album]="album"></album-preview>
-    </ng-template>
+    <ng-container *ngSwitchCase="'ERROR'">
+      <p i18n>Albums couldn't be loaded.</p>
+    </ng-container>
+  </ng-template>
 </div>
