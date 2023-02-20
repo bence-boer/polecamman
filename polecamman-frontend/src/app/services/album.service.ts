@@ -22,6 +22,7 @@ export class AlbumService {
       .append("pagination[start]", start.toString())
       .append("pagination[limit]", limit.toString());
 
+    // TODO: Error handling
     return this.http.get<ApiResponse<Album[]>>(url, {params: queryParams})
       .pipe(map(v => v.data!));
   }
@@ -32,7 +33,9 @@ export class AlbumService {
       .append("locale", locale)
       .append("populate", "media");
 
-    return this.http.get<ApiResponse<Album>>(url, {params: queryParams}).pipe(map(v => v.data!));
+    // TODO: Error handling
+    return this.http.get<ApiResponse<Album>>(url, {params: queryParams})
+      .pipe(map(v => v.data!));
   }
 
   getAlbumBySlug(slug: string, locale = this.locale) {
@@ -41,6 +44,8 @@ export class AlbumService {
       .append("locale", locale)
       .append("populate", "media");
 
-    return this.http.get<ApiResponse<Album>>(url, {params: queryParams}).pipe(map(v => v.data!));
+    // TODO: Error handling
+    return this.http.get<ApiResponse<Album>>(url, {params: queryParams})
+      .pipe(map(v => v.data!));
   }
 }

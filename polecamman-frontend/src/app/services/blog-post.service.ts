@@ -23,6 +23,7 @@ export class BlogPostService {
       .append("pagination[start]", start.toString())
       .append("pagination[limit]", limit.toString());
 
+    // TODO: Error handling
     return this.http.get<ApiResponse<BlogPost[]>>(url, {params: queryParams})
       .pipe(map(v => v.data!));
   }
@@ -33,6 +34,7 @@ export class BlogPostService {
       .append("locale", this.locale)
       .append("populate", "media");
 
+    // TODO: Error handling
     return this.http.get<ApiResponse<BlogPost>>(url, {params: queryParams})
       .pipe(map(v => v.data!));
   }
@@ -43,6 +45,7 @@ export class BlogPostService {
       .append("locale", this.locale)
       .append("populate", "media");
 
+    // TODO: Error handling
     return this.http.get<ApiResponse<BlogPost>>(url, {params: queryParams})
       .pipe(map(v => v.data!));
   }

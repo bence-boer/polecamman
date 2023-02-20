@@ -1,10 +1,9 @@
 import {Inject, Injectable, LOCALE_ID} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {map, Observable} from "rxjs";
+import {map} from "rxjs";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {Introduction} from "../data-types/Introduction";
-import {QueryBuilder} from "../utilities/query.builder";
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +14,12 @@ export class IntroductionService {
   }
 
   getIntroduction(locale = this.locale) {
-    const url = new QueryBuilder(environment.serverURL, '/api/introduction')
-      .setLocale(locale)
-      .build();
-    return (this.httpClient.get(url) as Observable<ApiResponse<Introduction>>).pipe(map(v => v.data!));
+    const url = `${environment.serverURL}/api/introduction`;
+    const queryParams = new HttpParams()
+      .set('locale', locale);
+
+    // TODO: Error handling
+    return this.httpClient.get<ApiResponse<Introduction>>(url, {params: queryParams})
+      .pipe(map(v => v.data!));
   }
 }

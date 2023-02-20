@@ -1,10 +1,9 @@
 import {Inject, Injectable, LOCALE_ID} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {map, Observable} from "rxjs";
+import {map} from "rxjs";
 import {ApiResponse} from "../data-types/ApiResponse";
 import {Gear} from "../data-types/Gear";
-import {QueryBuilder} from "../utilities/query.builder";
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +13,14 @@ export class GearService {
               @Inject(LOCALE_ID) readonly locale: string) {
   }
 
-  getGear(locale = this.locale){
-    const url = new QueryBuilder(environment.serverURL, '/api/gear')
-      .setLocale(locale)
-      .setPopulate('media')
-      .build();
-    return (this.httpClient.get(url) as Observable<ApiResponse<Gear>>).pipe(map(v=>v.data!));
+  getGear(locale = this.locale) {
+    const url = `${environment.serverURL}/api/gear?locale=${locale}&populate=media`;
+    const queryParams = new HttpParams()
+      .set('locale', locale)
+      .set('populate', 'media');
+
+    // TODO: Error handling
+    return this.httpClient.get<ApiResponse<Gear>>(url, {params: queryParams})
+      .pipe(map(v => v.data!));
   }
 }
