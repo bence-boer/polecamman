@@ -1,5 +1,5 @@
 <h1 i18n>Blog Posts</h1>
-<div id="blog-posts" scrollTracker (scrollingFinished)="getMorePosts()">
+<div id="blog-posts" scrollTracker [complete]="allLoaded" (scrollingFinished)="getMorePosts()">
   <ng-container *ngIf="posts$ | async as posts; else fallback">
       <blog-post-preview *ngFor="let blogPost of posts$ | async; even as even"
                          [blogPost]="blogPost" [even]="even"></blog-post-preview>

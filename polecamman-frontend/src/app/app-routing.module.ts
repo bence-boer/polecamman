@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {HomePage} from "./home/home.page";
 import {BrowserModule} from "@angular/platform-browser";
@@ -47,7 +47,18 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(
+      routes, {
+        scrollPositionRestoration: 'enabled',
+        scrollOffset: [0, 0],
+        anchorScrolling: 'enabled',
+        urlUpdateStrategy: 'eager'
+      }
+    )
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

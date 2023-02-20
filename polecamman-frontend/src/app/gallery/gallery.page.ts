@@ -36,6 +36,7 @@ export class GalleryPage {
 
   getMoreAlbums(): void {
     if (this.allLoaded) return;
+    if(this.albums$.value[this.albums$.value.length - 1] == null) return;
     let request = this.albumService.getAlbums(this.loaded, this.loadStep).pipe(
       retry(3),
       catchError(error => this.handleError(error))
