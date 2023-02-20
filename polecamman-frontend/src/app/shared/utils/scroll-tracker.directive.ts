@@ -1,24 +1,38 @@
-import {Directive, Output, EventEmitter, OnInit} from '@angular/core';
+import {Directive, Output, EventEmitter, OnInit, Input, OnChanges, OnDestroy} from '@angular/core';
 
 @Directive({
   selector: '[scrollTracker]'
 })
-export class ScrollTrackerDirective implements OnInit {
+export class ScrollTrackerDirective implements OnInit, OnChanges, OnDestroy {
   @Output() scrollingFinished = new EventEmitter<void>();
+  @Input() finished = false;
   emitted = false;
 
   ngOnInit() {
-    document.body.addEventListener('scroll', () => {
-      if (this.emitted) return;
-      if (document.body.scrollTop + window.innerHeight < document.body.scrollHeight - 200) return;
+    document.body.addEventListener('scroll', () => this.monitorScroll());
+  }
 
-      this.emitted = true;
-      setTimeout(() => {
-        this.emitted = false;
-        this.scrollingFinished.emit();
+  monitorScroll() {
+    if (this.emitted) return;
+    if (document.body.scrollTop + window.innerHeight < document.body.scrollHeight - 200) return;
 
-      }, 400);
-    });
+    this.emitted = true;
+    setTimeout(() => {
+      this.emitted = false;
+      this.scrollingFinished.emit();
+    }, 400);
+  }
+
+  ngOnChanges() {
+    if (this.finished) {
+      // remove event listener
+      document.body.removeEventListener('scroll', () => this.monitorScroll());
+    }
+  }
+
+  ngOnDestroy() {
+    // remove event listener
+    document.body.removeEventListener('scroll', () => this.monitorScroll());
   }
 
   /*

@@ -1,11 +1,8 @@
 <h1 i18n>Gallery</h1>
-<div id="albums" scrollTracker (scrollingFinished)="getMoreAlbums()">
+<div id="albums" scrollTracker [finished]="allLoaded" (scrollingFinished)="getMoreAlbums()">
   <ng-container *ngIf="albums$ | async as albums; else fallback">
     <album-preview *ngFor="let album of albums$ | async; even as even"
                    [album]="album"></album-preview>
-  </ng-container>
-  <ng-container *ngIf="allLoaded">
-    <p i18n style="vertical-align: center">All albums loaded.</p>
   </ng-container>
   <ng-template [ngSwitch]="problem" #fallback>
     <ng-container *ngSwitchCase="'EMPTY'">
