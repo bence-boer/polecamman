@@ -3,7 +3,7 @@ import {BlogPost} from "../../utils/BlogPost";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BlogPostService} from "../../data-access/blog-post.service";
 import {environment} from "../../../../environments/environment";
-import {MediaElement} from "../../../data-types/MediaElement";
+import {MediaElement} from "../../../shared/utils/MediaElement";
 import {catchError, map, Observable, retry, switchMap} from "rxjs";
 
 @Component({

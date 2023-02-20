@@ -1,4 +1,4 @@
-import {MediaElement} from "../../data-types/MediaElement";
+import {MediaElement} from "../../shared/utils/MediaElement";
 
 export interface BlogPost {
   attributes: {

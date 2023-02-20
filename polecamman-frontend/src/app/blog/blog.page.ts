@@ -16,7 +16,7 @@ export class BlogPage {
   private loadStep: number = 3;
 
   constructor(private blogPostService: BlogPostService) {
-    this.posts$ = this.blogPostService.getPosts().pipe(
+    this.posts$ = this.blogPostService.getPosts(this.startWith, this.loadStep).pipe(
       startWith(Array(this.startWith).fill(null)),
       retry(3),
       catchError(error => {

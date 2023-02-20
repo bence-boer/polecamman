@@ -1,9 +1,9 @@
-import {MediaElement} from "./MediaElement";
+import {MediaElement} from "../../shared/utils/MediaElement";
 
-export interface Album{
+export interface GearItem {
+  // TODO: Check if this is correct
   attributes:{
-    title: string,
-    slug: string,
+    content: string,
     media: {
       data: {
         attributes: MediaElement

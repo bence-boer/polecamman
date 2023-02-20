@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {HomePage} from "./home/home.page";
 import {BrowserModule} from "@angular/platform-browser";
-import {GearComponent} from "./pages/gear/gear.component";
-import {NotFoundComponent} from "./pages/not-found/not-found.component";
-import {AboutMeComponent} from "./pages/about-me/about-me.component";
+import {NotFoundPage} from "./pages/not-found/not-found.page";
+import {AboutMePage} from "./pages/about-me/about-me.page";
+import {ComingSoonPage} from "./pages/coming-soon/coming-soon.page";
 
 const routes: Routes = [
   {
@@ -26,22 +26,23 @@ const routes: Routes = [
   {
     path: 'gear',
     title: $localize`Gear | Polecamman`,
-    component: GearComponent
+    component: ComingSoonPage
+    //loadChildren: () => import('./gear/gear.module').then(m => m.GearModule)
   },
   {
     path: 'about-me',
     title: $localize`About Me | Polecamman`,
-    component: AboutMeComponent
+    component: AboutMePage
   },
   {
     path: '404',
     title: $localize`404 | Not Found`,
-    component: NotFoundComponent
+    component: NotFoundPage
   },
   {
     path: '**',
     title: $localize`404 | Not Found`,
-    component: NotFoundComponent
+    component: NotFoundPage
   }
 ]
 

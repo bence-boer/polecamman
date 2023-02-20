@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {AlbumService} from "./data-access/album.service";
-import {Album} from "../data-types/Album";
+import {Album} from "./utils/Album";
 import {catchError, mergeMap, Observable, of, retry, startWith, tap} from "rxjs";
 
 @Component({

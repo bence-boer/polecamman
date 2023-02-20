@@ -2,8 +2,8 @@ import {Inject, Injectable, LOCALE_ID} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {map} from "rxjs";
-import {ApiResponse} from "../../data-types/ApiResponse";
-import {Introduction} from "../../data-types/Introduction";
+import {ApiResponse} from "../../shared/utils/ApiResponse";
+import {Introduction} from "../utils/Introduction";
 
 @Injectable({
   providedIn: 'root'

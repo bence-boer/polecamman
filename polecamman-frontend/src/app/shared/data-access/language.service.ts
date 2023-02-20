@@ -1,6 +1,6 @@
 import {Injectable, LOCALE_ID, Inject} from '@angular/core';
 import {catchError, Observable, of, retry} from 'rxjs';
-import {Locale} from "../../data-types/Locale";
+import {Locale} from "../utils/Locale";
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 

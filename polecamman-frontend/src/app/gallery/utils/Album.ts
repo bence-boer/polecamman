@@ -1,11 +1,12 @@
-export interface Gear{
+import {MediaElement} from "../../shared/utils/MediaElement";
+
+export interface Album{
   attributes:{
-    content: string,
+    title: string,
+    slug: string,
     media: {
       data: {
-        attributes:{
-          url: string
-        }
+        attributes: MediaElement
       }[]
     },
     length: number,

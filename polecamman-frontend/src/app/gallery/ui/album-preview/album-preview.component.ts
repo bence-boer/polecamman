@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
-import {Album} from "../../../data-types/Album";
+import {Album} from "../../utils/Album";
 import {environment} from "../../../../environments/environment";
-import {MediaElement, MediaFormat} from "../../../data-types/MediaElement";
+import {MediaElement, MediaFormat} from "../../../shared/utils/MediaElement";
 
 @Component({
   selector: 'album-preview',

@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
-import {MediaElement} from "../../../data-types/MediaElement";
+import {MediaElement} from "../../utils/MediaElement";
 import {environment} from "../../../../environments/environment";
 
 @Component({

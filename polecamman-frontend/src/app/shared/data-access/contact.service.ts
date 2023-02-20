@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs";
-import {ApiResponse} from "../../data-types/ApiResponse";
-import {Contacts} from "../../data-types/Contacts";
+import {ApiResponse} from "../utils/ApiResponse";
+import {Contacts} from "../utils/Contacts";
 import {environment} from "../../../environments/environment";
 
 @Injectable({

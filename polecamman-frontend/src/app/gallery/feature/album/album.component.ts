@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {Album} from "../../../data-types/Album";
+import {Album} from "../../utils/Album";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AlbumService} from "../../data-access/album.service";
 import {environment} from "../../../../environments/environment";
-import {MediaElement} from "../../../data-types/MediaElement";
+import {MediaElement} from "../../../shared/utils/MediaElement";
 import {catchError, map, Observable, retry, switchMap} from "rxjs";
 
 @Component({

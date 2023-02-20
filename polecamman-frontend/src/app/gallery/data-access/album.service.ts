@@ -1,8 +1,8 @@
 import {Inject, Injectable, LOCALE_ID} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {map, Observable} from "rxjs";
-import {ApiResponse} from "../../data-types/ApiResponse";
-import {Album} from "../../data-types/Album";
+import {ApiResponse} from "../../shared/utils/ApiResponse";
+import {Album} from "../utils/Album";
 import {environment} from "../../../environments/environment";
 
 @Injectable({

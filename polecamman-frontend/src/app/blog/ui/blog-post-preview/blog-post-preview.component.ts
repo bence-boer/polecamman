@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {BlogPost} from "../../utils/BlogPost";
 import {environment} from "../../../../environments/environment";
-import {MediaElement, MediaFormat} from "../../../data-types/MediaElement";
+import {MediaElement, MediaFormat} from "../../../shared/utils/MediaElement";
 
 @Component({
   selector: 'blog-post-preview',

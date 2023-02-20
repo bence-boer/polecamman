@@ -3,20 +3,20 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {HamburgerMenuComponent} from "./shared/feature/hamburger-menu/hamburger-menu.component";
-import {GearComponent} from "./pages/gear/gear.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {NavbarItemComponent} from "./components/navbar/navbar-item/navbar-item.component";
-import {AboutMeComponent} from "./pages/about-me/about-me.component";
+import {AboutMePage} from "./pages/about-me/about-me.page";
 import {ContactsComponent} from "./components/navbar/contacts/contacts.component";
-import {NotFoundComponent} from "./pages/not-found/not-found.component";
-import {ComingSoonComponent} from "./pages/coming-soon/coming-soon.component";
+import {NotFoundPage} from "./pages/not-found/not-found.page";
+import {ComingSoonPage} from "./pages/coming-soon/coming-soon.page";
 import {AppRoutingModule} from "./app-routing.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./services/token.interceptor";
 import {SharedModule} from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import {BlogModule} from "./blog/blog.module";
+import { GearModule } from './gear/gear.module';
 
 @NgModule({
   declarations: [
@@ -24,12 +24,11 @@ import {BlogModule} from "./blog/blog.module";
     NavbarComponent,
     NavbarItemComponent,
     FooterComponent,
-    GearComponent,
     HamburgerMenuComponent,
     ContactsComponent,
-    ComingSoonComponent,
-    NotFoundComponent,
-    AboutMeComponent,
+    ComingSoonPage,
+    NotFoundPage,
+    AboutMePage,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +36,8 @@ import {BlogModule} from "./blog/blog.module";
     AppRoutingModule,
     SharedModule,
     HomeModule,
-    BlogModule
+    BlogModule,
+    GearModule
   ],
   providers: [
     {
