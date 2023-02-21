@@ -35,7 +35,7 @@ blog-page {
   bottom: sizes.$navbar-height;
   right: sizes.$page-padding;
 
-  font-size: 42pt;
+  font-size: 3rem;
   font-weight: 800;
   text-align: right;
   text-transform: uppercase;
@@ -130,7 +130,7 @@ blog-page {
     padding-top: min(50px, #{sizes.$page-padding});
   }
   #title {
-    font-size: 9vw;
+    font-size: 8vw;
 
     width: 100%;
     left: 0;

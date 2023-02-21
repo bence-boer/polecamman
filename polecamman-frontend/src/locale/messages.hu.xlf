@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="8667670524356228646" datatype="html">
         <source>Polecamman | Professional Polecam Videographer</source>
-        <target>Polecamman | Professzionális Polecam Operátor</target>
+        <target>Polecamman | Professzionális Polecam Operatőr</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
           <context context-type="linenumber">12</context>
@@ -135,8 +135,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2436307464383656219" datatype="html">
-        <source>Professional<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Videographer</source>
-        <target>Professzionális<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Videographer</target>
+        <source>Professional<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Owner&amp;Operator</source>
+        <target>Professzionális<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Operatőr</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.page.html</context>
           <context context-type="linenumber">4</context>

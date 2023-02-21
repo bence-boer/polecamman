@@ -48,6 +48,10 @@ h2{
   font-size: 22px;
 }
 
+.hidden{
+  opacity: 0 !important;
+}
+
 #nav-hamburger{
   display: flex;
   flex-direction: row;
@@ -56,7 +60,11 @@ h2{
   align-items: center;
 
   #lc{
+    position: relative;
     font-size: 1.4rem;
+    padding: 10px;
+    opacity: 1;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.35s;
   }
 
   @media only screen and (min-width: sizes.$phone-view-breakpoint) {

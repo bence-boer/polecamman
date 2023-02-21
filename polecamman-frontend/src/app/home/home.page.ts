@@ -1,5 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
-import {Contacts} from "../shared/utils/Contacts";
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {IntroductionService} from "./data-access/introduction.service";
 import {Introduction} from "./utils/Introduction";
 import {catchError, Observable, retry} from "rxjs";
@@ -12,8 +11,6 @@ import {catchError, Observable, retry} from "rxjs";
 export class HomePage implements AfterViewInit {
   @ViewChild('toggler') toggler!: ElementRef;
   @ViewChild('textbox') textbox!: ElementRef;
-  @Input() contacts!: Contacts;
-  language$!: Observable<string>;
   introduction$!: Observable<Introduction>;
 
   constructor(private introductionService: IntroductionService) {

@@ -122,7 +122,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2436307464383656219" datatype="html">
-        <source>Professional<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Videographer</source>
+        <source>Professional<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Owner&amp;Operator</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.page.html</context>
           <context context-type="linenumber">4</context>
