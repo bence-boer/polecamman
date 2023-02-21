@@ -48,7 +48,17 @@ h2{
   font-size: 22px;
 }
 
-hamburger-menu{
+#nav-hamburger{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: flex-end;
+  align-items: center;
+
+  #lc{
+    font-size: 1.4rem;
+  }
+
   @media only screen and (min-width: sizes.$phone-view-breakpoint) {
     display: none;
   }
