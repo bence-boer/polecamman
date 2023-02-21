@@ -24,10 +24,6 @@
   text-transform: uppercase;
   user-select: none;
 
-  opacity: 0;
-  transition: opacity 0.35s ease-in-out;
-}
-
-:host(.active) {
   opacity: 1;
+  transition: opacity 0.35s ease-in-out;
 }

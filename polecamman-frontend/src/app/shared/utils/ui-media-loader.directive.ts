@@ -7,12 +7,12 @@ import {SkeletonRectComponent} from '../ui/skeleton-rect/skeleton-rect.component
 export class UiMediaLoaderDirective {
   constructor(
     private renderer: Renderer2,
-    private el: ElementRef,
+    private parent: ElementRef,
     private vcr: ViewContainerRef
   ) {
-    if (this.el.nativeElement instanceof HTMLImageElement) {
+    if (this.parent.nativeElement instanceof HTMLImageElement) {
       this.handleImage();
-    } else if (this.el.nativeElement instanceof HTMLVideoElement) {
+    } else if (this.parent.nativeElement instanceof HTMLVideoElement) {
       this.handleVideo();
     } else {
       console.error('uiMediaLoader directive is only applicable to images and videos');
@@ -20,7 +20,7 @@ export class UiMediaLoaderDirective {
   }
 
   private handleImage() {
-    const img = this.el.nativeElement as HTMLImageElement;
+    const img = this.parent.nativeElement as HTMLImageElement;
     if (img.naturalWidth > 0 && img.naturalHeight > 0) {
       return;
     }
@@ -30,11 +30,11 @@ export class UiMediaLoaderDirective {
     // Set the mimic property to image
     componentRef.instance.mimic = 'media';
     // Insert the skeleton rect component before the image
-    this.renderer.insertBefore(this.el.nativeElement.parentNode, componentRef.location.nativeElement, this.el.nativeElement);
+    this.renderer.insertBefore(this.parent.nativeElement.parentNode, componentRef.location.nativeElement, this.parent.nativeElement);
   }
 
   private handleVideo() {
-    const video = this.el.nativeElement as HTMLVideoElement;
+    const video = this.parent.nativeElement as HTMLVideoElement;
     if (video.readyState > 0) {
       return;
     }
@@ -44,7 +44,7 @@ export class UiMediaLoaderDirective {
     // Set the mimic property to video
     componentRef.instance.mimic = 'media';
     // Insert the skeleton rect component before the video
-    this.renderer.insertBefore(this.el.nativeElement.parentNode, componentRef.location.nativeElement, this.el.nativeElement);
+    this.renderer.insertBefore(this.parent.nativeElement.parentNode, componentRef.location.nativeElement, this.parent.nativeElement);
   }
 
   // Host listener for if the video thumbnail is loaded
@@ -64,7 +64,7 @@ export class UiMediaLoaderDirective {
   onError() {
     // TODO: Show a placeholder image
     // Show the image
-    this.renderer.setStyle(this.el.nativeElement, 'visibility', 'visible');
+    this.renderer.setStyle(this.parent.nativeElement, 'visibility', 'visible');
     // Remove the skeleton rect component
     this.vcr.clear();
   }

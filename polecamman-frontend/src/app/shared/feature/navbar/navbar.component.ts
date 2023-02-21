@@ -10,6 +10,9 @@ export class NavbarComponent {
   scrolled = false;
 
   constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      if (this.router.url != "/" && !this.scrolled) this.scrolled = true;
+    });
   }
 
   @HostListener('window:scroll', ['$event'])

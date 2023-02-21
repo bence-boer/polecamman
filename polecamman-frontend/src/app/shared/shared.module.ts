@@ -14,6 +14,7 @@ import {ContactsComponent} from "./feature/contacts/contacts.component";
 import {FooterComponent} from "./ui/footer/footer.component";
 import {HamburgerMenuComponent} from "./feature/hamburger-menu/hamburger-menu.component";
 import {RouterModule} from "@angular/router";
+import { PopoverDirective } from './utils/popover.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {RouterModule} from "@angular/router";
     NavbarItemComponent,
     HamburgerMenuComponent,
     ContactsComponent,
-    FooterComponent
+    FooterComponent,
+    PopoverDirective
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import {RouterModule} from "@angular/router";
     NavbarItemComponent,
     HamburgerMenuComponent,
     ContactsComponent,
-    FooterComponent
+    FooterComponent,
+    PopoverDirective
   ]
 })
 export class SharedModule {

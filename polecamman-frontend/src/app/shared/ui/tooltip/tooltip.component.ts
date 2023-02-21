@@ -6,27 +6,72 @@ import {Component, ElementRef, Input} from '@angular/core';
   styleUrls: ['./tooltip.component.scss']
 })
 export class TooltipComponent {
-  @Input() parent!: ElementRef;
   @Input() text = '';
   @Input() align: TooltipAlign = 'bottom';
   @Input() gap = '10px'
   @Input() copy = false;
   state: 'error' | 'copied' | 'showing' | 'hidden' = 'hidden';
+  private element: HTMLElement;
 
-  ngOnChanges() {
-    if(this.parent) this.init();
+  constructor(actual: ElementRef) {
+    this.element = actual.nativeElement;
   }
 
-  init() {
-    this.parent.nativeElement.addEventListener('mouseenter', () => {
-      this.state = 'showing';
-    });
-    this.parent.nativeElement.addEventListener('mouseleave', () => {
-      this.state = 'hidden';
-    });
-    this.parent.nativeElement.addEventListener('click', () => {
-      if (this.copy) this.copyToClipboard();
-    });
+  initialize() {
+    switch (this.align) {
+      case 'top-left':
+        this.element.style.top = `calc(-100% - ${this.gap})`;
+        this.element.style.left = '0';
+        break;
+      case 'top':
+        this.element.style.top = `calc(-100% - ${this.gap})`;
+        this.element.style.left = '50%';
+        this.element.style.translate = '-50%';
+        break;
+      case 'top-right':
+        this.element.style.top = `calc(-100% - ${this.gap})`;
+        this.element.style.right = '0';
+        break;
+      case 'right-top':
+        this.element.style.top = '0';
+        this.element.style.right = `calc(100% + ${this.gap})`;
+        break;
+      case 'right':
+        this.element.style.top = '50%';
+        this.element.style.right = `calc(100% + ${this.gap})`;
+        this.element.style.translate = '-50%';
+        break;
+      case 'right-bottom':
+        this.element.style.bottom = '0';
+        this.element.style.right = `calc(100% + ${this.gap})`;
+        break;
+      case 'bottom-right':
+        this.element.style.bottom = `calc(-100% - ${this.gap})`;
+        this.element.style.right = '0';
+        break;
+      case 'bottom':
+        this.element.style.bottom = `calc(-100% - ${this.gap})`;
+        this.element.style.left = '50%';
+        this.element.style.translate = '-50%';
+        break;
+      case 'bottom-left':
+        this.element.style.bottom = `calc(-100% - ${this.gap})`;
+        this.element.style.left = '0';
+        break;
+      case 'left-bottom':
+        this.element.style.bottom = '0';
+        this.element.style.left = `calc(100% + ${this.gap})`;
+        break;
+      case 'left':
+        this.element.style.top = '50%';
+        this.element.style.left = `calc(100% + ${this.gap})`;
+        this.element.style.translate = '-50%';
+        break;
+      case 'left-top':
+        this.element.style.top = '0';
+        this.element.style.left = `calc(100% + ${this.gap})`;
+        break;
+    }
   }
 
   copyToClipboard(text = this.text) {
@@ -52,13 +97,13 @@ export class TooltipComponent {
   }
 }
 
-type TooltipAlign =
+export type TooltipAlign =
   'top-left'
   | 'top'
   | 'top-right'
   | 'right-top'
   | 'right'
-  | 'rigth-bottom'
+  | 'right-bottom'
   | 'bottom-right'
   | 'bottom'
   | 'bottom-left'
