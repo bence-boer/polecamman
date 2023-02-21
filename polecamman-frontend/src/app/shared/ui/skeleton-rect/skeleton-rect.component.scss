@@ -22,7 +22,7 @@
         rgba(#fff, 0.4) 60%,
         rgba(#fff, 0) 100%
     );
-    animation: shimmer 2s infinite;
+    animation: shimmer 1.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
     content: '';
   }
 

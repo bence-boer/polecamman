@@ -5,7 +5,11 @@
      target="_blank"
      rel="noreferrer noopener"
      title="Email me!" i18n-title
-     *ngIf="contacts" #mail>
+     *ngIf="contacts"
+     [popover]="contacts.attributes.email"
+     [popverParent]="aligner"
+     popoverGap="40px"
+     [popoverCopy]="true">
     <img src="../../../../assets/gmail-icon.svg" alt="gmail">
   </a>
   <a href="https://m.me/{{contacts.attributes.messenger}}"

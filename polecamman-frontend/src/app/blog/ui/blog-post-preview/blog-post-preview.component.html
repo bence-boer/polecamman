@@ -15,22 +15,22 @@
       </video>
 
       <div *ngIf="containsImage || containsVideo || multipleMedia"
-           class="icon-container">
-        <img *ngIf="containsImage && !multipleMedia"
-             src="../../../../assets/image-icon.svg"
-             alt="contains_image" i18n-alt
-             class="preview-icon" #imageIcon
-             popover="Image" popoverAlign="top-right" popoverGap="10px" [popverParent]="imageIcon">
-        <img *ngIf="containsVideo"
-             src="../../../../assets/video-icon.svg"
-             alt="contains_video" i18n-alt
-             class="preview-icon" #videoIcon
-             popover="Image" popoverAlign="top-right" popoverGap="10px" [popverParent]="videoIcon">
-        <img *ngIf="multipleMedia"
-             src="../../../../assets/multiple-images-icon.svg"
-             alt="multiple_images" i18n-alt
-             class="preview-icon" #imagesIcon
-             popover="Image" popoverAlign="top-right" popoverGap="10px" [popverParent]="imagesIcon">
+           class="icon-container" #icon_container>
+        <span *ngIf="containsImage && !multipleMedia"
+              class="material-symbols-rounded"
+              popover="Image" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
+          image
+        </span>
+        <span *ngIf="containsVideo"
+              class="material-symbols-rounded"
+              popover="Video" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
+          videocam
+        </span>
+        <span *ngIf="containsImage"
+              class="material-symbols-rounded"
+              popover="Images" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
+          photo_library
+        </span>
       </div>
     </a>
     <div class="text-container">

@@ -1,13 +1,11 @@
-<ng-container *ngIf="state !== 'hidden'">
-  {{text}}
-  <ng-container *ngIf="copy">
-    <ng-container [ngSwitch]="state">
+{{text}}
+<ng-container *ngIf="copy">
+  <ng-container [ngSwitch]="state">
     <span *ngSwitchCase="'showing'" (click)="copyToClipboard()"
           class="material-symbols-outlined">content_copy</span>
-      <span *ngSwitchCase="'copied'"
-            class="material-symbols-outlined">done</span>
-      <span *ngSwitchCase="'error'"
-            class="material-symbols-outlined">error</span>
-    </ng-container>
+    <span *ngSwitchCase="'copied'"
+          class="material-symbols-outlined">done</span>
+    <span *ngSwitchCase="'error'"
+          class="material-symbols-outlined">error</span>
   </ng-container>
 </ng-container>

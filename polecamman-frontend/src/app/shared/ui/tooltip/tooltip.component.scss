@@ -3,17 +3,16 @@
 
 :host {
   position: absolute;
-  top: 100%;
-  right: 0;
-
-  width: 100%;
+  width: fit-content;
+  white-space: nowrap;
   padding: 1em;
   border-radius: sizes.$border-radius;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 
   background: colors.$neutral-dark;
   text-align: center;
@@ -24,6 +23,75 @@
   text-transform: uppercase;
   user-select: none;
 
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:host(.visible) {
   opacity: 1;
-  transition: opacity 0.35s ease-in-out;
+}
+
+:host(.top-left) {
+  top: calc(-100%);
+  left: 0;
+  transform: translate(0, -100%);
+}
+
+:host(.top) {
+  top: calc(-100%);
+  left: 50%;
+  translate: -50% 0;
+}
+
+:host(.top-right) {
+  top: calc(-100%);
+  right: 0;
+}
+
+:host(.right-top) {
+  top: 0;
+  right: calc(-100%);
+}
+
+:host(.right) {
+  top: 50%;
+  right: calc(-100%);
+  translate: 0 -50%;
+}
+
+:host(.right-bottom) {
+  bottom: 0;
+  right: calc(-100%);
+}
+
+:host(.bottom-right) {
+  bottom: calc(-100%);
+  right: 0;
+}
+
+:host(.bottom) {
+  bottom: calc(-100%);
+  left: 50%;
+  translate: -50% 0;
+}
+
+:host(.bottom-left) {
+  bottom: calc(-100%);
+  left: 0;
+}
+
+:host(.left-bottom) {
+  bottom: 0;
+  left: calc(-100%);
+}
+
+:host(.left) {
+  top: 50%;
+  left: calc(-100%);
+  translate: 0 -50%;
+}
+
+:host(.left-top) {
+  top: 0;
+  left: calc(-100%);
 }

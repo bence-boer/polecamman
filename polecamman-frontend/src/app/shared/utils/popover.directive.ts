@@ -1,15 +1,25 @@
-import {Directive, ElementRef, HostListener, Input, Renderer2, ViewContainerRef} from '@angular/core';
+import {
+  ComponentRef,
+  Directive,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit,
+  Renderer2,
+  ViewContainerRef
+} from '@angular/core';
 import {TooltipAlign, TooltipComponent} from "../ui/tooltip/tooltip.component";
 
 @Directive({
   selector: '[popover]'
 })
-export class PopoverDirective {
+export class PopoverDirective implements OnInit{
   @Input() popover!: string;
   @Input() popverParent!: HTMLElement;
   @Input() popoverAlign: TooltipAlign = 'bottom';
   @Input() popoverGap = '10px';
   @Input() popoverCopy = false;
+  private tooltip!: ComponentRef<TooltipComponent>;
 
   constructor(
     private renderer: Renderer2,
@@ -17,26 +27,31 @@ export class PopoverDirective {
     private vcr: ViewContainerRef
   ) {
     if(!this.popverParent) this.popverParent = this.actual.nativeElement;
-    const tooltip = this.vcr.createComponent(TooltipComponent);
-    tooltip.instance.align = this.popoverAlign;
-    tooltip.instance.gap = this.popoverGap;
-    tooltip.instance.copy = this.popoverCopy;
-    tooltip.instance.text = this.popover;
-    tooltip.instance.initialize();
+    this.tooltip = this.vcr.createComponent(TooltipComponent);
 
     // Insert tooltip into parent
     this.renderer.insertBefore(
       this.popverParent.parentNode,
-      tooltip.location.nativeElement,
+      this.tooltip.location.nativeElement,
       this.actual.nativeElement
     );
   }
 
+  ngOnInit() {
+    this.tooltip.instance.align = this.popoverAlign;
+    this.tooltip.instance.gap = this.popoverGap;
+    this.tooltip.instance.copy = this.popoverCopy;
+    this.tooltip.instance.text = this.popover;
+    this.tooltip.instance.initialize();
+  }
+
   @HostListener('mouseenter') onMouseEnter() {
-    console.log('mouseenter');
+    this.tooltip.instance.state = 'showing';
+    this.tooltip.location.nativeElement.classList.add('visible');
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-    console.log('mouseleave');
+    this.tooltip.instance.state = 'hidden';
+    this.tooltip.location.nativeElement.classList.remove('visible');
   }
 }

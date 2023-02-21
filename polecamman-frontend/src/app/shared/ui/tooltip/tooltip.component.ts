@@ -1,11 +1,11 @@
-import {Component, ElementRef, Input} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges} from '@angular/core';
 
 @Component({
   selector: 'tooltip',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.scss']
 })
-export class TooltipComponent {
+export class TooltipComponent implements OnChanges{
   @Input() text = '';
   @Input() align: TooltipAlign = 'bottom';
   @Input() gap = '10px'
@@ -17,61 +17,13 @@ export class TooltipComponent {
     this.element = actual.nativeElement;
   }
 
+  ngOnChanges() {
+    if(this.state === 'showing') this.element.classList.add('visible');
+    else if(this.state === 'hidden') this.element.classList.remove('visible');
+  }
+
   initialize() {
-    switch (this.align) {
-      case 'top-left':
-        this.element.style.top = `calc(-100% - ${this.gap})`;
-        this.element.style.left = '0';
-        break;
-      case 'top':
-        this.element.style.top = `calc(-100% - ${this.gap})`;
-        this.element.style.left = '50%';
-        this.element.style.translate = '-50%';
-        break;
-      case 'top-right':
-        this.element.style.top = `calc(-100% - ${this.gap})`;
-        this.element.style.right = '0';
-        break;
-      case 'right-top':
-        this.element.style.top = '0';
-        this.element.style.right = `calc(100% + ${this.gap})`;
-        break;
-      case 'right':
-        this.element.style.top = '50%';
-        this.element.style.right = `calc(100% + ${this.gap})`;
-        this.element.style.translate = '-50%';
-        break;
-      case 'right-bottom':
-        this.element.style.bottom = '0';
-        this.element.style.right = `calc(100% + ${this.gap})`;
-        break;
-      case 'bottom-right':
-        this.element.style.bottom = `calc(-100% - ${this.gap})`;
-        this.element.style.right = '0';
-        break;
-      case 'bottom':
-        this.element.style.bottom = `calc(-100% - ${this.gap})`;
-        this.element.style.left = '50%';
-        this.element.style.translate = '-50%';
-        break;
-      case 'bottom-left':
-        this.element.style.bottom = `calc(-100% - ${this.gap})`;
-        this.element.style.left = '0';
-        break;
-      case 'left-bottom':
-        this.element.style.bottom = '0';
-        this.element.style.left = `calc(100% + ${this.gap})`;
-        break;
-      case 'left':
-        this.element.style.top = '50%';
-        this.element.style.left = `calc(100% + ${this.gap})`;
-        this.element.style.translate = '-50%';
-        break;
-      case 'left-top':
-        this.element.style.top = '0';
-        this.element.style.left = `calc(100% + ${this.gap})`;
-        break;
-    }
+    this.element.classList.add(this.align);
   }
 
   copyToClipboard(text = this.text) {
