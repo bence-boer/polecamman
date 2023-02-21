@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {slideInAnimation} from "./animations";
+import {zoomAnimation} from "./animations";
 import {ChildrenOutletContexts} from "@angular/router";
 
 @Component({
@@ -7,7 +7,7 @@ import {ChildrenOutletContexts} from "@angular/router";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    slideInAnimation
+    zoomAnimation
   ]
 })
 export class AppComponent {

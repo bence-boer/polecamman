@@ -1,37 +1,22 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {NavigationEnd, Router} from "@angular/router";
-import {Subscription} from "rxjs";
+import {Component, HostListener} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent {
   scrolled = false;
-  routerSubscription!: Subscription;
 
   constructor(private router: Router) {
   }
 
-  ngOnInit(): void {
-    let setScrolled = () => {
-      this.scrolled = document.body.scrollTop >= window.innerHeight * 0.3;
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    if (this.router.url == "/") {
+      this.scrolled = window.scrollY > window.innerHeight * 0.3;
+      console.log(this.scrolled)
     }
-    this.routerSubscription = this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        if (this.router.url == "/") {
-          document.body.addEventListener("scroll", setScrolled);
-          setScrolled();
-        } else {
-          document.body.removeEventListener("scroll", setScrolled);
-          this.scrolled = true;
-        }
-      }
-    });
-  }
-
-  ngOnDestroy(){
-    this.routerSubscription.unsubscribe();
   }
 }
