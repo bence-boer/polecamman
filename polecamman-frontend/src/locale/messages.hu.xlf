@@ -4,10 +4,10 @@
     <body>
       <trans-unit id="8667670524356228646" datatype="html">
         <source>Polecamman | Professional Polecam Videographer</source>
-        <target>Polecamman | Professzionális Polecam operatőr</target>
+        <target>Polecamman | Professzionális Polecam Operátor</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1032475117548682900" datatype="html">
@@ -15,11 +15,15 @@
         <target>Blog | Polecamman</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="sourcefile">src/app/blog/blog-routing.module.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/blog/blog-routing.module.ts</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1175862173651424668" datatype="html">
@@ -27,11 +31,15 @@
         <target>Galéria | Polecamman</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="sourcefile">src/app/gallery/gallery-routing.module.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gallery/gallery-routing.module.ts</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8959062646724180301" datatype="html">
@@ -39,15 +47,15 @@
         <target>Felszerelés | Polecamman</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4574672385049690308" datatype="html">
         <source>About Me | Polecamman</source>
-        <target>Bemutatkozás | Polecamman</target>
+        <target>Rólam | Polecamman</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4152353201409686383" datatype="html">
@@ -55,210 +63,18 @@
         <target>404 | Nem található</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">44</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">62</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8378476210398323917" datatype="html">
-        <source>contains_image</source>
-        <target>kep</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/album-preview/album-preview.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/blog-post-preview/blog-post-preview.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8547326964737285433" datatype="html">
-        <source>contains_video</source>
-        <target>video</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/album-preview/album-preview.component.html</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/blog-post-preview/blog-post-preview.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2812626156822529100" datatype="html">
-        <source>multiple_images</source>
-        <target>tobb_kep</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/album-preview/album-preview.component.html</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/blog-post-preview/blog-post-preview.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6308490676435599130" datatype="html">
-        <source>Email me!</source>
-        <target>Írj emailt!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/contacts/contacts.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1186277498025533662" datatype="html">
-        <source>Message me!</source>
-        <target>Írj Messengeren!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/contacts/contacts.component.html</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8503032887301131688" datatype="html">
-        <source>Follow me!</source>
-        <target>Kövess Instagramon!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/contacts/contacts.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8909175038650271526" datatype="html">
-        <source>Call me!</source>
-        <target>Hívj telefonon!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/contacts/contacts.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8738732372986673558" datatype="html">
-        <source>Copy to clipboard</source>
-        <target>Vágólapra másolás</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/contacts/contacts.component.html</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="969162659595657718" datatype="html">
-        <source>Copied to clipboard</source>
-        <target>Vágólapra másolva</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/contacts/contacts.component.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5862821796400146724" datatype="html">
-        <source>Not supported</source>
-        <target>Nem támogatott</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/contacts/contacts.component.ts</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5945986349492910662" datatype="html">
-        <source>Contacts</source>
-        <target>Kapcsolat</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/contacts/contacts.component.ts</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2821179408673282599" datatype="html">
-        <source>Home</source>
-        <target>Főoldal</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/hamburger-menu/hamburger-menu.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7751010942038334793" datatype="html">
-        <source>Blog</source>
-        <target>Blog</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/hamburger-menu/hamburger-menu.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2181154762165715522" datatype="html">
-        <source>Gallery</source>
-        <target>Galéria</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/hamburger-menu/hamburger-menu.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/gallery/gallery.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5709710247016370368" datatype="html">
-        <source>Gear</source>
-        <target>Felszerelés</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/hamburger-menu/hamburger-menu.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2275282091931089504" datatype="html">
-        <source>gmail</source>
-        <target>gmail</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/hamburger-menu/hamburger-menu.component.html</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8330037861647424010" datatype="html">
-        <source>messenger</source>
-        <target>messenger</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/hamburger-menu/hamburger-menu.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8337982773199880125" datatype="html">
-        <source>instagram</source>
-        <target>instagram</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/hamburger-menu/hamburger-menu.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4425959074279579115" datatype="html">
-        <source>phone</source>
-        <target>telefon</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/hamburger-menu/hamburger-menu.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3939757661693728394" datatype="html">
-        <source>Published: <x id="INTERPOLATION" equiv-text="{{blogPost.attributes.publishedAt.substring(0, 10)}}"/></source>
-        <target>Közzétéve: <x id="INTERPOLATION" equiv-text="{{blogPost.attributes.publishedAt.substring(0, 10)}}"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/blog-post/blog-post.component.html</context>
-          <context context-type="linenumber">5,6</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5732767140442029555" datatype="html">
         <source>Blog Posts</source>
         <target>Blog Bejegyzések</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/blog/blog.component.html</context>
+          <context context-type="sourcefile">src/app/blog/blog.page.html</context>
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
@@ -266,40 +82,212 @@
         <source>No blog posts yet.</source>
         <target>Még nincsenek blog bejegyzések.</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/blog/blog.component.html</context>
+          <context context-type="sourcefile">src/app/blog/blog.page.html</context>
           <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5852558359806336393" datatype="html">
+        <source>Blog posts couldn&apos;t be loaded.</source>
+        <target>Nem sikerült a blog bejegyzések betöltése.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/blog/blog.page.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3939757661693728394" datatype="html">
+        <source>Published: <x id="INTERPOLATION" equiv-text="{{blogPost.attributes.publishedAt.substring(0, 10)}}"/></source>
+        <target>Közzétéve: <x id="INTERPOLATION" equiv-text="{{blogPost.attributes.publishedAt.substring(0, 10)}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/blog/feature/blog-post/blog-post.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2181154762165715522" datatype="html">
+        <source>Gallery</source>
+        <target>Galéria</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gallery/gallery.page.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/navbar/navbar.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2773482984080104729" datatype="html">
+        <source>No albums yet.</source>
+        <target>Még nincsenek albumok.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gallery/gallery.page.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4586687415916759448" datatype="html">
+        <source>Albums couldn&apos;t be loaded.</source>
+        <target>Nem sikerült az albumok betöltése.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gallery/gallery.page.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2436307464383656219" datatype="html">
+        <source>Professional<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Videographer</source>
+        <target>Professzionális<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Videographer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.page.html</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7593534551930116696" datatype="html">
         <source>Coming soon...!</source>
         <target>Hamarosan...!</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/coming-soon/coming-soon.component.html</context>
-          <context context-type="linenumber">1,3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2436307464383656219" datatype="html">
-        <source>Professional<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Videographer</source>
-        <target>Professzionális<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Operatőr</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/landing/landing.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6676104704503837687" datatype="html">
-        <source>Loading content...</source>
-        <target>Tartalom betöltése...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/landing/landing.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="sourcefile">src/app/pages/coming-soon/coming-soon.page.html</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4910444659538687758" datatype="html">
         <source>Page not found...</source>
         <target>Az oldal nem található...</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/not-found/not-found.component.html</context>
+          <context context-type="sourcefile">src/app/pages/not-found/not-found.page.html</context>
           <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6308490676435599130" datatype="html">
+        <source>Email me!</source>
+        <target>Írs emailben!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/contacts/contacts.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1186277498025533662" datatype="html">
+        <source>Message me!</source>
+        <target>Írj Messengeren!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/contacts/contacts.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8503032887301131688" datatype="html">
+        <source>Follow me!</source>
+        <target>Kövess Instagramon!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/contacts/contacts.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8909175038650271526" datatype="html">
+        <source>Call me!</source>
+        <target>Hívj!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/contacts/contacts.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5945986349492910662" datatype="html">
+        <source>Contacts</source>
+        <target>Kapcsolat</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/contacts/contacts.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <target>Főoldal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/navbar/navbar.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7751010942038334793" datatype="html">
+        <source>Blog</source>
+        <target>Blog</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/navbar/navbar.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5709710247016370368" datatype="html">
+        <source>Gear</source>
+        <target>Felszerelés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/navbar/navbar.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2275282091931089504" datatype="html">
+        <source>gmail</source>
+        <target>gmail</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8330037861647424010" datatype="html">
+        <source>messenger</source>
+        <target>messenger</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8337982773199880125" datatype="html">
+        <source>instagram</source>
+        <target>instagram</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4425959074279579115" datatype="html">
+        <source>phone</source>
+        <target>telefon</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5392341774767336507" datatype="html">
+        <source>Copied!</source>
+        <target>Másolva!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/ui/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5862821796400146724" datatype="html">
+        <source>Not supported</source>
+        <target>Nem támogatott</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/ui/tooltip/tooltip.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1737753151350322492" datatype="html">
+        <source><x id="PH" equiv-text="this.popover"/></source>
+        <target><x id="PH" equiv-text="this.popover"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/utils/popover.directive.ts</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
     </body>

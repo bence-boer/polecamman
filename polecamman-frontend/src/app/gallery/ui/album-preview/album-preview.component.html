@@ -17,21 +17,21 @@
 
     <div *ngIf="containsImage || containsVideo || multipleMedia"
          class="icon-container" #icon_container>
-      <img *ngIf="containsImage && !multipleMedia"
-           src="../../../../assets/image-icon.svg"
-           alt="contains_image" i18n-alt
-           class="preview-icon"
-           popover="Image" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
-      <img *ngIf="containsVideo"
-           src="../../../../assets/video-icon.svg"
-           alt="contains_video" i18n-alt
-           class="preview-icon"
-           popover="Video" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
-      <img *ngIf="multipleMedia"
-           src="../../../../assets/multiple-images-icon.svg"
-           alt="multiple_images" i18n-alt
-           class="preview-icon"
-           popover="Images" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
+      <span *ngIf="containsImage && !multipleMedia"
+            class="material-symbols-rounded"
+            popover="Image" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
+          image
+      </span>
+      <span *ngIf="containsVideo"
+            class="material-symbols-rounded"
+            popover="Video" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
+          videocam
+      </span>
+      <span *ngIf="multipleMedia"
+            class="material-symbols-rounded"
+            popover="Images" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
+          photo_library
+      </span>
     </div>
   </a>
   <h2 [routerLink]="'/gallery/album/'+album.attributes.slug">{{album.attributes.title}}</h2>
