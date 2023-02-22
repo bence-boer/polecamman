@@ -6,9 +6,9 @@
      rel="noreferrer noopener"
      title="Email me!" i18n-title
      *ngIf="contacts"
-     [popover]="contacts.attributes.email"
-     [popverParent]="aligner"
-     popoverGap="40px"
+     [popoverText]="contacts.attributes.email"
+     [popverParent]="host.nativeElement"
+     popoverGap="10px"
      [popoverCopy]="true">
     <img src="../../../../assets/gmail-icon.svg" alt="gmail">
   </a>
@@ -30,9 +30,9 @@
      target="_blank"
      rel="noreferrer noopener"
      title="Call me!" i18n-title
-     [popover]="contacts.attributes.phone"
-     [popverParent]="aligner"
-     popoverGap="40px"
+     [popoverText]="contacts.attributes.phone"
+     [popverParent]="host.nativeElement"
+     popoverGap="10px"
      [popoverCopy]="true"
      *ngIf="contacts">
     <img src="../../../../assets/phone-icon.svg" alt="phone">

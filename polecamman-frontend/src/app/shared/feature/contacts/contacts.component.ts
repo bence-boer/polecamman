@@ -13,7 +13,7 @@ export class ContactsComponent implements AfterViewInit {
   contacts$: Observable<Contacts>;
 
   constructor(private contactService: ContactService,
-              private host: ElementRef) {
+              public readonly host: ElementRef) {
     this.contacts$ = this.contactService.getContacts().pipe(
       retry(3),
       catchError(error => ContactsComponent.handleError(error))

@@ -11,10 +11,10 @@ import {
 import {TooltipAlign, TooltipComponent} from "../ui/tooltip/tooltip.component";
 
 @Directive({
-  selector: '[popover]'
+  selector: '[popoverText]'
 })
 export class PopoverDirective implements OnInit{
-  @Input() popover!: string;
+  @Input() popoverText!: string;
   @Input() popverParent!: HTMLElement;
   @Input() popoverAlign: TooltipAlign = 'bottom';
   @Input() popoverGap = '10px';
@@ -41,7 +41,7 @@ export class PopoverDirective implements OnInit{
     this.tooltip.instance.align = this.popoverAlign;
     this.tooltip.instance.gap = this.popoverGap;
     this.tooltip.instance.copy = this.popoverCopy;
-    this.tooltip.instance.content = $localize`${this.popover}`;
+    this.tooltip.instance.content = $localize`${this.popoverText}`;
     this.tooltip.instance.initialize();
   }
 

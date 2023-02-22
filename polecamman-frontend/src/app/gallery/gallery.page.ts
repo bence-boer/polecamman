@@ -6,14 +6,12 @@ import {
   catchError,
   concatMap,
   distinctUntilChanged,
-  mergeMap,
   Observable,
   retry, scan,
   startWith,
   tap
 } from "rxjs";
-import {BlogPost} from "../blog/utils/BlogPost";
-import {BlogPostService} from "../blog/data-access/blog-post.service";
+import {DeviceInfoService} from "../shared/data-access/device-info.service";
 
 @Component({
   selector: 'gallery-page',
@@ -21,7 +19,7 @@ import {BlogPostService} from "../blog/data-access/blog-post.service";
   styleUrls: ['./gallery.page.scss'],
 })
 export class GalleryPage implements OnDestroy {
-  private loadStep: number = 3;
+  private readonly loadStep: number;
   private loaded: number = 0;
 
   private start$ = new BehaviorSubject<number>(0);
@@ -29,7 +27,22 @@ export class GalleryPage implements OnDestroy {
   problem?: 'ERROR' | 'EMPTY';
   allLoaded = false;
 
-  constructor(private albumService: AlbumService) {
+  constructor(
+    private albumService: AlbumService,
+    private deviceInfoService: DeviceInfoService,
+  ) {
+    switch (this.deviceInfoService.DEVICE_TYPE) {
+      case 'mobile':
+        this.loadStep = 3;
+        break;
+      case 'tablet':
+        this.loadStep = 6;
+        break;
+      case 'desktop':
+        this.loadStep = 9;
+        break;
+    }
+
     this.albums$ = this.start$.pipe(
       distinctUntilChanged(),
       concatMap((start) =>
