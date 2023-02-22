@@ -19,7 +19,6 @@ export class NavbarComponent {
   onWindowScroll() {
     if (this.router.url == "/") {
       this.scrolled = window.scrollY > window.innerHeight * 0.3;
-      console.log(this.scrolled)
     }
   }
 }

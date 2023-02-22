@@ -1,84 +1,73 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {AlbumService} from "./data-access/album.service";
 import {Album} from "./utils/Album";
-import {BehaviorSubject, catchError, mergeMap, Observable, retry, tap} from "rxjs";
+import {
+  BehaviorSubject,
+  catchError,
+  concatMap,
+  distinctUntilChanged,
+  mergeMap,
+  Observable,
+  retry, scan,
+  startWith,
+  tap
+} from "rxjs";
+import {BlogPost} from "../blog/utils/BlogPost";
+import {BlogPostService} from "../blog/data-access/blog-post.service";
 
 @Component({
   selector: 'gallery-page',
   templateUrl: './gallery.page.html',
   styleUrls: ['./gallery.page.scss'],
 })
-export class GalleryPage {
-  private firstLoad: number = 4;
+export class GalleryPage implements OnDestroy {
   private loadStep: number = 3;
   private loaded: number = 0;
 
-  albums$: BehaviorSubject<Album[]> = new BehaviorSubject<Album[]>(Array(this.firstLoad).fill(null));
+  private start$ = new BehaviorSubject<number>(0);
+  albums$: Observable<Album[]>;
   problem?: 'ERROR' | 'EMPTY';
   allLoaded = false;
 
   constructor(private albumService: AlbumService) {
-    let request = this.albumService.getAlbums(0, this.firstLoad).pipe(
-      retry(3),
+    this.albums$ = this.start$.pipe(
+      distinctUntilChanged(),
+      concatMap((start) =>
+        this.albumService.getAlbums(start, this.loadStep).pipe(
+          startWith(Array(this.loadStep).fill(null)),
+          retry(3),
+          catchError(error => this.handleError(error))
+        )),
+      tap(albums => {
+        this.allLoaded = albums.length < this.loadStep;
+      }),
+      scan((acc, albums) => {
+          const merged = acc.concat(albums) as Album[];
+          if (merged[merged.length - 1] === null && !this.allLoaded) {
+            return merged;
+          }
+          return merged.filter(post => post !== null);
+        }
+      ),
+      tap(albums => {
+        this.loaded = albums.length;
+      }),
       catchError(error => this.handleError(error))
     );
-
-    this.albums$.pipe(
-      mergeMap(albums => request.pipe(
-        tap(newAlbums => {
-          albums.splice(0, albums.length, ...newAlbums);
-          this.loaded += newAlbums.length;
-        }),
-        catchError(error => this.handleError(error))
-      ))
-    ).subscribe();
   }
 
   getMoreAlbums(): void {
     if (this.allLoaded) return;
-    if(this.albums$.value[this.albums$.value.length - 1] == null) return;
-    let request = this.albumService.getAlbums(this.loaded, this.loadStep).pipe(
-      retry(3),
-      catchError(error => this.handleError(error))
-    );
-
-    this.albums$.pipe(
-      // push loadStep nulls to the end of the array
-      mergeMap(albums => {
-        albums.push(...Array(this.loadStep).fill(null));
-        return request.pipe(
-          tap(newAlbums => {
-            albums.splice(albums.length - this.loadStep, this.loadStep, ...newAlbums);
-            this.loaded += newAlbums.length;
-            if (newAlbums.length < this.loadStep) this.allLoaded = true;
-          }),
-          catchError(error => this.handleError(error))
-        );
-      })
-    ).subscribe();
-
-
-    /*
-    this.albums$ = this.albums$.pipe(
-      mergeMap(albums => {
-        return this.albumService.getAlbums(albums.length, this.loadStep).pipe(
-          firstLoad(albums.concat(Array(this.loadStep).fill(null))),
-          catchError(error => {
-            // TODO: handleError()
-            console.error(error);
-            this.problem = 'ERROR';
-            return of(albums);
-          })
-        );
-      }),
-      catchError(error => this.handleError(error))
-    );
-     */
+    this.start$.next(this.loaded);
   }
 
   private handleError(error: Error): Observable<Album[]> {
     console.error(error);
     this.problem = 'ERROR';
     return new Observable<Album[]>();
+  }
+
+  ngOnDestroy(): void {
+    this.start$.complete();
   }
 }
