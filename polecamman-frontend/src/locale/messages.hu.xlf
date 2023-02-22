@@ -95,8 +95,12 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3939757661693728394" datatype="html">
-        <source>Published: <x id="INTERPOLATION" equiv-text="{{blogPost.attributes.publishedAt.substring(0, 10)}}"/></source>
-        <target>Közzétéve: <x id="INTERPOLATION" equiv-text="{{blogPost.attributes.publishedAt.substring(0, 10)}}"/></target>
+        <source>Published:
+          <x id="INTERPOLATION" equiv-text="{{blogPost.attributes.publishedAt.substring(0, 10)}}"/>
+        </source>
+        <target>Közzétéve:
+          <x id="INTERPOLATION" equiv-text="{{blogPost.attributes.publishedAt.substring(0, 10)}}"/>
+        </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/blog/feature/blog-post/blog-post.component.html</context>
           <context context-type="linenumber">5,6</context>
@@ -106,7 +110,8 @@
         <source>Image</source>
         <target>Kép</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html</context>
+          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html
+          </context>
           <context context-type="linenumber">21</context>
         </context-group>
         <context-group purpose="location">
@@ -118,7 +123,8 @@
         <source>Video</source>
         <target>Videó</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html</context>
+          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html
+          </context>
           <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
@@ -130,7 +136,8 @@
         <source>Images</source>
         <target>Képek</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html</context>
+          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html
+          </context>
           <context context-type="linenumber">31</context>
         </context-group>
         <context-group purpose="location">
@@ -146,7 +153,8 @@
           <context context-type="linenumber">1</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
+          </context>
           <context context-type="linenumber">11</context>
         </context-group>
         <context-group purpose="location">
@@ -171,8 +179,10 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7653468319203293826" datatype="html">
-        <source>Professional<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Owner&amp;Operator</source>
-        <target>Professzionális<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Operatőr</target>
+        <source>Professional<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Owner&amp;Operator
+        </source>
+        <target>Professzionális<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Operatőr
+        </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.page.html</context>
           <context context-type="linenumber">4</context>
@@ -196,7 +206,7 @@
       </trans-unit>
       <trans-unit id="6308490676435599130" datatype="html">
         <source>Email me!</source>
-        <target>Írs emailben!</target>
+        <target>Írj emailben!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/feature/contacts/contacts.component.html</context>
           <context context-type="linenumber">7</context>
@@ -220,7 +230,7 @@
       </trans-unit>
       <trans-unit id="8909175038650271526" datatype="html">
         <source>Call me!</source>
-        <target>Hívj!</target>
+        <target>Hívj fel!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/feature/contacts/contacts.component.html</context>
           <context context-type="linenumber">32</context>
@@ -238,7 +248,8 @@
         <source>Home</source>
         <target>Főoldal</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
+          </context>
           <context context-type="linenumber">9</context>
         </context-group>
         <context-group purpose="location">
@@ -250,7 +261,8 @@
         <source>Blog</source>
         <target>Blog</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
+          </context>
           <context context-type="linenumber">10</context>
         </context-group>
         <context-group purpose="location">
@@ -262,7 +274,8 @@
         <source>Gear</source>
         <target>Felszerelés</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
+          </context>
           <context context-type="linenumber">12</context>
         </context-group>
         <context-group purpose="location">
@@ -274,7 +287,8 @@
         <source>gmail</source>
         <target>gmail</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
+          </context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
@@ -282,7 +296,8 @@
         <source>messenger</source>
         <target>messenger</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
+          </context>
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
@@ -290,7 +305,8 @@
         <source>instagram</source>
         <target>instagram</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
+          </context>
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
@@ -298,7 +314,8 @@
         <source>phone</source>
         <target>telefon</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
+          </context>
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
