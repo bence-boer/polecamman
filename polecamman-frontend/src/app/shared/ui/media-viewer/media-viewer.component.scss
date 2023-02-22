@@ -44,6 +44,7 @@
 
 .media-container {
   scroll-snap-align: start;
+  scroll-snap-stop: always;
 
   height: 100%;
   aspect-ratio: 16 / 9;

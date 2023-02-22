@@ -5,8 +5,8 @@ import {Component, ElementRef, Input, OnChanges} from '@angular/core';
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.scss']
 })
-export class TooltipComponent implements OnChanges{
-  @Input() text = '';
+export class TooltipComponent implements OnChanges {
+  @Input() content = '';
   @Input() align: TooltipAlign = 'bottom';
   @Input() gap = '10px'
   @Input() copy = false;
@@ -18,24 +18,26 @@ export class TooltipComponent implements OnChanges{
   }
 
   ngOnChanges() {
-    if(this.state === 'showing') this.element.classList.add('visible');
-    else if(this.state === 'hidden') this.element.classList.remove('visible');
+    if (this.state === 'showing') this.element.classList.add('visible');
+    else if (this.state === 'hidden') this.element.classList.remove('visible');
   }
 
   initialize() {
     this.element.classList.add(this.align);
   }
 
-  copyToClipboard(text = this.text) {
+  copyToClipboard(content = this.content) {
     if (this.state !== 'showing') return;
-    navigator.clipboard.writeText(this.text).then(() => {
-      this.text = $localize`Copied!`;
+    if (content !== this.content) return;
+
+    navigator.clipboard.writeText(content).then(() => {
+      this.content = $localize`Copied!`;
       this.state = 'copied';
-      this.waitAndReset(text);
+      this.waitAndReset(content);
     }, () => {
-      this.text = $localize`Not supported`;
+      this.content = $localize`Not supported`;
       this.state = 'error';
-      this.waitAndReset(text);
+      this.waitAndReset(content);
     });
   }
 
@@ -43,7 +45,7 @@ export class TooltipComponent implements OnChanges{
     setTimeout(() => {
       if (this.state !== 'showing' && this.state !== 'hidden') {
         this.state = 'showing';
-        this.text = text;
+        this.content = text;
       }
     }, 2000);
   }
