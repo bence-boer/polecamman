@@ -83,15 +83,15 @@
         <target>Még nincsenek blog bejegyzések.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/blog/blog.page.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5852558359806336393" datatype="html">
         <source>Blog posts couldn&apos;t be loaded.</source>
-        <target>Nem sikerült a blog bejegyzések betöltése.</target>
+        <target>A blog bejegyzések betöltése nem sikerült.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/blog/blog.page.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3939757661693728394" datatype="html">
@@ -100,6 +100,42 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/blog/feature/blog-post/blog-post.component.html</context>
           <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3012906865384504293" datatype="html">
+        <source>Image</source>
+        <target>Kép</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gallery/ui/album-preview/album-preview.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6549265851868599441" datatype="html">
+        <source>Video</source>
+        <target>Videó</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gallery/ui/album-preview/album-preview.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="414887388288176527" datatype="html">
+        <source>Images</source>
+        <target>Képek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gallery/ui/album-preview/album-preview.component.html</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2181154762165715522" datatype="html">
@@ -271,7 +307,7 @@
         <target>Másolva!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/ui/tooltip/tooltip.component.ts</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5862821796400146724" datatype="html">
@@ -279,15 +315,7 @@
         <target>Nem támogatott</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/ui/tooltip/tooltip.component.ts</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1737753151350322492" datatype="html">
-        <source><x id="PH" equiv-text="this.popover"/></source>
-        <target><x id="PH" equiv-text="this.popover"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/utils/popover.directive.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
     </body>

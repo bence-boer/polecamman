@@ -18,17 +18,17 @@
     <div *ngIf="containsImage || containsVideo || multipleMedia"
          class="icon-container" #icon_container>
       <span *ngIf="containsImage && !multipleMedia"
-            class="material-symbols-rounded"
+            class="material-symbols-rounded" i18n-popoverText
             popoverText="Image" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
           image
       </span>
       <span *ngIf="multipleMedia"
-            class="material-symbols-rounded"
+            class="material-symbols-rounded" i18n-popoverText
             popoverText="Images" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
           photo_library
       </span>
       <span *ngIf="containsVideo"
-            class="material-symbols-rounded"
+            class="material-symbols-rounded" i18n-popoverText
             popoverText="Video" popoverAlign="top-right" popoverGap="10px" [popverParent]="icon_container">
           videocam
       </span>

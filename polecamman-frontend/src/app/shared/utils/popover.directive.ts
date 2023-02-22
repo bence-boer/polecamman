@@ -41,7 +41,7 @@ export class PopoverDirective implements OnInit{
     this.tooltip.instance.align = this.popoverAlign;
     this.tooltip.instance.gap = this.popoverGap;
     this.tooltip.instance.copy = this.popoverCopy;
-    this.tooltip.instance.content = $localize`${this.popoverText}`;
+    this.tooltip.instance.content = this.popoverText;
     this.tooltip.instance.initialize();
   }
 
