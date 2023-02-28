@@ -70,7 +70,7 @@ export class BlogPage implements OnDestroy {
     this.start$.complete();
   }
 
-  blogPostId(index: number, post: BlogPost): number {
+  blogPostTrackBy(index: number, post: BlogPost): number {
     if (!post) return -1;
     return post.id;
   }

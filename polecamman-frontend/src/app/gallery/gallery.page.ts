@@ -83,4 +83,9 @@ export class GalleryPage implements OnDestroy {
   ngOnDestroy(): void {
     this.start$.complete();
   }
+
+  albumTrackBy(index: number, album: Album): number {
+    if (!album) return -1;
+    return album.id;
+  }
 }
