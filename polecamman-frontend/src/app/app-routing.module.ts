@@ -4,7 +4,6 @@ import {HomePage} from "./home/home.page";
 import {BrowserModule} from "@angular/platform-browser";
 import {NotFoundPage} from "./pages/not-found/not-found.page";
 import {AboutMePage} from "./pages/about-me/about-me.page";
-import {ComingSoonPage} from "./pages/coming-soon/coming-soon.page";
 
 const routes: Routes = [
   {
@@ -30,8 +29,7 @@ const routes: Routes = [
     path: 'gear',
     title: $localize`Gear | Polecamman`,
     data: {animation: 'GearPage'},
-    component: ComingSoonPage
-    //loadChildren: () => import('./gear/gear.module').then(m => m.GearModule)
+    loadChildren: () => import('./gear/gear.module').then(m => m.GearModule)
   },
   {
     path: 'about-me',

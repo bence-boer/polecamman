@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { GearItem } from "../../utils/GearItem";
+import { MediaElement } from "../../../shared/utils/MediaElement";
 
 @Component({
   selector: 'gear-item',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./gear-item.component.scss']
 })
 export class GearItemComponent {
+  @Input() gearItem!: GearItem;
+  media: MediaElement;
 
+  constructor() {
+    this.media = this.gearItem.attributes.media.data[0].attributes;
+  }
 }

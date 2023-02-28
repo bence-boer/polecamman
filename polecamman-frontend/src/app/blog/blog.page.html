@@ -4,7 +4,7 @@
      [complete]="allLoaded"
      (scrollingFinished)="getMorePosts()">
   <ng-container *ngIf="posts$ | async as posts; else fallback">
-      <blog-post-preview *ngFor="let blogPost of posts$ | async;
+      <blog-post-preview *ngFor="let blogPost of posts;
                                  trackBy: blogPostTrackBy;
                                  even as even;"
 

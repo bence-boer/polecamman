@@ -1,1 +1,10 @@
-<gear-item *ngFor="let _ of long_array"></gear-item>
+<h1 i18n>Gear</h1>
+<ng-container *ngIf="gearItems$ | async as gearItems">
+  <gear-item *ngFor="let gearItem of gearItems" [gearItem]="gearItem"></gear-item>
+</ng-container>
+<ng-container *ngIf="empty">
+  <p i18n>No gear uploaded yet.</p>
+</ng-container>
+<ng-container *ngIf="error">
+  <p i18n>Gear couldn't be loaded.</p>
+</ng-container>

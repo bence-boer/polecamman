@@ -1,7 +1,7 @@
 <h1 i18n>Gallery</h1>
 <div id="albums" scrollTracker [complete]="allLoaded" (scrollingFinished)="getMoreAlbums()">
   <ng-container *ngIf="albums$ | async as albums; else fallback">
-    <album-preview *ngFor="let album of albums$ | async;
+    <album-preview *ngFor="let album of albums;
                            trackBy: albumTrackBy;
                            even as even"
                    [album]="album"></album-preview>

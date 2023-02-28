@@ -59,7 +59,7 @@ export class GalleryPage implements OnDestroy {
           if (merged[merged.length - 1] === null && !this.allLoaded) {
             return merged;
           }
-          return merged.filter(post => post !== null);
+          return merged.filter(album => album !== null);
         }
       ),
       tap(albums => {
