@@ -17,6 +17,7 @@ import {
   selector: 'blog-page',
   templateUrl: './blog.page.html',
   styleUrls: ['./blog.page.scss'],
+  changeDetection: Chan
 })
 export class BlogPage implements OnDestroy {
   private loadStep: number = 3;
@@ -67,5 +68,10 @@ export class BlogPage implements OnDestroy {
 
   ngOnDestroy(): void {
     this.start$.complete();
+  }
+
+  blogPostId(index: number, post: BlogPost): number {
+    console.log(post.id);
+    return post.id;
   }
 }
