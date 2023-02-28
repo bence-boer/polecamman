@@ -1,6 +1,6 @@
-import {Component, OnDestroy} from '@angular/core';
-import {BlogPost} from "./utils/BlogPost";
-import {BlogPostService} from "./data-access/blog-post.service";
+import { Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { BlogPost } from "./utils/BlogPost";
+import { BlogPostService } from "./data-access/blog-post.service";
 import {
   BehaviorSubject,
   catchError,
@@ -17,7 +17,7 @@ import {
   selector: 'blog-page',
   templateUrl: './blog.page.html',
   styleUrls: ['./blog.page.scss'],
-  changeDetection: Chan
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogPage implements OnDestroy {
   private loadStep: number = 3;
@@ -71,7 +71,7 @@ export class BlogPage implements OnDestroy {
   }
 
   blogPostId(index: number, post: BlogPost): number {
-    console.log(post.id);
+    if (!post) return -1;
     return post.id;
   }
 }
