@@ -36,10 +36,10 @@ export class GearPage {
         this.loadStep = 3;
         break;
       case 'tablet':
-        this.loadStep = 6;
+        this.loadStep = 5;
         break;
       case 'desktop':
-        this.loadStep = 9;
+        this.loadStep = 7;
         break;
     }
 

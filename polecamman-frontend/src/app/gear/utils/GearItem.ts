@@ -3,7 +3,8 @@ import {MediaElement} from "../../shared/utils/MediaElement";
 export interface GearItem {
   // TODO: Check if this is correct
   attributes:{
-    content: string,
+    name: string,
+    description: string,
     media: {
       data: {
         attributes: MediaElement
