@@ -15,7 +15,7 @@
   height: fit-content;
 
   padding: 1rem;
-  background-image: linear-gradient(to top, colors.$accent 20%, colors.$primary 80%);
+  background-image: linear-gradient(to top, colors.$neutral-light 20%, colors.$primary 80%);
   border-radius: 1rem;
 
   @media (min-width: sizes.$tablet-view-breakpoint) {
@@ -35,12 +35,14 @@
   max-height: 100%;
 }
 
-.media-container{
+.image-container{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+
   width: 100%;
+  min-height: 20vh;
   max-height: 45vh;
 
   border-radius: sizes.$border-radius;
@@ -53,4 +55,16 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 100%;
+  min-height: 10vh;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 10vh;
 }

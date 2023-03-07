@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component} from '@angular/core';
 import {GearItem} from "./utils/GearItem";
 import {GearService} from "./data-access/gear.service";
 import {
@@ -33,13 +33,13 @@ export class GearPage {
   ) {
     switch (this.deviceInfoService.DEVICE_TYPE) {
       case 'mobile':
-        this.loadStep = 3;
+        this.loadStep = 10;//3;
         break;
       case 'tablet':
-        this.loadStep = 5;
+        this.loadStep = 10;//5;
         break;
       case 'desktop':
-        this.loadStep = 7;
+        this.loadStep = 10;//7;
         break;
     }
 

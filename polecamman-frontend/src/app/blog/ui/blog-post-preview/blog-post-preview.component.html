@@ -43,11 +43,11 @@
 
   <ng-template #skeleton>
     <div class="image-container">
-      <skeleton-rect width="100%" height="100%"></skeleton-rect>
+      <skeleton-rect mimic="media"></skeleton-rect>
     </div>
     <div class="text-container">
-      <skeleton-rect mimic="heading" class="skeleton-title"></skeleton-rect>
-      <div class="post-content skeleton-content">
+      <skeleton-rect mimic="heading"></skeleton-rect>
+      <div class="post-content">
         <skeleton-rect *ngFor="let _ of [1,2,3,4,5]" mimic="text"></skeleton-rect>
       </div>
     </div>

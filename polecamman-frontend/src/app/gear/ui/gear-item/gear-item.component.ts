@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges} from '@angular/core';
 import { GearItem } from "../../utils/GearItem";
 import { MediaElement } from "../../../shared/utils/MediaElement";
 import { environment } from "../../../../environments/environment";
