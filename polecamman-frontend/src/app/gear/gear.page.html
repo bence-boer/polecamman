@@ -1,6 +1,8 @@
 <h1 i18n>Gear</h1>
 <ng-container *ngIf="gearItems$ | async as gearItems">
-  <gear-item *ngFor="let gearItem of gearItems" [gearItem]="gearItem"></gear-item>
+  <div class="slides">
+    <gear-item *ngFor="let gearItem of gearItems" [gearItem]="gearItem"></gear-item>
+  </div>
 </ng-container>
 <ng-container *ngIf="empty">
   <p i18n>No gear uploaded yet.</p>

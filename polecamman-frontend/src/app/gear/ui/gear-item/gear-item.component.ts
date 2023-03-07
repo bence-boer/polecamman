@@ -14,6 +14,7 @@ export class GearItemComponent implements OnChanges{
   serverURL = environment.serverURL;
 
   ngOnChanges() {
+    if (!this.gearItem) return;
     this.media = this.gearItem.attributes.media.data.attributes;
   }
 }
