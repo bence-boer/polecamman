@@ -1,3 +1,23 @@
-<img [src]="media.url" [alt]="media.alternativeText"/>
-<h2>{{gearItem.attributes.name}}</h2>
-<div [innerHTML]="gearItem.attributes.description"></div>
+<ng-container *ngIf="gearItem && media; else skeleton">
+  <div class="image-container">
+    <img uiMediaLoader class="media"
+         [src]="serverURL + media.url"
+         [alt]="media.alternativeText"/>
+  </div>
+  <div class="text-container">
+    <h2>{{gearItem.attributes.name}}</h2>
+    <div [innerHTML]="gearItem.attributes.description"></div>
+  </div>
+</ng-container>
+
+<ng-template #skeleton>
+  <div class="image-container">
+    <skeleton-rect width="100%" height="100%"></skeleton-rect>
+  </div>
+  <div class="text-container">
+    <skeleton-rect mimic="heading" class="skeleton-title"></skeleton-rect>
+    <div class="content skeleton-content">
+      <skeleton-rect *ngFor="let _ of [1,2,3,4,5]" mimic="text"></skeleton-rect>
+    </div>
+  </div>
+</ng-template>

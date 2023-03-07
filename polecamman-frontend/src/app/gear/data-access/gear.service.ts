@@ -1,7 +1,7 @@
 import {Inject, Injectable, LOCALE_ID} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
-import {map, Observable} from "rxjs";
+import { map, Observable} from "rxjs";
 import {ApiResponse} from "../../shared/utils/ApiResponse";
 import {GearItem} from "../utils/GearItem";
 

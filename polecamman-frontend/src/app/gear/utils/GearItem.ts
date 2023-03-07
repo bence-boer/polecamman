@@ -1,19 +1,20 @@
-import {MediaElement} from "../../shared/utils/MediaElement";
+import { MediaElement } from "../../shared/utils/MediaElement";
 
 export interface GearItem {
-  // TODO: Check if this is correct
-  attributes:{
+  attributes: {
     name: string,
     description: string,
     media: {
       data: {
-        attributes: MediaElement
-      }[]
+        attributes: MediaElement,
+        id: number
+      }
     },
+    locale: string,
     length: number,
     createdAt: string,
     publishedAt: string,
-    updatedAt: string,
+    updatedAt: string
   },
   id: number
 }

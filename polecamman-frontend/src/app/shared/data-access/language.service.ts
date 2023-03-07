@@ -27,6 +27,6 @@ export class LanguageService {
 
   getLocales(): Observable<Locale[]> {
     const url = environment.serverURL + '/api/i18n/locales';
-    return (this.httpClient.get(url) as Observable<Locale[]>);
+    return this.httpClient.get<Locale[]>(url);
   }
 }
