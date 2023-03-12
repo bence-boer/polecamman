@@ -19,6 +19,8 @@
   border-radius: 1rem;
 
   @media (min-width: sizes.$tablet-view-breakpoint) {
+    background-image: linear-gradient(to left, colors.$neutral-light 60%, colors.$primary 100%);
+
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

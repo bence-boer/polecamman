@@ -1,5 +1,5 @@
 <h1 i18n>Gear</h1>
-<ng-container *ngIf="gearItems$ | async as gearItems">
+<ng-container *ngIf="!empty && !error && (gearItems$ | async) as gearItems">
   <div class="slides">
     <gear-item *ngFor="let gearItem of gearItems" [gearItem]="gearItem"></gear-item>
   </div>

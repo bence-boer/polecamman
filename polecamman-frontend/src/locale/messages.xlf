@@ -6,14 +6,14 @@
         <source>Polecamman | Professional Polecam Videographer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1032475117548682900" datatype="html">
         <source>Blog | Polecamman</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/blog/blog-routing.module.ts</context>
@@ -28,7 +28,7 @@
         <source>Gallery | Polecamman</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/gallery/gallery-routing.module.ts</context>
@@ -43,25 +43,29 @@
         <source>Gear | Polecamman</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gear/gear-routing.module.ts</context>
+          <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4574672385049690308" datatype="html">
         <source>About Me | Polecamman</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4152353201409686383" datatype="html">
         <source>404 | Not Found</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">42</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5732767140442029555" datatype="html">
@@ -75,20 +79,18 @@
         <source>No blog posts yet.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/blog/blog.page.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5852558359806336393" datatype="html">
         <source>Blog posts couldn&apos;t be loaded.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/blog/blog.page.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3939757661693728394" datatype="html">
-        <source>Published:
-          <x id="INTERPOLATION" equiv-text="{{blogPost.attributes.publishedAt.substring(0, 10)}}"/>
-        </source>
+        <source>Published: <x id="INTERPOLATION" equiv-text="{{blogPost.attributes.publishedAt.substring(0, 10)}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/blog/feature/blog-post/blog-post.component.html</context>
           <context context-type="linenumber">5,6</context>
@@ -97,8 +99,7 @@
       <trans-unit id="3012906865384504293" datatype="html">
         <source>Image</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html
-          </context>
+          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
         <context-group purpose="location">
@@ -109,8 +110,7 @@
       <trans-unit id="6549265851868599441" datatype="html">
         <source>Video</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html
-          </context>
+          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html</context>
           <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
@@ -121,8 +121,7 @@
       <trans-unit id="414887388288176527" datatype="html">
         <source>Images</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html
-          </context>
+          <context context-type="sourcefile">src/app/blog/ui/blog-post-preview/blog-post-preview.component.html</context>
           <context context-type="linenumber">31</context>
         </context-group>
         <context-group purpose="location">
@@ -137,8 +136,7 @@
           <context context-type="linenumber">1</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
-          </context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
         <context-group purpose="location">
@@ -150,19 +148,47 @@
         <source>No albums yet.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/gallery/gallery.page.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4586687415916759448" datatype="html">
         <source>Albums couldn&apos;t be loaded.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/gallery/gallery.page.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5709710247016370368" datatype="html">
+        <source>Gear</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gear/gear.page.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
           <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/feature/navbar/navbar.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7094781745304386992" datatype="html">
+        <source>No gear uploaded yet.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gear/gear.page.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1877757349426125172" datatype="html">
+        <source>Gear couldn&apos;t be loaded.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/gear/gear.page.html</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7653468319203293826" datatype="html">
-        <source>Professional<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Owner&amp;Operator
-        </source>
+        <source>Professional<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Polecam Owner&amp;Operator</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.page.html</context>
           <context context-type="linenumber">4</context>
@@ -220,8 +246,7 @@
       <trans-unit id="2821179408673282599" datatype="html">
         <source>Home</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
-          </context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
         <context-group purpose="location">
@@ -232,8 +257,7 @@
       <trans-unit id="7751010942038334793" datatype="html">
         <source>Blog</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
-          </context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
         <context-group purpose="location">
@@ -241,47 +265,31 @@
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5709710247016370368" datatype="html">
-        <source>Gear</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
-          </context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/navbar/navbar.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="2275282091931089504" datatype="html">
         <source>gmail</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
-          </context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8330037861647424010" datatype="html">
         <source>messenger</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
-          </context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8337982773199880125" datatype="html">
         <source>instagram</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
-          </context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4425959074279579115" datatype="html">
         <source>phone</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html
-          </context>
+          <context context-type="sourcefile">src/app/shared/feature/hamburger-menu/hamburger-menu.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
