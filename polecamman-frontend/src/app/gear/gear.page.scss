@@ -55,6 +55,10 @@ h1{
 
 p {
   color: colors.$neutral-light;
+
+  &.empty, &.error{
+    margin: 0 sizes.$page-padding;
+  }
 }
 
 .slides::-webkit-scrollbar {
