@@ -18,7 +18,7 @@ export class GearService {
     let queryParams = new HttpParams()
       .append("locale", this.locale)
       .append("populate", "media")
-      .append("sort[0]", "id:desc")
+      .append("sort[0]", "rank:asc")
       .append("pagination[start]", start.toString())
       .append("pagination[limit]", limit.toString());
 
