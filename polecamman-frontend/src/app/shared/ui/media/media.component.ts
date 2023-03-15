@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { MediaElement } from "../../utils/MediaElement";
 import { environment } from "../../../../environments/environment";
-import { NgIf } from "@angular/common";
+import { NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from "@angular/common";
 import { UiMediaLoaderDirective } from "../../utils/ui-media-loader.directive";
 
 @Component({
@@ -10,18 +10,30 @@ import { UiMediaLoaderDirective } from "../../utils/ui-media-loader.directive";
   templateUrl: './media.component.html',
   imports: [
     NgIf,
-    UiMediaLoaderDirective
+    UiMediaLoaderDirective,
+    NgSwitch,
+    NgSwitchCase,
+    NgSwitchDefault
   ],
   styleUrls: ['./media.component.scss']
 })
-export class MediaComponent {
+export class MediaComponent implements OnChanges {
   @Input() media!: MediaElement;
+  type = "image";
   serverURL = environment.serverURL;
-  isImage(media: MediaElement) {
-    return media.mime.includes("image");
+
+  ngOnChanges() {
+    if (!this.media) return;
+    this.type = MediaComponent.mediaType(this.media);
   }
 
-  isVideo(media: MediaElement) {
-    return media.mime.includes("video");
+  static mediaType(media: MediaElement): string {
+    if (media.mime.includes("image")) {
+      return "image";
+    }
+    else if (media.mime.includes("video")) {
+      return "video";
+    }
+    return "unknown";
   }
 }

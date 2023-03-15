@@ -1,11 +1,11 @@
-<div class="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item" *ngFor="let item of items">
-      <ng-container *ngTemplateOutlet="contentTemplate; context: { $implicit: item }"></ng-container>
-    </div>
-  </div>
+<div class="carousel-item" *ngFor="let item of items">
+  <ng-container *ngTemplateOutlet="
+  contentTemplate || defaultContentTemplate;
+  context: { $implicit: item }
+"></ng-container>
 </div>
 
-<ng-template #contentTemplate let-item>
-  <!-- Your content here -->
+<ng-template #defaultContentTemplate let-item>
+    default
+    <img [src]="item.src" [alt]="item.alt" />
 </ng-template>

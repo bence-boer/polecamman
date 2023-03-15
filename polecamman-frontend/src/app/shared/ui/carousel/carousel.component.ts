@@ -1,5 +1,4 @@
 import { AfterContentInit, Component, ContentChild, ElementRef, Input, TemplateRef, ViewChild } from '@angular/core';
-import { environment } from "../../../../environments/environment";
 import { NgForOf, NgTemplateOutlet } from "@angular/common";
 
 @Component({
@@ -14,22 +13,20 @@ import { NgForOf, NgTemplateOutlet } from "@angular/common";
 })
 export class CarouselComponent implements AfterContentInit {
   @Input() items!: any[];
+  @Input() fullScreen = false;
+  @Input() isModeChangeable = false;
   @ContentChild('contentTemplate') contentTemplate!: TemplateRef<any>;
+  @ViewChild('carousel') slides: ElementRef | undefined;
+  @ViewChild('thumbnails') thumbnails: ElementRef | undefined;
+
+  carouselWidth = 0;
+  currentItemIndex = 0;
 
   ngAfterContentInit() {
     if (!this.contentTemplate) {
       console.error('Content template not found');
     }
   }
-  @Input() fullScreen = false;
-  @Input() isModeChangeable = false;
-
-  @ViewChild('slides') slides: ElementRef | undefined;
-  @ViewChild('thumbnails') thumbnails: ElementRef | undefined;
-
-  slideWidth = 0;
-  currentItemIndex = 0;
-  serverURL = environment.serverURL;
 
   constructor(private host: ElementRef) {
   }
@@ -66,7 +63,7 @@ export class CarouselComponent implements AfterContentInit {
   }
 
   scrollToItem(index: number) {
-    this.slides?.nativeElement.scroll(index * this.slideWidth, 0);
+    this.slides?.nativeElement.scroll(index * this.carouselWidth, 0);
   }
 
   nextItem() {
@@ -86,14 +83,14 @@ export class CarouselComponent implements AfterContentInit {
   }
 
   watchScroll() {
-    const index = Math.round(this.slides!.nativeElement.scrollLeft / this.slideWidth);
+    const index = Math.round(this.slides!.nativeElement.scrollLeft / this.carouselWidth);
     if (this.currentItemIndex != index) {
       this.currentItemIndex = index;
     }
   }
 
   setSlideWidth() {
-    this.slideWidth = this.host.nativeElement.offsetWidth;
+    this.carouselWidth = this.host.nativeElement.offsetWidth;
   }
 
   private enterFullScreen() {

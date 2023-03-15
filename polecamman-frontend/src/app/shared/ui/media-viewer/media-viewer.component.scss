@@ -97,15 +97,7 @@ img, video {
     aspect-ratio: 4 / 3;
   }
 
-  h1 {
-    margin: 0;
-  }
-
-  #date {
-    font-size: 1.5em;
-  }
-
-  #post-container, #text-container, .media-container {
+  .media-container {
     max-width: 90vw;
   }
 }
