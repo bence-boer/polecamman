@@ -1,20 +1,26 @@
-import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { MediaElement } from "../../utils/MediaElement";
+import { AfterContentInit, Component, ContentChild, ElementRef, Input, TemplateRef, ViewChild } from '@angular/core';
 import { environment } from "../../../../environments/environment";
-import { NgForOf, NgIf } from "@angular/common";
+import { NgForOf, NgTemplateOutlet } from "@angular/common";
 
 @Component({
   standalone: true,
-  selector: 'media-viewer',
-  templateUrl: './media-viewer.component.html',
+  selector: 'carousel',
+  templateUrl: './carousel.component.html',
   imports: [
-    NgForOf,
-    NgIf
+    NgTemplateOutlet,
+    NgForOf
   ],
-  styleUrls: ['./media-viewer.component.scss']
+  styleUrls: ['./carousel.component.scss']
 })
-export class MediaViewerComponent implements AfterViewInit {
-  @Input() media !: MediaElement[];
+export class CarouselComponent implements AfterContentInit {
+  @Input() items!: any[];
+  @ContentChild('contentTemplate') contentTemplate!: TemplateRef<any>;
+
+  ngAfterContentInit() {
+    if (!this.contentTemplate) {
+      console.error('Content template not found');
+    }
+  }
   @Input() fullScreen = false;
   @Input() isModeChangeable = false;
 
@@ -22,7 +28,7 @@ export class MediaViewerComponent implements AfterViewInit {
   @ViewChild('thumbnails') thumbnails: ElementRef | undefined;
 
   slideWidth = 0;
-  currentMediaIndex = 0;
+  currentItemIndex = 0;
   serverURL = environment.serverURL;
 
   constructor(private host: ElementRef) {
@@ -38,10 +44,10 @@ export class MediaViewerComponent implements AfterViewInit {
     addEventListener("keydown", (event) => {
       switch (event.key) {
         case "ArrowRight":
-          this.nextMedia();
+          this.nextItem();
           break;
         case "ArrowLeft":
-          this.previousMedia();
+          this.previousItem();
           break;
         case "Enter":
           if (this.isModeChangeable) this.enterFullScreen();
@@ -59,43 +65,35 @@ export class MediaViewerComponent implements AfterViewInit {
     }
   }
 
-  scrollToMedia(index: number) {
+  scrollToItem(index: number) {
     this.slides?.nativeElement.scroll(index * this.slideWidth, 0);
   }
 
-  nextMedia() {
-    if (this.currentMediaIndex == this.media.length - 1) {
-      this.currentMediaIndex = -1;
+  nextItem() {
+    if (this.currentItemIndex == this.items.length - 1) {
+      this.currentItemIndex = -1;
     }
-    this.currentMediaIndex++;
-    this.scrollToMedia(this.currentMediaIndex);
+    this.currentItemIndex++;
+    this.scrollToItem(this.currentItemIndex);
   }
 
-  previousMedia() {
-    if (this.currentMediaIndex == 0) {
-      this.currentMediaIndex = this.media.length;
+  previousItem() {
+    if (this.currentItemIndex == 0) {
+      this.currentItemIndex = this.items.length;
     }
-    this.currentMediaIndex--;
-    this.scrollToMedia(this.currentMediaIndex);
+    this.currentItemIndex--;
+    this.scrollToItem(this.currentItemIndex);
   }
 
   watchScroll() {
     const index = Math.round(this.slides!.nativeElement.scrollLeft / this.slideWidth);
-    if (this.currentMediaIndex != index) {
-      this.currentMediaIndex = index;
+    if (this.currentItemIndex != index) {
+      this.currentItemIndex = index;
     }
   }
 
   setSlideWidth() {
     this.slideWidth = this.host.nativeElement.offsetWidth;
-  }
-
-  isImage(media: MediaElement) {
-    return media.mime.includes("image");
-  }
-
-  isVideo(media: MediaElement) {
-    return media.mime.includes("video");
   }
 
   private enterFullScreen() {

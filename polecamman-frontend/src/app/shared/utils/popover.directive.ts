@@ -11,7 +11,8 @@ import {
 import {TooltipAlign, TooltipComponent} from "../ui/tooltip/tooltip.component";
 
 @Directive({
-  selector: '[popoverText]'
+  selector: '[popoverText]',
+  standalone: true
 })
 export class PopoverDirective implements OnInit{
   @Input() popoverText!: string;

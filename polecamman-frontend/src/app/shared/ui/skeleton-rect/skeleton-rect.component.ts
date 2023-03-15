@@ -1,6 +1,7 @@
 import {Component, ElementRef, Input} from '@angular/core';
 
 @Component({
+  standalone: true,
   selector: 'skeleton-rect',
   template: ``,
   styleUrls: ['./skeleton-rect.component.scss'],

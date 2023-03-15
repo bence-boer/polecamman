@@ -30,8 +30,8 @@
 
   &::before, &::after {
     position: fixed;
-    top: 20%;
-    bottom: 10%;
+    top: sizes.$navbar-height;
+    bottom: sizes.$footer-height;
     z-index: 1;
     width: sizes.$page-padding;
     content: "";

@@ -1,9 +1,19 @@
 <h1 i18n>Gear</h1>
+<!--
 <ng-container *ngIf="!empty && !error && (gearItems$ | async) as gearItems">
   <div class="slides">
     <gear-item *ngFor="let gearItem of gearItems" [gearItem]="gearItem"></gear-item>
   </div>
 </ng-container>
+-->
+<ng-container *ngIf="!empty && !error && (gearItems$ | async) as gearItems">
+  <carousel [items]="gearItems">
+    <ng-template let-item>
+      <gear-item [gearItem]="item"></gear-item>
+    </ng-template>
+  </carousel>
+</ng-container>
+
 <ng-container *ngIf="empty">
   <p i18n class="empty">No gear uploaded yet.</p>
 </ng-container>

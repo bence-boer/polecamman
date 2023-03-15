@@ -1,12 +1,20 @@
-import {AfterViewInit, Component, ElementRef} from '@angular/core';
-import {Contacts} from "../../utils/Contacts";
-import {ContactService} from "../../data-access/contact.service";
-import {catchError, Observable, retry} from "rxjs";
+import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { Contacts } from "../../utils/Contacts";
+import { ContactService } from "../../data-access/contact.service";
+import { catchError, Observable, retry } from "rxjs";
+import { PopoverDirective } from "../../utils/popover.directive";
+import { AsyncPipe, NgIf } from "@angular/common";
 
 @Component({
+  standalone: true,
+  imports: [
+    PopoverDirective,
+    AsyncPipe,
+    NgIf
+  ],
   selector: 'contacts',
   templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.scss'],
+  styleUrls: ['./contacts.component.scss']
 })
 export class ContactsComponent implements AfterViewInit {
   open = true;

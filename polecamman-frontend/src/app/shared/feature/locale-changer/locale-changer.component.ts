@@ -1,9 +1,14 @@
 import {Component, HostListener} from '@angular/core';
 import {LanguageService} from "../../data-access/language.service";
+import { NgForOf } from "@angular/common";
 
 @Component({
+  standalone: true,
   selector: 'locale-changer',
   templateUrl: './locale-changer.component.html',
+  imports: [
+    NgForOf
+  ],
   styleUrls: ['./locale-changer.component.scss']
 })
 export class LocaleChangerComponent {

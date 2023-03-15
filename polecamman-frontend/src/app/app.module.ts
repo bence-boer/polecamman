@@ -12,6 +12,8 @@ import {SharedModule} from './shared/shared.module';
 import {HomeModule} from './home/home.module';
 import {BlogModule} from "./blog/blog.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NavbarComponent } from "./shared/feature/navbar/navbar.component";
+import { FooterComponent } from "./shared/ui/footer/footer.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppRoutingModule,
     SharedModule,
     HomeModule,
-    BlogModule
+    BlogModule,
+    NavbarComponent,
+    FooterComponent
   ],
   providers: [
     {

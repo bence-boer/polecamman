@@ -2,7 +2,8 @@ import {Directive, Renderer2, ElementRef, HostListener, ViewContainerRef} from '
 import {SkeletonRectComponent} from '../ui/skeleton-rect/skeleton-rect.component';
 
 @Directive({
-  selector: '[uiMediaLoader]'
+  selector: '[uiMediaLoader]',
+  standalone: true
 })
 export class UiMediaLoaderDirective {
   constructor(

@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {BlogModule} from "../blog/blog.module";
 import {HomePage} from "./home.page";
 import {SharedModule} from "../shared/shared.module";
+import { SkeletonRectComponent } from "../shared/ui/skeleton-rect/skeleton-rect.component";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import {SharedModule} from "../shared/shared.module";
   imports: [
     CommonModule,
     SharedModule,
-    BlogModule
+    BlogModule,
+    SkeletonRectComponent
   ]
 })
 export class HomeModule {

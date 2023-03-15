@@ -3,7 +3,7 @@
 </div>
 <div class="locale-selector" [class.open]="open">
   <a *ngFor="let language of languageService.availableLocales"
-     [href]="'http://polecamman.eu/' + language"
+     [href]="'https://polecamman.eu/' + language"
      (click)="changeLanguage()"
      [class.selected-locale]="language === locale">
     {{language}}

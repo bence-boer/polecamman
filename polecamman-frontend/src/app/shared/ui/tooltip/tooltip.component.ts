@@ -1,6 +1,9 @@
-import {Component, ElementRef, Input, OnChanges} from '@angular/core';
+import { Component, ElementRef, Input, OnChanges } from '@angular/core';
+import { CommonModule } from "@angular/common";
 
 @Component({
+  standalone: true,
+  imports: [CommonModule],
   selector: 'tooltip',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.scss']
@@ -8,7 +11,7 @@ import {Component, ElementRef, Input, OnChanges} from '@angular/core';
 export class TooltipComponent implements OnChanges {
   @Input() content = '';
   @Input() align: TooltipAlign = 'bottom';
-  @Input() gap = '10px'
+  @Input() gap = '10px';
   @Input() copy = false;
   state: 'error' | 'copied' | 'showing' | 'hidden' = 'hidden';
   private element: HTMLElement;
@@ -18,7 +21,9 @@ export class TooltipComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    if (this.state === 'showing') this.element.classList.add('visible');
+    if (this.state === 'showing') {
+      this.element.classList.add('visible');
+    }
     else if (this.state === 'hidden') this.element.classList.remove('visible');
   }
 

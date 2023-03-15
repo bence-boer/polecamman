@@ -1,0 +1,11 @@
+<div class="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let item of items">
+      <ng-container *ngTemplateOutlet="contentTemplate; context: { $implicit: item }"></ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #contentTemplate let-item>
+  <!-- Your content here -->
+</ng-template>

@@ -5,6 +5,10 @@ import {AlbumComponent} from "./feature/album/album.component";
 import {GalleryRoutingModule} from "./gallery-routing.module";
 import {GalleryPage} from "./gallery.page";
 import {SharedModule} from "../shared/shared.module";
+import { PopoverDirective } from "../shared/utils/popover.directive";
+import { SkeletonRectComponent } from "../shared/ui/skeleton-rect/skeleton-rect.component";
+import { MediaViewerComponent } from "../shared/ui/media-viewer/media-viewer.component";
+import { ScrollTrackerDirective } from "../shared/utils/scroll-tracker.directive";
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import {SharedModule} from "../shared/shared.module";
   imports: [
     CommonModule,
     SharedModule,
-    GalleryRoutingModule
+    GalleryRoutingModule,
+    PopoverDirective,
+    SkeletonRectComponent,
+    MediaViewerComponent,
+    ScrollTrackerDirective
   ]
 })
 export class GalleryModule { }

@@ -1,10 +1,22 @@
 import {Component, HostListener} from '@angular/core';
-import {Router} from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
+import { NavbarItemComponent } from "./navbar-item/navbar-item.component";
+import { ContactsComponent } from "../contacts/contacts.component";
+import { LocaleChangerComponent } from "../locale-changer/locale-changer.component";
+import { HamburgerMenuComponent } from "../hamburger-menu/hamburger-menu.component";
 
 @Component({
+  standalone: true,
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
+  imports: [
+    NavbarItemComponent,
+    ContactsComponent,
+    LocaleChangerComponent,
+    HamburgerMenuComponent,
+    RouterLink
+  ]
 })
 export class NavbarComponent {
   scrolled = false;

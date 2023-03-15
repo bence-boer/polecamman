@@ -6,6 +6,10 @@ import { BlogPage } from './blog.page';
 import { BlogPostComponent } from './feature/blog-post/blog-post.component';
 import { BlogPostPreviewComponent } from './ui/blog-post-preview/blog-post-preview.component';
 import {SharedModule} from "../shared/shared.module";
+import { ScrollTrackerDirective } from "../shared/utils/scroll-tracker.directive";
+import { MediaViewerComponent } from "../shared/ui/media-viewer/media-viewer.component";
+import { PopoverDirective } from "../shared/utils/popover.directive";
+import { SkeletonRectComponent } from "../shared/ui/skeleton-rect/skeleton-rect.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import {SharedModule} from "../shared/shared.module";
   imports: [
     CommonModule,
     SharedModule,
-    BlogRoutingModule
+    BlogRoutingModule,
+    ScrollTrackerDirective,
+    MediaViewerComponent,
+    PopoverDirective,
+    SkeletonRectComponent
   ]
 })
 export class BlogModule { }
