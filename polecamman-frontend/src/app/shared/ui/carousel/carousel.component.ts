@@ -16,7 +16,6 @@ export class CarouselComponent implements AfterContentInit {
   @Input() fullScreen = false;
   @Input() isModeChangeable = false;
   @ContentChild('contentTemplate') contentTemplate!: TemplateRef<any>;
-  @ViewChild('carousel') slides: ElementRef | undefined;
   @ViewChild('thumbnails') thumbnails: ElementRef | undefined;
 
   carouselWidth = 0;
@@ -33,7 +32,7 @@ export class CarouselComponent implements AfterContentInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.slides!.nativeElement.addEventListener('scroll', () => this.watchScroll());
+      this.host.nativeElement.addEventListener('scroll', () => this.watchScroll());
       this.setSlideWidth();
       addEventListener("resize", () => this.setSlideWidth());
     });
@@ -63,7 +62,7 @@ export class CarouselComponent implements AfterContentInit {
   }
 
   scrollToItem(index: number) {
-    this.slides?.nativeElement.scroll(index * this.carouselWidth, 0);
+    this.host.nativeElement.scroll(index * this.carouselWidth, 0);
   }
 
   nextItem() {
@@ -83,7 +82,7 @@ export class CarouselComponent implements AfterContentInit {
   }
 
   watchScroll() {
-    const index = Math.round(this.slides!.nativeElement.scrollLeft / this.carouselWidth);
+    const index = Math.round(this.host.nativeElement.scrollLeft / this.carouselWidth);
     if (this.currentItemIndex != index) {
       this.currentItemIndex = index;
     }

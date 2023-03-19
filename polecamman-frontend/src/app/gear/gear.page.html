@@ -8,10 +8,8 @@
 -->
 <ng-container *ngIf="!empty && !error && (gearItems$ | async) as gearItems">
   <carousel [items]="gearItems" >
-    <ng-template let-item>
+    <ng-template #contentTemplate let-item>
       <gear-item [gearItem]="item"></gear-item>
-      <p>{{item.name}}</p>
-      <span>{{item | json}}</span>
     </ng-template>
   </carousel>
 </ng-container>
