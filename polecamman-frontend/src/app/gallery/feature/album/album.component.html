@@ -1,6 +1,11 @@
 <ng-container *ngIf="album$ | async as album">
   <h1>{{album.attributes.title}}</h1>
-  <ng-container *ngIf="media$ | async as media">
-    <media-viewer [media]="media" [fullScreen]="true"></media-viewer>
-  </ng-container>
+  <carousel *ngIf="media$ | async as media"
+            [items]="media"
+            [thumbnailsVisible]="true"
+            [isModeChangeable]="false">
+    <ng-template #contentTemplate let-item>
+      <app-media [media]="item"></app-media>
+    </ng-template>
+  </carousel>
 </ng-container>

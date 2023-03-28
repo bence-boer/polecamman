@@ -1,5 +1,5 @@
-import { AfterContentInit, Component, ContentChild, ElementRef, Input, TemplateRef, ViewChild } from '@angular/core';
-import { NgForOf, NgTemplateOutlet } from "@angular/common";
+import { AfterContentInit, Component, ContentChild, ElementRef, Input, TemplateRef } from '@angular/core';
+import { NgForOf, NgIf, NgTemplateOutlet } from "@angular/common";
 
 @Component({
   standalone: true,
@@ -7,7 +7,8 @@ import { NgForOf, NgTemplateOutlet } from "@angular/common";
   templateUrl: './carousel.component.html',
   imports: [
     NgTemplateOutlet,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   styleUrls: ['./carousel.component.scss']
 })
@@ -15,8 +16,8 @@ export class CarouselComponent implements AfterContentInit {
   @Input() items!: any[];
   @Input() fullScreen = false;
   @Input() isModeChangeable = false;
+  @Input() thumbnailsVisible = false;
   @ContentChild('contentTemplate') contentTemplate!: TemplateRef<any>;
-  @ViewChild('thumbnails') thumbnails: ElementRef | undefined;
 
   carouselWidth = 0;
   currentItemIndex = 0;
@@ -62,7 +63,7 @@ export class CarouselComponent implements AfterContentInit {
   }
 
   scrollToItem(index: number) {
-    this.host.nativeElement.scroll(index * this.carouselWidth, 0);
+    this.host.nativeElement.scroll((index + 1) * this.carouselWidth, 0); // +1 to ignore sticky thumbnail container
   }
 
   nextItem() {
@@ -82,7 +83,7 @@ export class CarouselComponent implements AfterContentInit {
   }
 
   watchScroll() {
-    const index = Math.round(this.host.nativeElement.scrollLeft / this.carouselWidth);
+    const index = Math.round(this.host.nativeElement.scrollLeft / this.carouselWidth) - 1; // -1 to ignore sticky thumbnail container
     if (this.currentItemIndex != index) {
       this.currentItemIndex = index;
     }

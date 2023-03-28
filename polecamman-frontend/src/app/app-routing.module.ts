@@ -59,7 +59,8 @@ const routes: Routes = [
         scrollPositionRestoration: 'enabled',
         scrollOffset: [0, 0],
         anchorScrolling: 'enabled',
-        urlUpdateStrategy: 'eager'
+        urlUpdateStrategy: 'eager',
+        preloadingStrategy: 'preloadAllModules'
       }
     )
   ],

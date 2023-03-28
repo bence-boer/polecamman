@@ -5,10 +5,12 @@
       <div i18n id="date">Published: {{blogPost.attributes.publishedAt.substring(0, 10)}}</div>
     </header>
 
-    <ng-container *ngIf="mediaElements$ | async as mediaElements">
-        <media-viewer [media]="mediaElements"
-                      [isModeChangeable]="true"></media-viewer>
-    </ng-container>
+    <carousel *ngIf="mediaElements$ | async as mediaElements"
+              [items]="mediaElements" [thumbnailsVisible]="true">
+      <ng-template #contentTemplate let-item>
+        <app-media [media]="item"></app-media>
+      </ng-template>
+    </carousel>
   </div>
 
   <div id="text-container" *ngIf="blogPost">

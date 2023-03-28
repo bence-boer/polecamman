@@ -5,11 +5,13 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { BlogPage } from './blog.page';
 import { BlogPostComponent } from './feature/blog-post/blog-post.component';
 import { BlogPostPreviewComponent } from './ui/blog-post-preview/blog-post-preview.component';
-import {SharedModule} from "../shared/shared.module";
+import { SharedModule } from "../shared/shared.module";
 import { ScrollTrackerDirective } from "../shared/utils/scroll-tracker.directive";
-import { MediaViewerComponent } from "../shared/ui/media-viewer/media-viewer.component";
 import { PopoverDirective } from "../shared/utils/popover.directive";
 import { SkeletonRectComponent } from "../shared/ui/skeleton-rect/skeleton-rect.component";
+import { UiMediaLoaderDirective } from "../shared/utils/ui-media-loader.directive";
+import { CarouselComponent } from "../shared/ui/carousel/carousel.component";
+import { MediaComponent } from "../shared/ui/media/media.component";
 
 @NgModule({
   declarations: [
@@ -25,9 +27,11 @@ import { SkeletonRectComponent } from "../shared/ui/skeleton-rect/skeleton-rect.
     SharedModule,
     BlogRoutingModule,
     ScrollTrackerDirective,
-    MediaViewerComponent,
     PopoverDirective,
-    SkeletonRectComponent
+    SkeletonRectComponent,
+    UiMediaLoaderDirective,
+    CarouselComponent,
+    MediaComponent
   ]
 })
-export class BlogModule { }
+export class BlogModule {}

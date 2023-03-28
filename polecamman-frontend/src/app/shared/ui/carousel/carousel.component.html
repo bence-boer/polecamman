@@ -1,9 +1,19 @@
+<div *ngIf="items.length > 1 && thumbnailsVisible" class="thumbnail-container" #thumbnails>
+  <div *ngFor="let thumbnail of items; index as i"
+       [class.highlighted]="currentItemIndex == i"
+       (click)="scrollToItem(i)"
+       class="thumbnail">
+  </div>
+</div>
+
 <div class="carousel-item" *ngFor="let item of items">
   <ng-container *ngTemplateOutlet="
   contentTemplate || defaultContentTemplate;
   context: { $implicit: item }
 "></ng-container>
 </div>
+
+
 
 <ng-template #defaultContentTemplate let-item>
     <img [src]="item.src" [alt]="item.alt" />
